@@ -111,6 +111,28 @@ details p{color:var(--muted);margin-top:.6rem;max-width:42rem}
 .trendhead a{font-weight:600;text-decoration:none;color:var(--muted)}
 .trendhead a:hover{color:var(--ink);text-decoration:underline}
 .trend p{color:var(--muted);margin-top:.6rem}
+.cg{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));margin-top:2rem}
+.coll{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:.85rem;padding:1.2rem;background:var(--card);border:2px solid var(--line);border-radius:20px}
+.coll:hover{border-color:var(--ink)}
+.coll:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.pic{display:block;width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden}
+.pic svg{display:block;width:100%;height:100%}
+.pic img{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg)}
+.cname{font:800 1.15rem/1.2 var(--head);letter-spacing:-.01em;overflow-wrap:anywhere;min-height:2.4em}
+.more{display:inline-block;margin-left:.5rem;padding:.1rem .6rem;border-radius:999px;background:var(--chomp);color:#22103D;font-weight:600;font-size:.85rem}
+.floor{background:var(--bg);border-radius:14px;padding:.8rem 1rem}
+.floor small{display:block;color:var(--muted);font-size:.85rem}
+.floor strong{display:block;font:800 1.7rem/1.15 var(--head);letter-spacing:-.02em}
+.floor span{color:var(--muted);font-size:.95rem}
+.via{color:var(--muted);font-size:.8rem}
+.pager{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;margin-top:2.5rem}
+.pager a{font:600 .95rem var(--body);text-decoration:none;padding:.5rem .95rem;border:2px solid var(--line);border-radius:999px;background:var(--card)}
+.pager a:hover{border-color:var(--ink)}
+.pager a[aria-current="page"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pager a[aria-disabled="true"]{opacity:.4;pointer-events:none}
+.range{margin-top:1.5rem;color:var(--muted);font-size:.95rem}
+.range b{color:var(--ink)}
+.srcnote{margin-top:1.5rem;color:var(--muted);font-size:.85rem;max-width:44rem}
 .prose h3{margin-top:2rem}
 .prose p{color:var(--muted);margin-top:.5rem;max-width:42rem}
 
@@ -301,7 +323,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
   var EMPTY='Nothing here yet. This fills up once the first coin launches.';
   var PAGES={
     explore:{t:'Explore',p:'Every coin launched here — the collection each one is sweeping and what its fees have bought so far.',custom:'explore'},
-    collections:{t:'Collections',p:'NFT collections that have a vault pointed at their floor.',empty:EMPTY},
+    collections:{t:'Collections',p:'Solana NFT collections a coin can be paired with. Pick one to start a launch.',custom:'collections'},
     gallery:{t:'Gallery',p:'The NFTs currently held by Floorbite vaults.',empty:EMPTY},
     receipts:{t:'Receipts',p:'A public record of every fee that arrived and every NFT the vault bought.',empty:EMPTY},
     giveaways:{t:'Giveaways',p:'Draws where vault NFTs are handed to coin holders.',empty:EMPTY},
@@ -360,19 +382,103 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     em.appendChild(el('p','Coins launched through Floorbite appear here as soon as they’re created on pump.fun.'));
     s.appendChild(em);
   }
+  var COLL=[["Frogana","0.45","$48.47","OpenSea","https://i2c.seadn.io/solana/7gDeEXoedxExnid7bfgZm6woqWRbxzjJEq7iwt4cextp/f5ce9dc482fc49b985b933ce83a0d6/42f5ce9dc482fc49b985b933ce83a0d6.png"],["Mad Lads","8.48","$918","OpenSea","https://i2c.seadn.io/collection/mad-lads/image_type_logo/b32beb975191af9b2051085bc904c4/e2b32beb975191af9b2051085bc904c4.jpeg"],["SMB Gen2","12.1","$1,312","OpenSea","https://i2c.seadn.io/admin-uploads/45442665023badef2c0fde71764025/5a45442665023badef2c0fde71764025.jpeg"],["Claynosaurz","6.91","$748","OpenSea","https://i2c.seadn.io/admin-uploads/f42590508540fe2a29cf9769636493/85f42590508540fe2a29cf9769636493.jpeg"],["sharx by sharky.fi","0.26","$28.40","OpenSea","https://i2c.seadn.io/solana/Hxwfxfo2ZWVWAe9nbJADJtLjsPhkqEnctiHckf245ym1/d390157b3069ed649e343ff67e859f/cbd390157b3069ed649e343ff67e859f.png"],["Retardio Cousins","0.53","$57.62","OpenSea","https://i2c.seadn.io/solana/4WCKvF9r8AQYwJepVsgttZJqkAeKXMb138MQHyFFFxYN/b0084a776fd88c5d1087edcc4af1ca/10b0084a776fd88c5d1087edcc4af1ca.png"],["Parcl HOA","0.17","$18.74","OpenSea","https://i2c.seadn.io/solana/ASquYQhFvmSuC3TG6Ps6DoeBCpcGL3foocrFv49dPPLs/8fae45e32574509597d53963eadce2/af8fae45e32574509597d53963eadce2.png"],["Boryoku Dragonz","1.12","$122","OpenSea","https://i2c.seadn.io/solana/CvM2hvi8pZ8ySxZSrUZj7PTRukvX1k1i398VQCZjVSyF/e07bbf2c3a3d716e01991c94d80a7e/58e07bbf2c3a3d716e01991c94d80a7e.png"],["Galactic Geckos","4.15","$450","OpenSea","https://i2c.seadn.io/solana/HVhC63czpGLeyLK6wpMkxfDjtzZtnFv5HEXAoLhs7f4T/42c4ae4cae4a483fe3d58f47d64b03/5f42c4ae4cae4a483fe3d58f47d64b03.jpeg"],["Bodoggos","0.46","$49.84","OpenSea","https://i2c.seadn.io/solana/EdTB6hL9F9cvEVMt6FF1CpWiPoKVT1kk1cM7TJJ9sgKc/68b335d4f15467396895e6933e3493/6d68b335d4f15467396895e6933e3493.png"],["Degenerate Ape Academy","1.77","$191","OpenSea","https://i2c.seadn.io/admin-uploads/1db2a7e4ddc5be6571ea3be5022825/181db2a7e4ddc5be6571ea3be5022825.jpeg"],["Collector Crypt","0.092","$9.99","OpenSea","https://i2c.seadn.io/collection/collector-crypt/image_type_logo/8a49960d6b1a662d09066e7a102d9e/6d8a49960d6b1a662d09066e7a102d9e.png"],["Jelly Rascals","0.16","$17.08","OpenSea","https://i2c.seadn.io/solana/5t2KtedJiKTLzEYMyGFhHjYxQQmLunkiEKbH9HuDN6pY/21566c7077e2071dd57fcae88ec4a0/fa21566c7077e2071dd57fcae88ec4a0.png"],["Smyths","0.66","$71.66","OpenSea","https://i2c.seadn.io/solana/2YC9TacPK11qcMvUZ8fR9P5kUZVtvksHCNqbPiaVNpa9/893a4343381eab6dc019d10dd61131/c2893a4343381eab6dc019d10dd61131.png"],["Claynosaurz: Call of Saga","5.65","$612","OpenSea","https://i2c.seadn.io/collection/claynosaurz-call-of-saga/image_type_logo/d453fba72e004295edb56aad3ef217/e9d453fba72e004295edb56aad3ef217.jpeg"],["SMB Gen3","2.44","$264","OpenSea","https://i2c.seadn.io/solana/5FvSmx7zCWhJKtYnQze6an2ft4hcZ9SST8iWP4jYrbgk/8652547ab209524ac46871accdf58c/a28652547ab209524ac46871accdf58c.png"],["GigaBuds","0.10","$11.23","OpenSea","https://i2c.seadn.io/solana/BeXbfZTW1bCZZS2rzwMVYNbqkCTZ4dsg2AaN9uMf7EQw/817553a65689b91490ed63dbd49b91/9a817553a65689b91490ed63dbd49b91.png"],["Gods","0.35","$37.41","OpenSea","https://i2c.seadn.io/solana/FdzjpZnmvXnzEJ8Wv4dxxhfDqB2AsrH6BbHZytaUrZKw/1c08b5bb7460a0f2729c2f2a0b5b7a/e21c08b5bb7460a0f2729c2f2a0b5b7a.png"],["Cets","0.42","$45.12","OpenSea","https://i2c.seadn.io/solana/6QUeAfWucuzbf1DgFdyZCrtGihdQTeDWzxvMyweGkjC1/1b04f20ea7dc60400a9eccf8b99c4a/0b1b04f20ea7dc60400a9eccf8b99c4a.png"],["1000X GEM","4.15","$450","OpenSea","https://i2c.seadn.io/solana/3cEQ9R9vVrNw3GTNcgNPdUv5gRx6HaAbQywtFJjWRSHY/d483fb41f6c71859139eb4988bf8b2/60d483fb41f6c71859139eb4988bf8b2.png"],["Critters Quest","0.84","$91.40","OpenSea","https://i2c.seadn.io/solana/7HPuZiz9oRHFiQs5zTUEbHe4xyxSE6Nzb5fjWjtb3cQo/01fddf0a034c0eb16bf838922b8736/cf01fddf0a034c0eb16bf838922b8736.png"],["Cyber Frogs","1.12","$121","OpenSea","https://i2c.seadn.io/admin-uploads/b63573e0c1c572dfd205c950ea3f39/76b63573e0c1c572dfd205c950ea3f39.png"],["Mimany","0.20","$21.41","OpenSea","https://i2c.seadn.io/solana/DGCamHUQU7Zo4n7PvcnfYLXBkSQeyGBxF4EwdkehKcx7/9e99d61844e91ffb51d49896efd53d/f59e99d61844e91ffb51d49896efd53d.jpeg"],["Phygitals","0.004","$0.46","OpenSea","https://i2c.seadn.io/collection/phygitals/image_type_logo/fcbf27846461a9dcf008cc0a6c10b0/74fcbf27846461a9dcf008cc0a6c10b0.png"],["Blinks GG","0.27","$29.60","OpenSea","https://i2c.seadn.io/solana/F6fbGJSrX54yPPrzMocng2QQ6F4rxdg13rf9wEpAurQi/82fa85d72823b7ed3e3bddf56675df/f682fa85d72823b7ed3e3bddf56675df.jpeg"],["Wassieverse","2.46","$266","OpenSea","https://i2c.seadn.io/collection/wassieverse/image_type_logo/81ff1dc3d645303098c9839858c19a/6681ff1dc3d645303098c9839858c19a.jpeg"],["MidEvil","0.35","$37.88","OpenSea","https://i2c.seadn.io/admin-uploads/c570a8b0296b7b0cc43e207ab8a39b/04c570a8b0296b7b0cc43e207ab8a39b.jpeg"],["Wolf Capital","0.081","$8.77","OpenSea","https://i2c.seadn.io/admin-uploads/a927a46305d26b572625c0ed04af53/6ba927a46305d26b572625c0ed04af53.jpeg"],["Sensei","0.50","$54.03","OpenSea","https://i2c.seadn.io/solana/9qqYPcYNwa6PaWJj1NFCdn8MCnh25xFd52iNcHECjxni/70af116c035e75f89a45f5e6331c96/e370af116c035e75f89a45f5e6331c96.gif"],["<Player2>","0.11","$11.80","OpenSea","https://i2c.seadn.io/solana/HaNGHUkAocYJy46qoR2UKieGucoDLTwuByyZBo6rbvw6/0b700709453e666cced30f1c57ded4/240b700709453e666cced30f1c57ded4.png"],["Whal3s","10.1","$1,093","OpenSea","https://i2c.seadn.io/collection/whal3s-sol/image_type_logo/bd9919c1d579bfedd7ffa4239f9452/a5bd9919c1d579bfedd7ffa4239f9452.png"],["BASC","0.20","$21.67","OpenSea","https://i2c.seadn.io/solana/8RGSgDAq1e3hrLKXczWUz1tQv95ttSLRahfY9M4PqWNi/9a445a99d5c5a56c3159b622077f29/d29a445a99d5c5a56c3159b622077f29.png"],["Pythenians","1.26","$136","OpenSea","https://i2c.seadn.io/collection/pythenians-142749237/image_type_logo/4c502f4d5b601f3374425e381c6f65/0f4c502f4d5b601f3374425e381c6f65.jpeg"],["Primates","0.45","$48.59","OpenSea","https://i2c.seadn.io/solana/7ZB45VwhinbVNw78E7vzyJxX4z8KNtCSk5xS8cy7Bc2z/94c4830ce1f284a26a9e6bcb0e34fe/b994c4830ce1f284a26a9e6bcb0e34fe.png"],["Gamba Dogs","1.80","$195","OpenSea","https://i2c.seadn.io/solana/44WywFcM8xj98PqEi7axn2CMCPd8vJD5uDmq2r7tHVv3/8582752c207110b2cdbd78470abd66/ec8582752c207110b2cdbd78470abd66.webp"],["Meerkat Millionaires CC","0.75","$81.15","OpenSea","https://i2c.seadn.io/solana/98jfTpjUr5sNNsDYo6kAnFVAFh4ATik6oxYeeoUYNF4z/ea15777b14c2352bc92af855506297/ecea15777b14c2352bc92af855506297.png"],["Bored Ape Solana Club","0.86","$92.80","OpenSea","https://i2c.seadn.io/collection/als8rxd8noywgncfzbofsgdwaocepakzt1ufx1wmwar/image_type_logo/134d63225fa2e819d2854ac3aebe73/f0134d63225fa2e819d2854ac3aebe73.png"],["Investoor","0.032","$3.47","OpenSea","https://i2c.seadn.io/solana/GKKkVcHdkwAvzZYkWGq1MMVGc6rnDC9EZhMKwWSeRvCL/928b18a57d357d22efa53334d7bda0/a1928b18a57d357d22efa53334d7bda0.jpeg"],["OTC Desks","6.62","$717","OpenSea","https://i2c.seadn.io/solana/33QG8aNtw4jGEGKuhSoD8PMeoW6PS9rZsyLP8VSxdL93/7178862d86bd21365aa5d75b3939dd/517178862d86bd21365aa5d75b3939dd.png"],["The Bullpen","0.41","$43.92","OpenSea","https://i2c.seadn.io/solana/J3jqFG6x6v67W2TfevpAbiwbNXTaPKhG4sFAwwZanuga/304fedd9d77816c05f4cf7d09340c4/3d304fedd9d77816c05f4cf7d09340c4.webp"],["Doopies","0.40","$42.81","OpenSea","https://i2c.seadn.io/solana/zYpS9gmh2uPa3LQC331SdHTwTZCukV1z4P3aRmp9c4p/fbf3ea50526f5cd3734378b02a63f9/cefbf3ea50526f5cd3734378b02a63f9.png"],["Chads","0.31","$33.42","OpenSea","https://i2c.seadn.io/solana/BD1BXqwHDkgsGKeMgUPiddEmuPSUMXJQcsnMGjoT2QQT/28fd0eef691f3165ee294924e76449/3828fd0eef691f3165ee294924e76449.jpeg"],["The Pond","14.7","$1,591","OpenSea","https://i2c.seadn.io/admin-uploads/c17201fe58db175a702cc3956029db/ecc17201fe58db175a702cc3956029db.jpeg"],["Rogues","0.17","$18.27","OpenSea","https://i2c.seadn.io/admin-uploads/8bed9534c341af44676fdeebd8a9c8/c48bed9534c341af44676fdeebd8a9c8.jpeg"],["Degenerate Drop Bears","0.71","$76.94","OpenSea","https://i2c.seadn.io/solana/5ygb6mJDzjBDBXFozeC9CYYFdpeWdUeVArVEMe2VVLxr/d1b5e41e1b7cb6825d6f0588571f44/3ad1b5e41e1b7cb6825d6f0588571f44.png"],["Doge Capital","0.22","$23.46","OpenSea","https://i2c.seadn.io/solana/HGf145QYwPuGjKw9cBeCb3t6ZYtL5FhGEzKLWWJzXAjy/767d5070f97c8505427406f1a6dd60/d6767d5070f97c8505427406f1a6dd60.png"],["Meatbags","0.27","$28.84","OpenSea","https://i2c.seadn.io/solana/3dZ9M3S7EYEBqqRmxKaRAgfnjVVzEvtnYLwaZitVdJSJ/6b031bf558b439750067cc5e088424/c16b031bf558b439750067cc5e088424.png"],["Quekz","0.31","$33.66","OpenSea","https://i2c.seadn.io/solana/31uit17rCVrqorLiRhfoAm9fSvS5S99hqLKYfBQCw8S8/787c0444b74665c6126957ad620e72/c3787c0444b74665c6126957ad620e72.png"],["Giraffe Tower","0.37","$40.24","OpenSea","https://i2c.seadn.io/solana/2YKyPrrqE6LjzbjNPBvKAFEbhKr8DbSkcPE5wN2V3vGZ/a278eff7c8ae6021c4245f493dea57/aca278eff7c8ae6021c4245f493dea57.jpeg"],["Rafflor","2.41","$261","OpenSea","https://i2c.seadn.io/solana/5qU1WWGZS2frtbQwaGPSerJG88iL2TKpj1HTnB5Ht13j/87628ebeae403d0ce77afbd423eb80/c987628ebeae403d0ce77afbd423eb80.webp"],["Critters Cult","0.57","$61.28","OpenSea","https://i2c.seadn.io/admin-uploads/035d64449561a91a4ea90fe66e5ed2/f2035d64449561a91a4ea90fe66e5ed2.jpeg"],["Collector Crypt Pack","27.5","$2,979","OpenSea","https://i2c.seadn.io/solana/oqC6DYbRBLUPMF4h63x2p9z3zS2ZFr7KQg8hXExJMR4/78fcff53d9b6e561a61841073ef91f/f178fcff53d9b6e561a61841073ef91f.gif"],["Kups","0.40","$42.81","OpenSea","https://i2c.seadn.io/solana/G1D91iJNbPWfF75QJG1ZSeE4GMSLaMgTXGiD2NS4nFkp/e7b286964440f0327c27d17a790eb7/7ae7b286964440f0327c27d17a790eb7.jpeg"],["Pumpfun Pepe","0.31","$33.24","OpenSea","https://i2c.seadn.io/solana/86ByGUqMx4cV5KhqkC6nKMHsD68YKPprrDis4XA2VuK5/62b7405bb10ac7c40b8d7d64b6538d/0962b7405bb10ac7c40b8d7d64b6538d.png"],["DUMPSTR Bags","0.11","$11.57","OpenSea","https://i2c.seadn.io/solana/4JMbGA3ttKwnczgTAiWiexT1VH6fis8Wqr3rnfmZctfA/5242d100c0ba94269cf3531b55769b/795242d100c0ba94269cf3531b55769b.png"],["Bear Drop #2: Boombox","0.19","$20.62","OpenSea","https://i2c.seadn.io/solana/EUV1Y7ASy7T2ogeXaseEM6QCG2zkWd9B8DrYpz3doX7N/6166d61a629c74b524c17a25c92305/fa6166d61a629c74b524c17a25c92305.png"],["Critters Multipliers","0.10","$11.22","OpenSea","https://i2c.seadn.io/solana/FVXxajhAxis1XnNjrXqfQdzbBTLbSUNWDwAAnKRCJaUV/cc4ae9712075f043d3975f82f706c4/b7cc4ae9712075f043d3975f82f706c4.png"],["Webkidz","0.049","$5.31","OpenSea","https://i2c.seadn.io/solana/5Kf1va6W75m5Ko9feFmxy1Gyg6THtoUvSjjhnj3ggMGU/cbcb5e49601bc44d5c04aaac91f45b/ffcbcb5e49601bc44d5c04aaac91f45b.png"],["Thugbirdz","0.98","$107","OpenSea","https://i2c.seadn.io/solana/3UhiPckhddQuWYbP7m4uMxFBJjqFhW3qGirmaSFSuegL/50bce1f9597529f4a9de993aaacee4/cf50bce1f9597529f4a9de993aaacee4.png"],["Puffsterz","1.95","$212","OpenSea","https://i2c.seadn.io/solana/BTQvSFYEfqoAQp5d79N6QADnznMzczJZJJMsYiodN2UV/06d1300c11825f7380e6d5bf93f916/e806d1300c11825f7380e6d5bf93f916.jpeg"],["Stonk Cats","0.74","$80.02","OpenSea","https://i2c.seadn.io/solana/A38RaS3Z11jcMm2YKns1rn9eQ8ZTdfxouRY445Wi3dKj/a7e7df119ab15006163115bccea51d/5ca7e7df119ab15006163115bccea51d.png"],["LP Dollz","0.53","$57.63","OpenSea","https://i2c.seadn.io/solana/CxCypN1DxZmZdQkGGNxUxwn4fiSp6NEFRsGJpX5naDBw/b0846019e100246869903433efb39f/68b0846019e100246869903433efb39f.webp"],["Bulltoshi","0.031","$3.41","OpenSea","https://i2c.seadn.io/solana/tvA2YuJbj5CgDrwiUcLptiX56oTW6xxqLwb8BLD66CM/c97dbdc72376f61eb4330d1f665d39/d6c97dbdc72376f61eb4330d1f665d39.png"],["Drifters","0.37","$39.83","OpenSea","https://i2c.seadn.io/collection/driftersexe/image_type_logo/3c89b16b6bef543dc14ae83db735cf/f63c89b16b6bef543dc14ae83db735cf.png"],["EAPES","0.63","$68.40","OpenSea","https://i2c.seadn.io/collection/eapes-sol/image_type_logo/0e4e63bb1b844233eeaacc3bed5893/050e4e63bb1b844233eeaacc3bed5893.jpeg"],["Dead y00ts","0.23","$25.17","OpenSea","https://i2c.seadn.io/collection/dead-y00ts/image_type_logo/9aa4798479309de2ffc626e3f6e7da/0c9aa4798479309de2ffc626e3f6e7da.jpeg"],["Card NFT 2","0.28","$29.97","OpenSea","https://i2c.seadn.io/collection/cardnft2/image_type_logo/1b016136ba859f7aa4c008d4fe6c3f/a21b016136ba859f7aa4c008d4fe6c3f.gif"],["PFP GEN2","0.021","$2.30","OpenSea","https://i2c.seadn.io/solana/bc7rzUsfHZ8ckK4PydRJ1DQpGtwK4oJmSSpnbvpk7XN/3ba27f5e4b689508654f8c9b41920f/ef3ba27f5e4b689508654f8c9b41920f.png"],["The Misfits Order","0.66","$71.73","OpenSea","https://i2c.seadn.io/admin-uploads/0ce43b276033e3d0f34085d0342232/030ce43b276033e3d0f34085d0342232.jpeg"],["Bohemia Art Fair","0.089","$9.66","OpenSea","https://i2c.seadn.io/solana/CtaE8mgbHWiBoHEdAaTPAN5JB1tUnDtJgXgDC9AsorBh/434657a8d292a1803f3cb56a63ad40/ce434657a8d292a1803f3cb56a63ad40.png"],["Micros","0.054","$5.88","OpenSea","https://i2c.seadn.io/solana/6eFGC8VFp1bzPio1VenXUMrz9KT5kTupEMyCPeCCoioN/d3534c5d9af3bc04ff3fad70290adb/2cd3534c5d9af3bc04ff3fad70290adb.jpeg"],["BullBears","0.089","$9.69","OpenSea","https://i2c.seadn.io/solana/4MAr3TX5nRjB4gQZqzsVJKRLkQ6NCSNy5zxkn6N6CB8H/85a6768ab2318e58ed7a9eccdf6c0c/5785a6768ab2318e58ed7a9eccdf6c0c.png"],["Syndicate Capos","0.007","$0.76","OpenSea","https://i2c.seadn.io/solana/DtpitpdF192GrZrjVc4AecjpZYwrzRhtDjne4ALRTXr1/8b1da276b169ced8685c258c94b10a/328b1da276b169ced8685c258c94b10a.webp"],["MidaDAO GEN-0","0.53","$57.13","OpenSea","https://i2c.seadn.io/solana/2WSWseQvQJqM3pNNPs835i3yvCV6CQx1AJR8qdcynGHn/ec2f636c567ada8e048c3ebd55f9f4/9bec2f636c567ada8e048c3ebd55f9f4.png"],["2026 MLB Base Series ICONs","0.005","$0.59","OpenSea","https://i2c.seadn.io/solana/9Ngnr4tJ6i61N19k1YeTEga7NfBezwsGcKXQ3KrSS2iV/678fe2c71b737dd0f984ccf9a68608/d8678fe2c71b737dd0f984ccf9a68608.jpeg"],["Liminals","0.032","$3.46","OpenSea","https://i2c.seadn.io/solana/8rz5QzYdiw1mA8xaMaKxSC3sE6eVMyzL7nAgrPDGs3RW/0946fb355148df7f73e6d4c8b6ac00/c00946fb355148df7f73e6d4c8b6ac00.png"],["Sollamas","0.078","$8.46","OpenSea","https://i2c.seadn.io/solana/5AdaGpbvRkJoYYTYsEzYPGccvfceWUoZo4njWbWDoHW3/c977071f7992a2a94376a750d8deae/bec977071f7992a2a94376a750d8deae.png"],["Grimoire","0.69","$74.61","OpenSea","https://i2c.seadn.io/solana/ALDTUAt24hDJ9tASTqhfSU2qUBjVG66CTvLrAe4bF1h7/97c6b551ca48489e7fa2f348df0ea4/7e97c6b551ca48489e7fa2f348df0ea4.gif"],["Trencher","0.37","$40.24","OpenSea","https://i2c.seadn.io/admin-uploads/029818bc67f1d65dc4b4033609f60e/c7029818bc67f1d65dc4b4033609f60e.jpeg"],["Nuddies","0.19","$20.33","OpenSea","https://i2c.seadn.io/collection/nuddies-65557242/image_type_logo/1b2c7274878aaff30ebbebec7b6b97/221b2c7274878aaff30ebbebec7b6b97.png"],["GOATS","0.10","$11.14","OpenSea","https://i2c.seadn.io/collection/goats-solana/image_type_logo/e02fa07c14dce8374d2d80dc0cc9f8/35e02fa07c14dce8374d2d80dc0cc9f8.png"],["Horses?2","0.58","$62.47","OpenSea","https://i2c.seadn.io/solana/7FF6Wqoa4onc13yM7LhFLR7DKaaBgxJqBVhxUbde382n/2aaeba64e6b84a14576fca61079049/7c2aaeba64e6b84a14576fca61079049.png"],["CATE","0.017","$1.89","OpenSea","https://i2c.seadn.io/solana/FCe9R16rFYWKHTfCq8zXSqCqW2esGq25csevDKbHxiro/9234b8eecf1eca273789eebb65ce58/329234b8eecf1eca273789eebb65ce58.jpeg"],["howdyGOD","0.023","$2.48","OpenSea","https://i2c.seadn.io/solana/ALJG8QMSUj6bQsTx529MVWmUFRUkf4ZZ9yHWGBy7yGch/191f08b38fe3c883514a9dfce899f2/1d191f08b38fe3c883514a9dfce899f2.png"],["Superman (1939-2011) #1","3.29","$357","OpenSea","https://i2c.seadn.io/solana/4GYBtxDGF4zSRAi6AAEo3fnaK3sRuNSyfLtA9di1iAJ2/0223c22c33f0495f87a20f6f5f49d2/f90223c22c33f0495f87a20f6f5f49d2.jpeg"],["The Conmen","0.032","$3.47","OpenSea","https://i2c.seadn.io/solana/Azs1Q8SJpEYfijsAFhJ9ZNYSVDTNDg2SqRFTLxRrpphk/da457bd0454113c07edc36ab4d8551/90da457bd0454113c07edc36ab4d8551.webp"],["Critters Quest Items","0.005","$0.59","OpenSea","https://i2c.seadn.io/solana/A1Xi4oALc77hYjd6AMwTWCdqoEzSPfJ5VNoNWiJ3ytw7/deff66c5bdc55b2f280834c168939a/b7deff66c5bdc55b2f280834c168939a.gif"],["The Bat Cowl Collection","1.50","$162","OpenSea","https://i2c.seadn.io/solana/8HVAjpFQoUH8tfXRBaHuo1yzPL8bSB7tq6JAD6xeVCUM/6ccbbf0ec5cfecfe9b498e96be1e54/a26ccbbf0ec5cfecfe9b498e96be1e54.jpeg"],["Welcome to @Whale 🐳","0.036","$3.85","OpenSea","https://i2c.seadn.io/solana/87B6bi8uFrcX365hU5SikUW5itGs2WsRoABWzi3VBqFw/359c0b9f370063692c83d9fbdab5fa/e5359c0b9f370063692c83d9fbdab5fa.gif"],["Batman (1940-2011) #1","0.67","$72.66","OpenSea","https://i2c.seadn.io/solana/2FsqJdMvRuyJbtQ4bzYmPqnnoQVkoMZWnYcrLgHzQWhv/be288b265765ccd2d7dc408d735c2b/c6be288b265765ccd2d7dc408d735c2b.jpeg"]];
+  var PER=30,RATE=108.3;
+  var BG=['#FFC933','#FF6FB5','#3FD9A8','#6C7BFF','#FFB36B','#C58BFF','#8FE3F0','#FF8A7A'],INKC='#22103D';
+  function rng(str){
+    var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}
+    return function(){h=(h+0x6D2B79F5)|0;var t=Math.imul(h^(h>>>15),1|h);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}
+  }
+  function art(name){
+    var r=rng(name),pick=function(a){return a[Math.floor(r()*a.length)]};
+    var bg=pick(BG),body=pick(BG);if(body===bg)body=BG[(BG.indexOf(bg)+3)%BG.length];
+    var shapes=[{x:22,y:30,w:56,h:54,rx:18},{x:20,y:32,w:60,h:52,rx:30},{x:26,y:22,w:48,h:64,rx:22},{x:16,y:36,w:68,h:46,rx:14}];
+    var b=pick(shapes),o='';
+    var bgk=Math.floor(r()*3);
+    o+='<rect width="100" height="100" fill="'+bg+'"/>';
+    if(bgk===0)o+='<circle cx="'+(20+r()*60)+'" cy="'+(15+r()*25)+'" r="'+(14+r()*10)+'" fill="#fff" opacity=".35"/>';
+    if(bgk===1)for(var d=0;d<5;d++)o+='<circle cx="'+(8+r()*84)+'" cy="'+(8+r()*84)+'" r="'+(2+r()*3)+'" fill="#fff" opacity=".45"/>';
+    if(bgk===2)o+='<rect y="86" width="100" height="14" fill="'+INKC+'" opacity=".18"/>';
+    var top=Math.floor(r()*5),cx=50;
+    if(top===1){[.15,.55].forEach(function(f){o+='<polygon points="'+(b.x+b.w*f)+','+(b.y+6)+' '+(b.x+b.w*(f+.15))+','+(b.y-14)+' '+(b.x+b.w*(f+.3))+','+(b.y+6)+'" fill="'+INKC+'"/>'})}
+    if(top===2){o+='<line x1="50" y1="'+(b.y+2)+'" x2="50" y2="'+(b.y-14)+'" stroke="'+INKC+'" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="'+(b.y-17)+'" r="5" fill="#fff" stroke="'+INKC+'" stroke-width="3"/>'}
+    if(top===3){[b.x+2,b.x+b.w-2].forEach(function(px){o+='<circle cx="'+px+'" cy="'+(b.y+10)+'" r="10" fill="'+body+'"/><circle cx="'+px+'" cy="'+(b.y+10)+'" r="5" fill="#FF6FB5" opacity=".7"/>'})}
+    if(top===4){o+='<polygon points="'+(b.x+4)+','+(b.y+8)+' '+(b.x+8)+','+(b.y-12)+' '+(b.x+b.w*.38)+','+(b.y+4)+'" fill="'+body+'"/><polygon points="'+(b.x+b.w-4)+','+(b.y+8)+' '+(b.x+b.w-8)+','+(b.y-12)+' '+(b.x+b.w*.62)+','+(b.y+4)+'" fill="'+body+'"/>'}
+    o+='<rect x="'+b.x+'" y="'+b.y+'" width="'+b.w+'" height="'+b.h+'" rx="'+b.rx+'" fill="'+body+'"/>';
+    var sp=Math.floor(r()*4);
+    for(var q=0;q<sp;q++)o+='<circle cx="'+(b.x+8+r()*(b.w-16))+'" cy="'+(b.y+b.h*.62+r()*b.h*.3)+'" r="'+(2+r()*2.5)+'" fill="#fff" opacity=".35"/>';
+    var n=1+Math.floor(r()*3),ey=b.y+b.h*.34,re=n===1?11:n===2?8.5:6.5;
+    var xs=n===1?[50]:n===2?[b.x+b.w*.3,b.x+b.w*.7]:[b.x+b.w*.2,50,b.x+b.w*.8];
+    xs.forEach(function(ex){var dx=(r()-.5)*re*.6;o+='<circle cx="'+ex+'" cy="'+ey+'" r="'+re+'" fill="#fff"/><circle cx="'+(ex+dx)+'" cy="'+(ey+1)+'" r="'+(re*.5)+'" fill="'+INKC+'"/>'});
+    var my=b.y+b.h*.74,m=Math.floor(r()*5),l=b.x+b.w*.25,rr=b.x+b.w*.75;
+    if(m===0){o+='<rect x="'+l+'" y="'+(my-5)+'" width="'+(rr-l)+'" height="11" rx="3" fill="'+INKC+'"/>';var tw=(rr-l)/4;for(var t=0;t<4;t++)o+='<polygon points="'+(l+t*tw+1)+','+(my-5)+' '+(l+t*tw+tw/2)+','+(my+3)+' '+(l+t*tw+tw-1)+','+(my-5)+'" fill="#fff"/>'}
+    if(m===1)o+='<path d="M'+l+' '+my+' Q50 '+(my+13)+' '+rr+' '+my+'" stroke="'+INKC+'" stroke-width="3.5" fill="none" stroke-linecap="round"/>';
+    if(m===2)o+='<line x1="'+(l+4)+'" y1="'+my+'" x2="'+(rr-4)+'" y2="'+my+'" stroke="'+INKC+'" stroke-width="3.5" stroke-linecap="round"/>';
+    if(m===3)o+='<ellipse cx="50" cy="'+(my+1)+'" rx="'+(b.w*.17)+'" ry="8" fill="'+INKC+'"/><ellipse cx="50" cy="'+(my+5)+'" rx="'+(b.w*.1)+'" ry="3.5" fill="#FF6FB5"/>';
+    if(m===4){o+='<line x1="'+l+'" y1="'+my+'" x2="'+rr+'" y2="'+my+'" stroke="'+INKC+'" stroke-width="3.5" stroke-linecap="round"/><polygon points="'+(l+6)+','+my+' '+(l+13)+','+my+' '+(l+9.5)+','+(my+9)+'" fill="#fff"/><polygon points="'+(rr-13)+','+my+' '+(rr-6)+','+my+' '+(rr-9.5)+','+(my+9)+'" fill="#fff"/>'}
+    if(r()>.5){o+='<circle cx="'+(b.x+b.w*.12)+'" cy="'+(ey+11)+'" r="4.5" fill="#FF6FB5" opacity=".7"/><circle cx="'+(b.x+b.w*.88)+'" cy="'+(ey+11)+'" r="4.5" fill="#FF6FB5" opacity=".7"/>'}
+    return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">'+o+'</svg>';
+  }
+  var collBox=null;
+  function buildCollections(s){collBox=el('div');s.appendChild(collBox)}
+  function renderCollections(pg){
+    var pages=Math.ceil(COLL.length/PER);
+    pg=Math.min(Math.max(pg||1,1),pages);
+    collBox.textContent='';
+    var from=(pg-1)*PER;
+    var rg=el('p',null,'range');
+    rg.appendChild(el('b','Showing '+(from+1)+'–'+Math.min(from+PER,COLL.length)));
+    rg.appendChild(document.createTextNode(' of '+COLL.length+' collections'));
+    rg.appendChild(document.createTextNode(' '));
+    rg.appendChild(el('span','More added daily','more'));
+    collBox.appendChild(rg);
+    var g=el('div',null,'cg');
+    COLL.slice(from,from+PER).forEach(function(c){
+      var b=el('button',null,'coll');b.type='button';
+      b.setAttribute('aria-label',c[0]+', floor price '+c[1]+' SOL. Start a launch with this collection.');
+      var pic=el('span',null,'pic');
+      var im=document.createElement('img');im.alt='';im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';
+      var tries=0;
+      im.addEventListener('error',function(){
+        tries++;
+        if(tries===1){im.src=c[4]}
+        else{pic.textContent='';pic.innerHTML=art(c[0])}
+      });
+      im.src=c[4]+'?w=400&auto=format';
+      pic.appendChild(im);b.appendChild(pic);
+      b.appendChild(el('span',c[0],'cname'));
+      var fl=el('span',null,'floor');
+      fl.appendChild(el('small','Floor price'));fl.appendChild(el('strong',c[1]+' SOL'));fl.appendChild(el('span','≈ '+c[2]));
+      b.appendChild(fl);b.appendChild(el('span','via '+c[3],'via'));
+      b.addEventListener('click',function(){
+        $('f-col').value=c[0];$('lform').hidden=false;$('review').hidden=true;$('launch').showModal();
+      });
+      g.appendChild(b);
+    });
+    collBox.appendChild(g);
+    var pr=el('nav',null,'pager');pr.setAttribute('aria-label','Collections pages');
+    var mk=function(t,p,cur,dis){var a=el('a',t);a.href='#/collections/'+p;if(cur)a.setAttribute('aria-current','page');if(dis)a.setAttribute('aria-disabled','true');pr.appendChild(a)};
+    mk('← Previous',pg-1,false,pg===1);
+    for(var i=1;i<=pages;i++)mk(String(i),i,i===pg,false);
+    mk('Next →',pg+1,false,pg===pages);
+    collBox.appendChild(pr);
+  }
   var views=$('views'),home=$('home'),nav=$('nav');
   Object.keys(PAGES).forEach(function(k){
     var d=PAGES[k],s=el('section',null,'page');s.id='v-'+k;s.hidden=true;
     var h=el('h2',d.t);h.tabIndex=-1;s.appendChild(h);s.appendChild(el('p',d.p,'intro'));
     if(d.custom==='explore'){buildExplore(s)}
+    if(d.custom==='collections'){buildCollections(s)}
     if(d.stats){var g=el('div',null,'stats');d.stats.forEach(function(x){var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));g.appendChild(c)});s.appendChild(g)}
     if(d.empty){var c=el('div',null,'card');c.appendChild(el('p',d.empty));s.appendChild(c)}
     if(d.prose){var pr=el('div',null,'prose');d.prose.forEach(function(x){pr.appendChild(el('h3',x[0]));pr.appendChild(el('p',x[1]))});s.appendChild(pr)}
     views.appendChild(s);
   });
   function route(){
-    var k=(location.hash.replace(/^#\/?/,'')||'');
+    var parts=(location.hash.replace(/^#\/?/,'')||'').split('/');
+    var k=parts[0];
     var ok=PAGES[k];
+    if(k==='collections')renderCollections(parseInt(parts[1],10)||1);
     home.hidden=!!ok;
     Object.keys(PAGES).forEach(function(n){$('v-'+n).hidden=(n!==k)});
     nav.querySelectorAll('a').forEach(function(a){
