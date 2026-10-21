@@ -30,33 +30,36 @@ p{margin:0}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
 
-/* top bar */
-.bar{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
-.logo{font:800 1.6rem var(--head);letter-spacing:-.03em}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.25rem 0 .75rem}
+.logo{font:800 1.6rem var(--head);letter-spacing:-.03em;text-decoration:none}
+.hbtns{display:flex;gap:.6rem;flex-wrap:wrap}
 .btn{font:600 1rem var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:.8rem 1.4rem;cursor:pointer}
 .btn:hover{background:var(--blue);color:#fff}
 .btn.big{padding:1rem 1.8rem;font-size:1.1rem;background:var(--chomp);color:#22103D}
 .btn.big:hover{background:var(--pink);color:#22103D}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.nav{display:flex;gap:.25rem;overflow-x:auto;padding:0 0 .9rem;scrollbar-width:none;border-bottom:2px solid var(--line)}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;text-decoration:none;font-weight:600;padding:.45rem .85rem;border-radius:999px;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
 
-/* hero */
-.hero{padding:2rem 0 3.5rem}
+.hero{padding:2.5rem 0 3.5rem}
 .hero p.lead{max-width:36rem;font-size:1.25rem;color:var(--muted);margin:1.5rem 0 2rem}
 .stage{position:relative;height:120px;margin:3rem 0 0;overflow:hidden;border-top:2px dashed var(--line);border-bottom:2px dashed var(--line)}
-.chomper{position:absolute;left:1rem;top:10px;width:100px;height:100px}
-.jaw-top{transform-origin:50px 50px;animation:up .7s ease-in-out infinite alternate}
-.jaw-bot{transform-origin:50px 50px;animation:down .7s ease-in-out infinite alternate}
-@keyframes up{to{transform:rotate(-26deg)}}
-@keyframes down{to{transform:rotate(26deg)}}
+.mascot{position:absolute;left:1rem;top:10px;width:100px;height:100px;overflow:visible}
+.jaw{transform-origin:10px 52px;animation:open .7s ease-in-out infinite alternate}
+@keyframes open{to{transform:rotate(17deg)}}
 .tile{position:absolute;top:32px;width:56px;height:56px;border-radius:12px;left:100%;animation:eat 7s linear infinite;display:grid;place-items:center;font:800 1.3rem var(--head);color:#22103D}
-@keyframes eat{0%{left:100%;transform:scale(1)}88%{left:110px;transform:scale(1)}100%{left:90px;transform:scale(0)}}
+@keyframes eat{0%{left:100%;transform:scale(1)}88%{left:118px;transform:scale(1)}100%{left:98px;transform:scale(0)}}
 .t1{background:var(--pink);animation-delay:0s}
-.t2{background:var(--mint);animation-delay:-1.4s}
+.t2{background:var(--chomp);animation-delay:-1.4s}
 .t3{background:var(--blue);animation-delay:-2.8s;color:#fff}
 .t4{background:#FFB36B;animation-delay:-4.2s}
 .t5{background:#C58BFF;animation-delay:-5.6s}
 .cap{margin-top:.75rem;font-size:.95rem;color:var(--muted)}
 
-/* sections */
 section{padding:4rem 0}
 .intro{max-width:34rem;color:var(--muted);margin-top:1rem}
 .steps{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;gap:1.25rem;counter-reset:s}
@@ -64,7 +67,6 @@ section{padding:4rem 0}
 .steps li::before{content:counter(s);width:3.2rem;height:3.2rem;border-radius:50%;display:grid;place-items:center;font:800 1.4rem var(--head);background:var(--chomp);color:#22103D}
 .steps p{color:var(--muted);margin-top:.35rem}
 @media(min-width:48rem){.steps{grid-template-columns:repeat(3,1fr)}.steps li{grid-template-columns:1fr}}
-
 .split{display:grid;gap:2rem}
 @media(min-width:48rem){.split{grid-template-columns:1fr 1.1fr;align-items:start}}
 .fees{display:flex;height:3.4rem;border-radius:999px;overflow:hidden;border:2px solid var(--ink);font:600 .95rem var(--body);margin-top:1.5rem}
@@ -79,22 +81,33 @@ section{padding:4rem 0}
 .dest button[aria-pressed="true"]{border-color:var(--ink);background:var(--chomp);color:#22103D}
 .dest button[aria-pressed="true"] p{color:#3b2a5c}
 .result{margin-top:1rem;font-weight:600}
-
 details{border-top:2px solid var(--line);padding:1.1rem 0}
 details:last-of-type{border-bottom:2px solid var(--line)}
 summary{cursor:pointer;font:800 1.2rem var(--head);letter-spacing:-.01em}
 details p{color:var(--muted);margin-top:.6rem;max-width:42rem}
 
-.final{text-align:left}
-.final h2{max-width:20ch;margin-bottom:1.5rem}
-footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
-footer p{max-width:46rem}
+.page{padding:3rem 0 4rem}
+.page .intro{max-width:40rem}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.5rem;margin-top:2rem}
+.card p{color:var(--muted)}
+.stats{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));margin-top:2rem}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.2rem 1.4rem}
+.stat b{display:block;font:800 2.2rem var(--head)}
+.stat span{color:var(--muted);font-size:.95rem}
+.prose h3{margin-top:2rem}
+.prose p{color:var(--muted);margin-top:.5rem;max-width:42rem}
 
-.toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%);background:var(--ink);color:var(--bg);padding:.8rem 1.2rem;border-radius:12px;transition:transform .25s;max-width:90vw}
-.toast.show{transform:translate(-50%,0)}
-.hbtns{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.foot{border-top:2px solid var(--line);margin-top:2rem;padding:3rem 0 2.5rem;color:var(--muted)}
+.fgrid{display:grid;gap:2rem}
+@media(min-width:48rem){.fgrid{grid-template-columns:2fr 1fr 1fr}}
+.fbrand p{margin-top:.8rem;max-width:30rem;font-size:.95rem}
+.fbrand .logo{color:var(--ink);display:inline-block}
+.foot h3{font-size:1rem;color:var(--ink);margin-bottom:.8rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink);text-decoration:underline}
+.disc{margin-top:2rem;font-size:.85rem;max-width:46rem}
+
 dialog{width:min(30rem,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);overflow:auto;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:22px;padding:1.5rem}
 dialog::backdrop{background:rgba(20,8,40,.6)}
 .dh{display:flex;justify-content:space-between;align-items:center}
@@ -108,10 +121,14 @@ input:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-o
 dl.sum{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;margin:1rem 0 0}
 dl.sum dt{color:var(--muted)}
 dl.sum dd{margin:0;font-weight:600;word-break:break-all}
-.wopt{display:block;width:100%;margin-top:.8rem;text-align:left}
+.wlist{display:grid;gap:.7rem;margin-top:1rem}
+.wlist .btn{text-align:left;text-decoration:none;display:block}
+.toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%);background:var(--ink);color:var(--bg);padding:.8rem 1.2rem;border-radius:12px;transition:transform .25s;max-width:90vw;z-index:10}
+.toast.show{transform:translate(-50%,0)}
+[hidden]{display:none!important}
 
 @media (prefers-reduced-motion:reduce){
-  .jaw-top,.jaw-bot,.tile{animation:none}
+  .jaw,.tile{animation:none}
   .tile{left:auto;position:relative;display:inline-grid;margin:32px 6px 0}
   .stage{height:auto;padding-left:130px;min-height:120px}
   .toast{transition:none}
@@ -120,86 +137,111 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
 </head>
 <body>
 <div class="wrap">
-  <header class="bar">
-    <div class="logo">Floorbite</div>
-    <div class="hbtns">
-      <button class="btn ghost" data-wallet>Connect wallet</button>
-      <button class="btn" data-soon>Launch a coin</button>
+  <header>
+    <div class="bar">
+      <a class="logo" href="#/">Floorbite</a>
+      <div class="hbtns">
+        <button class="btn ghost" data-wallet>Connect wallet</button>
+        <button class="btn" data-launch>Launch a coin</button>
+      </div>
     </div>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#/explore">Explore</a><a href="#/collections">Collections</a><a href="#/gallery">Gallery</a><a href="#/receipts">Receipts</a><a href="#/giveaways">Giveaways</a><a href="#/analytics">Analytics</a><a href="#/docs">Docs</a>
+    </nav>
   </header>
 
-  <main>
-    <div class="hero">
-      <h1>Your coin eats an NFT floor.</h1>
-      <p class="lead">Bind a coin to one NFT collection. Most of its creator fees flow into a vault that can only buy that collection. You choose where the NFTs end up.</p>
-      <button class="btn big" data-soon>Launch a coin</button>
-
-      <div class="stage" aria-hidden="true">
-        <svg class="chomper" viewBox="0 0 100 100">
-          <g class="jaw-top"><path d="M0 50A50 50 0 0 1 100 50Z" fill="#FFC933"/><circle cx="58" cy="26" r="6" fill="#22103D"/></g>
-          <g class="jaw-bot"><path d="M0 50A50 50 0 0 0 100 50Z" fill="#FFC933"/></g>
-        </svg>
-        <div class="tile t1">#12</div>
-        <div class="tile t2">#87</div>
-        <div class="tile t3">#304</div>
-        <div class="tile t4">#41</div>
-        <div class="tile t5">#9</div>
+  <main id="main">
+    <div id="home">
+      <div class="hero">
+        <h1>Your coin eats an NFT floor.</h1>
+        <p class="lead">Bind a coin to one NFT collection. Most of its creator fees flow into a vault that can only buy that collection. You choose where the NFTs end up.</p>
+        <button class="btn big" data-launch>Launch a coin</button>
+        <div class="stage" aria-hidden="true">
+          <svg class="mascot" viewBox="0 0 100 100">
+            <polygon points="10,52 100,52 100,84" fill="#22103D"/>
+            <g class="jaw">
+              <path d="M0 52H100V90Q100 100 90 100H10Q0 100 0 90Z" fill="#2FC293"/>
+              <path d="M30 52l6-10 6 10zM58 52l6-10 6 10z" fill="#fff"/>
+            </g>
+            <path d="M0 52V10Q0 0 10 0H90Q100 0 100 10V52Z" fill="#3FD9A8"/>
+            <path d="M22 52l6 10 6-10zM50 52l6 10 6-10zM76 52l6 10 6-10z" fill="#fff"/>
+            <circle cx="30" cy="24" r="9" fill="#fff"/><circle cx="66" cy="24" r="9" fill="#fff"/>
+            <circle cx="33" cy="25" r="4.5" fill="#22103D"/><circle cx="69" cy="25" r="4.5" fill="#22103D"/>
+            <circle cx="12" cy="40" r="5" fill="#FF6FB5" opacity=".75"/>
+            <path d="M44 4q6-8 12 0" stroke="#22103D" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="tile t1">#12</div><div class="tile t2">#87</div><div class="tile t3">#304</div><div class="tile t4">#41</div><div class="tile t5">#9</div>
+        </div>
+        <p class="cap">Meet Biter. Every tile is a listing at the bottom of the collection, and the vault buys the cheapest first.</p>
       </div>
-      <p class="cap">Every tile is a listing at the bottom of the collection. The vault buys the cheapest first.</p>
+
+      <section>
+        <h2>How it works</h2>
+        <p class="intro">Three steps, and the last one runs on its own.</p>
+        <ol class="steps">
+          <li><div><h3>Pick a collection</h3><p>Choose the one NFT collection your coin is tied to. The choice is fixed at launch.</p></div></li>
+          <li><div><h3>Trade the coin</h3><p>Every trade produces creator fees. 80% of them go to the coin’s vault.</p></div></li>
+          <li><div><h3>The vault buys the floor</h3><p>The vault can spend only on your collection, so fees become floor purchases.</p></div></li>
+        </ol>
+      </section>
+
+      <section>
+        <div class="split">
+          <div>
+            <h2>Where the fees go</h2>
+            <p class="intro">Most of the fees are locked into buying NFTs. The rest goes to whoever launched the coin.</p>
+            <div class="fees" role="img" aria-label="80 percent to the vault, 20 percent to the launcher"><span class="v">80% to the vault</span><span class="o">20%</span></div>
+            <p class="legend">The vault is a one-purpose wallet. It cannot send funds anywhere else.</p>
+          </div>
+          <div>
+            <h3 style="margin-bottom:1rem">Then choose what happens to the NFTs</h3>
+            <div class="dest" id="dest">
+              <button aria-pressed="true" data-msg="The NFTs stay in the vault. The coin’s holders can see the growing stash at any time."><strong>Keep them in the vault</strong><p>A public treasury that grows with every trade.</p></button>
+              <button aria-pressed="false" data-msg="Each NFT is sent to a burn address. The collection’s supply shrinks."><strong>Burn them</strong><p>Remove them from supply for good.</p></button>
+              <button aria-pressed="false" data-msg="NFTs are handed out to coin holders in a draw."><strong>Give them to holders</strong><p>Reward people who hold the coin.</p></button>
+            </div>
+            <p class="result" id="result" aria-live="polite">The NFTs stay in the vault. The coin’s holders can see the growing stash at any time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Questions</h2>
+        <div style="margin-top:2rem">
+          <details><summary>Can the vault buy anything else?</summary><p>No. It is bound to the single collection you picked, so it has no way to spend on other tokens or send funds out.</p></details>
+          <details><summary>Does this make the floor go up?</summary><p>Buying listings removes supply from the market, which can lift the floor price. It is not guaranteed, and a floor can also fall.</p></details>
+          <details><summary>Can I change the collection later?</summary><p>No. The collection and the NFT destination are set when the coin is launched.</p></details>
+          <details><summary>Who can launch a coin?</summary><p>Anyone with a collection in mind. This page is a concept, so launching is not open yet.</p></details>
+        </div>
+      </section>
+
+      <section>
+        <h2 style="max-width:20ch;margin-bottom:1.5rem">Ready to feed a floor?</h2>
+        <button class="btn big" data-launch>Launch a coin</button>
+      </section>
     </div>
-
-    <section>
-      <h2>How it works</h2>
-      <p class="intro">Three steps, and the last one runs on its own.</p>
-      <ol class="steps">
-        <li><div><h3>Pick a collection</h3><p>Choose the one NFT collection your coin is tied to. The choice is fixed at launch.</p></div></li>
-        <li><div><h3>Trade the coin</h3><p>Every trade produces creator fees. 80% of them go to the coin’s vault.</p></div></li>
-        <li><div><h3>The vault buys the floor</h3><p>The vault can spend only on your collection, so fees become floor purchases.</p></div></li>
-      </ol>
-    </section>
-
-    <section>
-      <div class="split">
-        <div>
-          <h2>Where the fees go</h2>
-          <p class="intro">Most of the fees are locked into buying NFTs. The rest goes to whoever launched the coin.</p>
-          <div class="fees" role="img" aria-label="80 percent to the vault, 20 percent to the launcher">
-            <span class="v">80% to the vault</span><span class="o">20%</span>
-          </div>
-          <p class="legend">The vault is a one-purpose wallet. It cannot send funds anywhere else.</p>
-        </div>
-        <div>
-          <h3 style="margin-bottom:1rem">Then choose what happens to the NFTs</h3>
-          <div class="dest" id="dest">
-            <button aria-pressed="true" data-msg="The NFTs stay in the vault. The coin’s holders can see the growing stash at any time."><strong>Keep them in the vault</strong><p>A public treasury that grows with every trade.</p></button>
-            <button aria-pressed="false" data-msg="Each NFT is sent to a burn address. The collection’s supply shrinks."><strong>Burn them</strong><p>Remove them from supply for good.</p></button>
-            <button aria-pressed="false" data-msg="NFTs are handed out to coin holders in a draw."><strong>Give them to holders</strong><p>Reward people who hold the coin.</p></button>
-          </div>
-          <p class="result" id="result" aria-live="polite">The NFTs stay in the vault. The coin’s holders can see the growing stash at any time.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Questions</h2>
-      <div style="margin-top:2rem">
-        <details><summary>Can the vault buy anything else?</summary><p>No. It is bound to the single collection you picked, so it has no way to spend on other tokens or send funds out.</p></details>
-        <details><summary>Does this make the floor go up?</summary><p>Buying listings removes supply from the market, which can lift the floor price. It is not guaranteed, and a floor can also fall.</p></details>
-        <details><summary>Can I change the collection later?</summary><p>No. The collection and the NFT destination are set when the coin is launched.</p></details>
-        <details><summary>Who can launch a coin?</summary><p>Anyone with a collection in mind. This page is a concept, so launching is not open yet.</p></details>
-      </div>
-    </section>
-
-    <section class="final">
-      <h2>Ready to feed a floor?</h2>
-      <button class="btn big" data-soon>Launch a coin</button>
-    </section>
+    <div id="views"></div>
   </main>
 
-  <footer>
-    <p>Floorbite is a concept page. Nothing here is financial advice or a promise of returns. Coins and NFTs are volatile and can lose all of their value.</p>
+  <footer class="foot">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="logo" href="#/">Floorbite</a>
+        <p>Memecoin fees that buy NFT floors on Solana. Pump routes the fees; Floorbite’s operator manages funds, NFT custody, giveaways and buybacks.</p>
+        <p><a href="https://x.com/floorb1te" target="_blank" rel="noopener">@floorb1te</a></p>
+        <p>Independent project. Not affiliated with pump.fun.</p>
+      </div>
+      <nav aria-label="Product links"><h3>Product</h3><ul>
+        <li><a href="#/explore">Explore</a></li><li><a href="#/receipts">Receipts</a></li><li><a href="#/analytics">Analytics</a></li><li><a href="#" data-launch>Launch</a></li><li><a href="#/collections">Collections</a></li>
+      </ul></nav>
+      <nav aria-label="Legal links"><h3>Legal</h3><ul>
+        <li><a href="#/docs">Docs</a></li><li><a href="https://solscan.io/" target="_blank" rel="noopener">Solscan</a></li><li><a href="#/trust">Trust</a></li><li><a href="#/terms">Terms</a></li><li><a href="#/privacy">Privacy</a></li>
+      </ul></nav>
+    </div>
+    <p class="disc">Floorbite is a concept page. Nothing here is financial advice or a promise of returns. Coins and NFTs are volatile and can lose all of their value.</p>
   </footer>
 </div>
+
 <dialog id="launch" aria-labelledby="lt">
   <div class="dh"><h2 id="lt" style="font-size:1.8rem">Launch a coin</h2><button class="x" data-close aria-label="Close">×</button></div>
   <form id="lform">
@@ -208,7 +250,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     <label for="f-tick">Ticker</label>
     <input id="f-tick" name="ticker" required maxlength="10" pattern="[A-Za-z0-9]{2,10}" placeholder="MUNCH" style="text-transform:uppercase">
     <label for="f-col">NFT collection</label>
-    <input id="f-col" name="collection" required maxlength="80" placeholder="Collection name or contract address">
+    <input id="f-col" name="collection" required maxlength="80" placeholder="Collection name or address">
     <p class="hint">The vault can only buy this collection. It can’t be changed after launch.</p>
     <label for="f-dest">What happens to the NFTs</label>
     <select id="f-dest" name="dest"><option>Keep them in the vault</option><option>Burn them</option><option>Give them to holders</option></select>
@@ -225,71 +267,140 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
 </dialog>
 <dialog id="wallet" aria-labelledby="wt">
   <div class="dh"><h2 id="wt" style="font-size:1.6rem">Connect wallet</h2><button class="x" data-close aria-label="Close">×</button></div>
-  <button class="btn wopt" data-chain="sol">Solana (Phantom, Backpack)</button>
-  <button class="btn wopt" data-chain="evm">Ethereum (MetaMask and others)</button>
-  <p class="hint">Connecting only shares your public address. It doesn’t move any funds.</p>
+  <div class="wlist" id="wlist"></div>
+  <p class="hint" id="whint">Connecting only shares your public address. It doesn’t move any funds.</p>
 </dialog>
-<div class="toast" id="toast" role="status">Launching isn’t open yet. This is a concept.</div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 (function(){
-  var toast=document.getElementById('toast'),t;
-  function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show')},2800)}
-  var wallet=null,ld=document.getElementById('launch'),wd=document.getElementById('wallet'),form=document.getElementById('lform'),rev=document.getElementById('review');
-  function short(a){return a.slice(0,4)+'…'+a.slice(-4)}
-  function renderWallet(){
-    document.querySelectorAll('[data-wallet]').forEach(function(b){
-      b.textContent=wallet?short(wallet.addr)+' (disconnect)':'Connect wallet';
+  var $=function(id){return document.getElementById(id)};
+  var toast=$('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},3200)}
+  function el(tag,txt,cls){var e=document.createElement(tag);if(txt!=null)e.textContent=txt;if(cls)e.className=cls;return e}
+
+  /* ---------- pages ---------- */
+  var EMPTY='Nothing here yet. This fills up once the first coin launches.';
+  var PAGES={
+    explore:{t:'Explore',p:'Browse every coin launched on Floorbite and the collection it eats.',empty:EMPTY},
+    collections:{t:'Collections',p:'NFT collections that have a vault pointed at their floor.',empty:EMPTY},
+    gallery:{t:'Gallery',p:'The NFTs currently held by Floorbite vaults.',empty:EMPTY},
+    receipts:{t:'Receipts',p:'A public record of every fee that arrived and every NFT the vault bought.',empty:EMPTY},
+    giveaways:{t:'Giveaways',p:'Draws where vault NFTs are handed to coin holders.',empty:EMPTY},
+    analytics:{t:'Analytics',p:'Fees collected, NFTs bought and floor movement for each coin.',stats:[['Coins launched','–'],['Fees collected','–'],['NFTs bought','–'],['NFTs burned','–']],empty:'Numbers appear here after the first launch.'},
+    docs:{t:'Docs',p:'How Floorbite is meant to work.',prose:[
+      ['How it works','A launcher picks one NFT collection and creates a coin. Creator fees from trading the coin are routed to a vault. The vault buys listings from the chosen collection, cheapest first.'],
+      ['Fee split','80% of creator fees go to the vault. The remaining 20% goes to the launcher.'],
+      ['NFT destinations','Each coin sets one destination at launch: keep the NFTs in the vault, burn them, or give them to coin holders.'],
+      ['Wallets','Floorbite works with Solana wallets such as Phantom, Solflare and Backpack. Connecting only shares your public address.'],
+      ['Status','Floorbite is a concept. Launching is not open yet, and nothing on this site moves funds.']]},
+    trust:{t:'Trust',p:'What you would be relying on.',prose:[
+      ['The operator','Funds, NFT custody, giveaways and buybacks are managed by the Floorbite operator. Using the service means trusting the operator to follow the rules shown for each coin.'],
+      ['Verifiability','The Receipts page is meant to list every fee and purchase, so anyone can check the transactions on Solscan.'],
+      ['No promises','Nothing here promises a price, a floor level or a return. Coins and NFTs can lose all of their value.'],
+      ['Independence','Floorbite is an independent project and is not affiliated with pump.fun.']]},
+    terms:{t:'Terms',p:'Placeholder terms for a concept page.',prose:[
+      ['Use at your own risk','The site is provided as is, with no guarantees. Do not rely on it for financial decisions.'],
+      ['No advice','Nothing on this site is financial, legal or tax advice.'],
+      ['Before a real launch','Replace this text with terms reviewed by a lawyer.']]},
+    privacy:{t:'Privacy',p:'What this site does with your data.',prose:[
+      ['What we collect','This page has no accounts and no analytics. When you connect a wallet, your public address is read in your browser and is not sent anywhere.'],
+      ['Hosting','The page is served by a static host, which may keep ordinary server logs such as IP addresses.'],
+      ['Before a real launch','Update this text if you add analytics, forms or a backend.']]}
+  };
+  var views=$('views'),home=$('home'),nav=$('nav');
+  Object.keys(PAGES).forEach(function(k){
+    var d=PAGES[k],s=el('section',null,'page');s.id='v-'+k;s.hidden=true;
+    var h=el('h2',d.t);h.tabIndex=-1;s.appendChild(h);s.appendChild(el('p',d.p,'intro'));
+    if(d.stats){var g=el('div',null,'stats');d.stats.forEach(function(x){var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));g.appendChild(c)});s.appendChild(g)}
+    if(d.empty){var c=el('div',null,'card');c.appendChild(el('p',d.empty));s.appendChild(c)}
+    if(d.prose){var pr=el('div',null,'prose');d.prose.forEach(function(x){pr.appendChild(el('h3',x[0]));pr.appendChild(el('p',x[1]))});s.appendChild(pr)}
+    views.appendChild(s);
+  });
+  function route(){
+    var k=(location.hash.replace(/^#\/?/,'')||'');
+    var ok=PAGES[k];
+    home.hidden=!!ok;
+    Object.keys(PAGES).forEach(function(n){$('v-'+n).hidden=(n!==k)});
+    nav.querySelectorAll('a').forEach(function(a){
+      if(ok&&a.getAttribute('href')==='#/'+k)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
+    document.title=(ok?PAGES[k].t+' – ':'')+'Floorbite';
+    window.scrollTo(0,0);
   }
-  document.querySelectorAll('[data-soon]').forEach(function(b){
-    b.addEventListener('click',function(){form.hidden=false;rev.hidden=true;ld.showModal()});
-  });
-  document.querySelectorAll('[data-wallet]').forEach(function(b){
-    b.addEventListener('click',function(){
-      if(wallet){wallet=null;renderWallet();say('Wallet disconnected.')}else{wd.showModal()}
-    });
-  });
-  document.querySelectorAll('[data-close]').forEach(function(b){
-    b.addEventListener('click',function(){b.closest('dialog').close()});
-  });
-  document.querySelectorAll('[data-chain]').forEach(function(b){
-    b.addEventListener('click',async function(){
-      try{
-        if(b.getAttribute('data-chain')==='sol'){
-          var p=(window.phantom&&window.phantom.solana)||window.solana;
-          if(!p){say('No Solana wallet found. Install Phantom or open the page directly in your browser.');return}
-          var r=await p.connect();
-          wallet={kind:'Solana',addr:r.publicKey.toString()};
-        }else{
-          if(!window.ethereum){say('No Ethereum wallet found. Install MetaMask or open the page directly in your browser.');return}
-          var a=await window.ethereum.request({method:'eth_requestAccounts'});
-          wallet={kind:'Ethereum',addr:a[0]};
-        }
-        renderWallet();wd.close();say('Wallet connected.');
-      }catch(e){say('Connection cancelled.')}
-    });
-  });
+  window.addEventListener('hashchange',route);route();
+
+  /* ---------- NFT destination picker ---------- */
+  var db=document.querySelectorAll('#dest button'),res=$('result');
+  db.forEach(function(b){b.addEventListener('click',function(){
+    db.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');res.textContent=b.getAttribute('data-msg');
+  })});
+
+  /* ---------- Solana wallet ---------- */
+  var wallet=null,provider=null;
+  var ld=$('launch'),wd=$('wallet'),form=$('lform'),rev=$('review');
+  function short(a){return a.slice(0,4)+'…'+a.slice(-4)}
+  function renderWallet(){document.querySelectorAll('[data-wallet]').forEach(function(b){
+    b.textContent=wallet?short(wallet)+' (disconnect)':'Connect wallet';
+  })}
+  function providers(){
+    var w=window,l=[];
+    if(w.phantom&&w.phantom.solana&&w.phantom.solana.isPhantom)l.push({name:'Phantom',p:w.phantom.solana});
+    if(w.solflare&&w.solflare.isSolflare)l.push({name:'Solflare',p:w.solflare});
+    if(w.backpack&&w.backpack.isBackpack)l.push({name:'Backpack',p:w.backpack});
+    if(!l.length&&w.solana&&typeof w.solana.connect==='function')l.push({name:'Solana wallet',p:w.solana});
+    return l;
+  }
+  async function connectWith(x){
+    try{
+      var r=await x.p.connect();
+      var pk=(r&&r.publicKey)||x.p.publicKey;
+      if(!pk)throw new Error('no key');
+      wallet=pk.toString();provider=x.p;
+      renderWallet();wd.close();say('Wallet connected.');
+    }catch(e){say('Connection cancelled or rejected.')}
+  }
+  function buildWalletList(){
+    var list=$('wlist');list.textContent='';
+    var ps=providers();
+    if(ps.length){
+      ps.forEach(function(x){var b=el('button','Connect '+x.name,'btn');b.type='button';b.addEventListener('click',function(){connectWith(x)});list.appendChild(b)});
+      $('whint').textContent='Connecting only shares your public address. It doesn’t move any funds.';
+    }else{
+      var inFrame=false;try{inFrame=window.top!==window.self}catch(e){inFrame=true}
+      var link=function(t,u){var a=el('a',t,'btn');a.href=u;a.target='_blank';a.rel='noopener';return a};
+      list.appendChild(link('Get Phantom','https://phantom.app/download'));
+      list.appendChild(link('Open this page in the Phantom app','https://phantom.app/ul/browse/'+encodeURIComponent(location.href.split('#')[0])+'?ref='+encodeURIComponent(location.origin)));
+      $('whint').textContent=inFrame
+        ?'No wallet found. This page is running inside a frame, which blocks wallet extensions. Open it in its own browser tab.'
+        :'No Solana wallet found. Install a wallet extension such as Phantom, Solflare or Backpack and reload. On a phone, open this page inside the wallet’s built-in browser.';
+    }
+  }
+  function openWallet(){
+    buildWalletList();wd.showModal();
+    if(!providers().length)setTimeout(function(){if(wd.open&&providers().length)buildWalletList()},900);
+  }
+  document.querySelectorAll('[data-wallet]').forEach(function(b){b.addEventListener('click',function(){
+    if(wallet){try{provider&&provider.disconnect&&provider.disconnect()}catch(e){}wallet=null;provider=null;renderWallet();say('Wallet disconnected.')}
+    else openWallet();
+  })});
+
+  /* ---------- launch dialog ---------- */
+  document.querySelectorAll('[data-launch]').forEach(function(b){b.addEventListener('click',function(e){
+    e.preventDefault();form.hidden=false;rev.hidden=true;ld.showModal();
+  })});
+  document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(!wallet){say('Connect your wallet first.');wd.showModal();return}
-    var d=new FormData(form),sum=document.getElementById('sum');
-    sum.textContent='';
-    [['Coin',d.get('name')],['Ticker',String(d.get('ticker')).toUpperCase()],['Collection',d.get('collection')],['NFTs',d.get('dest')],['Fees to vault','80%'],['Wallet',wallet.kind+' '+wallet.addr]].forEach(function(r){
-      var dt=document.createElement('dt'),dd=document.createElement('dd');
-      dt.textContent=r[0];dd.textContent=r[1];sum.appendChild(dt);sum.appendChild(dd);
+    if(!wallet){say('Connect your wallet first.');openWallet();return}
+    var d=new FormData(form),sum=$('sum');sum.textContent='';
+    [['Coin',d.get('name')],['Ticker',String(d.get('ticker')).toUpperCase()],['Collection',d.get('collection')],['NFTs',d.get('dest')],['Fees to vault','80%'],['Wallet',wallet]].forEach(function(r){
+      sum.appendChild(el('dt',r[0]));sum.appendChild(el('dd',r[1]));
     });
     form.hidden=true;rev.hidden=false;
   });
-  document.getElementById('back').addEventListener('click',function(){rev.hidden=true;form.hidden=false});
-  var btns=document.querySelectorAll('#dest button'),res=document.getElementById('result');
-  btns.forEach(function(b){
-    b.addEventListener('click',function(){
-      btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
-      b.setAttribute('aria-pressed','true');
-      res.textContent=b.getAttribute('data-msg');
-    });
-  });
+  $('back').addEventListener('click',function(){rev.hidden=true;form.hidden=false});
 })();
 </script>
 </body>
