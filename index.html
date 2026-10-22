@@ -148,6 +148,105 @@ details p{color:var(--muted);margin-top:.6rem;max-width:42rem}
 .cf{color:var(--muted);font-size:.85rem;white-space:nowrap}
 .cempty{padding:.8rem;color:var(--muted)}
 #f-floor{background:var(--bg);border-radius:12px;padding:.5rem .8rem;font-weight:600;color:var(--ink)}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:.7rem .9rem;resize:vertical;min-height:6.5rem}
+textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#D6336C}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled:hover{background:var(--ink);color:var(--bg)}
+.lp{display:grid;gap:1.25rem;margin-top:2rem}
+@media(min-width:64rem){.lp{grid-template-columns:12.5rem minmax(0,1fr) 16.5rem;align-items:start}.lprev{position:sticky;top:1rem}}
+.lsteps{list-style:none;margin:0;padding:0;display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none}
+@media(min-width:64rem){.lsteps{flex-direction:column;gap:.25rem;overflow:visible}}
+.lsteps button{display:flex;gap:.7rem;align-items:center;width:100%;text-align:left;background:transparent;border:2px solid transparent;border-radius:14px;padding:.55rem .7rem;color:var(--muted);font:inherit;cursor:pointer;white-space:nowrap}
+.lsteps button:disabled{opacity:.5;cursor:default}
+.lsteps button[aria-current="step"]{background:var(--card);border-color:var(--line);color:var(--ink)}
+.sn{flex:none;width:2.2rem;height:2.2rem;border-radius:10px;display:grid;place-items:center;font:700 .8rem ui-monospace,Menlo,monospace;border:2px solid var(--line);background:var(--bg)}
+.lsteps [aria-current="step"] .sn{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lsteps .done .sn{background:var(--mint);border-color:var(--mint);color:#0D3B2E}
+.sl b{display:block;font-weight:600;color:var(--ink);line-height:1.25}
+.sl small{display:block;font-size:.82rem;line-height:1.25}
+@media(max-width:63.99rem){.sl small{display:none}}
+.lcard{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:1.5rem}
+.lpanel[hidden]{display:none}
+.lpanel h3{font-size:1.5rem}
+.pd{color:var(--muted);margin-top:.3rem}
+.linfo{font-size:.92rem;color:var(--muted);margin:1.1rem 0 .2rem}
+.linfo b{color:var(--ink)}
+.two{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:.75rem;margin-top:1.2rem}
+.lpanel .two input{margin:0}
+@media(max-width:30rem){.two{grid-template-columns:1fr}.lpanel .two input+input{margin-top:.6rem}}
+.lpanel label{margin:1.2rem 0 .4rem}
+.cnt{float:right;font:.85rem ui-monospace,Menlo,monospace;color:var(--muted);font-weight:400}
+.lpanel input+input,.lpanel .stack input{margin-top:.6rem}
+.drop{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;text-align:center;border:2px dashed var(--line);border-radius:16px;padding:1.6rem 1rem;background:var(--bg);min-height:8rem}
+.drop:hover,.drop.over,.drop:focus-within{border-color:var(--blue)}
+.drop input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
+.drop strong{font-weight:600;display:block}
+.drop small{color:var(--muted);display:block}
+.drop .thumb{width:4.5rem;height:4.5rem;border-radius:16px;object-fit:cover;margin-bottom:.4rem}
+.lerr{color:#C0264B;font-weight:600;margin-top:1rem}
+.lerr:empty{display:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .lerr{color:#FF8FA8}}
+:root[data-theme="dark"] .lerr{color:#FF8FA8}
+.lbtns{display:flex;justify-content:space-between;gap:.6rem;margin-top:1.4rem;padding-top:1.2rem;border-top:2px solid var(--line)}
+a.btn{text-decoration:none;display:inline-block}
+.lnote{border:2px solid var(--line);border-left:5px solid var(--blue);border-radius:14px;padding:.8rem 1rem;margin:1.2rem 0 0;font-size:.95rem}
+.lnote b{font-weight:700}
+.lsearch{margin-top:1.1rem}
+.lsearch input{margin:0}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.6rem;max-height:30rem;overflow:auto;padding:.25rem .3rem .25rem .1rem;margin-top:.9rem}
+.lopt{display:flex;gap:.8rem;align-items:center;text-align:left;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:.7rem;font:inherit;color:var(--ink);cursor:pointer;width:100%}
+.lopt:hover{border-color:var(--muted)}
+.lopt[aria-checked="true"]{border-color:var(--blue);box-shadow:0 0 0 3px rgba(108,123,255,.25)}
+.lpic{width:2.8rem;height:2.8rem;border-radius:10px;overflow:hidden;flex:none}
+.lpic .pic{border-radius:0}
+.lt{min-width:0;flex:1}
+.lname{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lfl{display:block;font-size:.82rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lradio{flex:none;width:1.3rem;height:1.3rem;border-radius:50%;border:2px solid var(--line)}
+.lopt[aria-checked="true"] .lradio{border-color:var(--blue);background:radial-gradient(var(--blue) 42%,transparent 48%)}
+.lpols{display:grid;gap:.7rem;margin-top:1.2rem}
+.lopt.pol{align-items:flex-start;padding:1rem}
+.lopt.pol b{display:block;font-weight:700}
+.lopt.pol span.d{display:block;color:var(--muted);font-size:.95rem;margin-top:.15rem}
+.lempty{padding:1rem;color:var(--muted);grid-column:1/-1}
+.rrows{margin-top:1.1rem}
+.rrow{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 0;border-top:2px solid var(--line)}
+.rrow>span{color:var(--muted)}
+.rrow>b{font-weight:600;text-align:right;display:inline-flex;gap:.5rem;align-items:center;min-width:0;overflow-wrap:anywhere}
+.rrow .lpic{width:1.7rem;height:1.7rem;border-radius:7px}
+.fbox{background:var(--bg);border-radius:14px;padding:.4rem 1rem .9rem;margin:1.1rem 0}
+.fbox .rrow:first-child{border-top:0}
+.fbox small{color:var(--muted)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.95em}
+.rbul{margin:1.1rem 0;padding-left:1.1rem;font-size:.95rem}
+.rbul li{margin:.35rem 0}
+.ratio{font-size:.92rem;color:var(--muted);border:2px solid var(--line);border-radius:12px;padding:.7rem 1rem}
+.ratio b{color:var(--ink);font-family:ui-monospace,Menlo,monospace}
+.lgo{width:100%;margin-top:1.1rem;display:block;text-align:center}
+.lres{margin-top:1rem;background:var(--bg);border:2px solid var(--mint);border-radius:14px;padding:.9rem 1rem;font-size:.95rem}
+.lres[hidden]{display:none}
+.badge2{font:700 .72rem ui-monospace,Menlo,monospace;letter-spacing:.1em;border:2px solid var(--line);border-radius:6px;padding:.12rem .45rem;text-transform:uppercase;color:var(--ink)}
+.lprev{background:var(--card);border:2px solid var(--line);border-radius:22px;overflow:hidden}
+.lprev .ph{display:flex;gap:.8rem;align-items:center;padding:1rem 1.1rem;border-bottom:2px solid var(--line)}
+.av{width:2.8rem;height:2.8rem;border-radius:50%;background:var(--mint);color:#0D3B2E;display:grid;place-items:center;font:800 1.2rem var(--head);overflow:hidden;flex:none}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
+.ph b{display:block;font:800 1.15rem/1.2 var(--head);overflow-wrap:anywhere}
+.ph small{color:var(--muted);overflow-wrap:anywhere}
+.lprev .pr{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.55rem 1.1rem;font-size:.95rem}
+.lprev .pr>span{color:var(--muted)}
+.lprev .pr>b{font-weight:600;display:inline-flex;gap:.4rem;align-items:center;min-width:0;text-align:right}
+.lprev .pr .lpic{width:1.4rem;height:1.4rem;border-radius:6px}
+.lprev .pf{border-top:2px solid var(--line);padding:1rem 1.1rem}
+.lprev .pf h4{margin:0 0 .6rem;font:700 .72rem ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pbar{display:flex;height:.55rem;border-radius:999px;overflow:hidden;background:var(--line)}
+.pbar i{display:block;width:80%;background:var(--mint)}
+.pbar i+i{width:20%;background:var(--chomp)}
+.lprev .pl{display:flex;justify-content:space-between;font-size:.92rem;margin-top:.5rem}
+.lprev .pl::before{content:'';width:.6rem;height:.6rem;border-radius:2px;background:var(--mint);margin:.45rem .5rem 0 0;flex:none}
+.lprev .pl+.pl::before{background:var(--chomp)}
+.lprev .pl>span{flex:1}
+.lprev .pn{font-size:.8rem;color:var(--muted);margin-top:.8rem}
 #f-floor:empty{display:none}
 .phead{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem 2rem;flex-wrap:wrap}
 .hstats{display:flex;gap:1.2rem 2rem;flex-wrap:wrap}
@@ -345,7 +444,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
         <p>Independent project. Not affiliated with pump.fun.</p>
       </div>
       <nav aria-label="Product links"><h3>Product</h3><ul>
-        <li><a href="#/explore">Explore</a></li><li><a href="#/receipts">Receipts</a></li><li><a href="#/analytics">Analytics</a></li><li><a href="#" data-launch>Launch</a></li><li><a href="#/collections">Collections</a></li>
+        <li><a href="#/explore">Explore</a></li><li><a href="#/receipts">Receipts</a></li><li><a href="#/analytics">Analytics</a></li><li><a href="#/launch">Launch</a></li><li><a href="#/collections">Collections</a></li>
       </ul></nav>
       <nav aria-label="Legal links"><h3>Legal</h3><ul>
         <li><a href="#/docs">Docs</a></li><li><a href="https://solscan.io/" target="_blank" rel="noopener">Solscan</a></li><li><a href="#/trust">Trust</a></li><li><a href="#/terms">Terms</a></li><li><a href="#/privacy">Privacy</a></li>
@@ -355,34 +454,6 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
   </footer>
 </div>
 
-<dialog id="launch" aria-labelledby="lt">
-  <div class="dh"><h2 id="lt" style="font-size:1.8rem">Launch a coin</h2><button class="x" data-close aria-label="Close">×</button></div>
-  <form id="lform">
-    <label for="f-name">Coin name</label>
-    <input id="f-name" name="name" required maxlength="32" placeholder="Floor Muncher">
-    <label for="f-tick">Ticker</label>
-    <input id="f-tick" name="ticker" required maxlength="10" pattern="[A-Za-z0-9]{2,10}" placeholder="MUNCH" style="text-transform:uppercase">
-    <label for="f-col">Solana NFT collection</label>
-    <div class="cbox" id="cbox">
-      <span class="cthumb" id="cthumb" aria-hidden="true"></span>
-      <input id="f-col" name="collection" required autocomplete="off" role="combobox" aria-expanded="false" aria-controls="coll-list" aria-autocomplete="list" placeholder="Search Solana collections">
-      <ul class="clist" id="coll-list" role="listbox" aria-label="Solana NFT collections" hidden></ul>
-    </div>
-    <p class="hint" id="f-floor" aria-live="polite"></p>
-    <p class="hint">Only collections listed on Floorbite can be chosen. The vault can only buy this collection, and it can’t be changed after launch.</p>
-    <label for="f-dest">What happens to the NFTs</label>
-    <select id="f-dest" name="dest"><option>Keep them in the vault</option><option>Burn them</option><option>Give them to holders</option></select>
-    <label>Creator wallet</label>
-    <button type="button" class="btn ghost" data-wallet>Connect wallet</button>
-    <div class="acts"><button class="btn big" type="submit">Review launch</button></div>
-  </form>
-  <div id="review" hidden>
-    <p class="hint" style="margin-top:.5rem">Check the details before launching.</p>
-    <dl class="sum" id="sum"></dl>
-    <p class="hint" style="margin-top:1.2rem">This is where a real launch would ask you to sign. Nothing was signed or sent from your wallet.</p>
-    <div class="acts"><button class="btn ghost" id="back" type="button">Back</button><button class="btn" data-close type="button">Done</button></div>
-  </div>
-</dialog>
 <dialog id="wallet" aria-labelledby="wt">
   <div class="dh"><h2 id="wt" style="font-size:1.6rem">Connect wallet</h2><button class="x" data-close aria-label="Close">×</button></div>
   <div class="wlist" id="wlist"></div>
@@ -411,6 +482,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
       ['Purchases and NFT policy','The server reads finalized trades and fee distributions, separates earned fees from unclassified deposits and tracks each coin’s spending. It buys supported verified collection NFTs through Tensor when the selected policy has enough funds. The greatest actual contribution determines the funding coin; ties use public-key byte order. The coin’s selected airdrop or burn policy is stored in Floorbite’s database and executed by the operator.'],
       ['Floorbite queue and buybacks','Donated NFTs join a separate queue for $FLOORBITE holders, with at least three hours between round openings. Buybacks use existing Pump or PumpSwap markets, no more than once every three hours. Each purchase respects the configured SOL limit, a fresh $500 price cap and an operating reserve. Acquired $FLOORBITE is burned in a separate, recoverable transaction.'],
       ['Availability and costs','Wallets sign coin launches and donations. The server signs custody operations. Solana, RPC access, the marketplaces and Floorbite’s server must be available to finish those operations. The operator can pause launches and new purchases. RPC history gaps pause spending until reconciled.\n\nLaunch costs are quoted by simulation before signing. Existing programs avoid deployment storage deposits, but token accounts, the lookup table, transaction fees and ongoing operations still cost SOL. Server-hosted metadata depends on the site remaining available.']]},
+    launch:{t:'Launch',h:'Launch a coin',p:'Name it, pair it with an NFT collection and choose what happens to the NFTs.',custom:'launch'},
     trust:{t:'Trust',p:'What you would be relying on.',prose:[
       ['The operator','Funds, NFT custody and buybacks are managed by the Floorbite operator. Using the service means trusting the operator to follow the rules shown for each coin.'],
       ['Verifiability','The Receipts page is meant to list every fee and purchase, so anyone can check the transactions on Solscan.'],
@@ -469,7 +541,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     document.querySelectorAll('.ratenote').forEach(function(e){
       e.textContent=RATE_LIVE?'live · updated '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'estimate · live price unavailable';
     });
-    if(sel){ffl.textContent='Floor price: '+sel[1]+' SOL (≈ '+usdOf(sel)+')'}
+    if(onRate)onRate();
   }
   function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
   function loadRate(){
@@ -479,8 +551,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     .catch(function(){paintRate()});
   }
   setTimeout(function(){loadRate();setInterval(loadRate,60000)},0);
-  var fcol=$('f-col'),cbox=$('cbox'),clist=$('coll-list'),cth=$('cthumb'),ffl=$('f-floor');
-  var sel=null,act=-1,shown=[];
+  var onRate=null,onWallet=null;
   function picEl(c,w){
     var pic=el('span',null,'pic');
     var im=document.createElement('img');im.alt='';im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';
@@ -489,54 +560,6 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     im.src=c[4]+'?w='+w+'&auto=format';
     pic.appendChild(im);return pic;
   }
-  function applySel(c){
-    sel=c;fcol.setCustomValidity('');
-    cth.textContent='';cth.appendChild(picEl(c,96));cbox.classList.add('has');
-    ffl.textContent='Floor price: '+c[1]+' SOL (≈ '+usdOf(c)+')';
-  }
-  function clearSel(){sel=null;cth.textContent='';cbox.classList.remove('has');ffl.textContent=''}
-  function setColl(c){applySel(c);fcol.value=c[0];closeList()}
-  function closeList(){clist.hidden=true;fcol.setAttribute('aria-expanded','false');fcol.removeAttribute('aria-activedescendant');act=-1}
-  function renderList(q){
-    q=(q||'').trim().toLowerCase();
-    shown=COLL.filter(function(c){return !q||c[0].toLowerCase().indexOf(q)>-1});
-    clist.textContent='';act=-1;
-    if(!shown.length){var e=el('li','No matching collection','cempty');e.setAttribute('role','presentation');clist.appendChild(e);return}
-    shown.forEach(function(c,i){
-      var li=el('li',null,'copt');li.id='copt-'+i;li.setAttribute('role','option');
-      li.setAttribute('aria-selected',sel&&sel[0]===c[0]?'true':'false');
-      var pw=el('span',null,'cpic');pw.appendChild(picEl(c,96));li.appendChild(pw);
-      li.appendChild(el('span',c[0],'cn'));li.appendChild(el('span',c[1]+' SOL','cf'));
-      li.addEventListener('mousedown',function(ev){ev.preventDefault();setColl(c)});
-      clist.appendChild(li);
-    });
-  }
-  function openList(){
-    renderList(sel&&fcol.value===sel[0]?'':fcol.value);
-    clist.hidden=false;fcol.setAttribute('aria-expanded','true');
-  }
-  function mark(i){
-    var items=clist.querySelectorAll('.copt');if(!items.length)return;
-    act=(i+items.length)%items.length;
-    items.forEach(function(x,k){x.classList.toggle('on',k===act)});
-    fcol.setAttribute('aria-activedescendant',items[act].id);
-    items[act].scrollIntoView({block:'nearest'});
-  }
-  fcol.addEventListener('focus',openList);
-  fcol.addEventListener('click',function(){if(clist.hidden)openList()});
-  fcol.addEventListener('blur',closeList);
-  fcol.addEventListener('input',function(){
-    var v=fcol.value.trim().toLowerCase();
-    var c=COLL.filter(function(x){return x[0].toLowerCase()===v})[0];
-    if(c){applySel(c)}else{clearSel();fcol.setCustomValidity(fcol.value?'Pick a collection from the list.':'')}
-    renderList(fcol.value);clist.hidden=false;fcol.setAttribute('aria-expanded','true');
-  });
-  fcol.addEventListener('keydown',function(ev){
-    if(ev.key==='ArrowDown'){ev.preventDefault();if(clist.hidden)openList();mark(act+1)}
-    else if(ev.key==='ArrowUp'){ev.preventDefault();if(clist.hidden)openList();mark(act<0?-1:act-1)}
-    else if(ev.key==='Enter'&&!clist.hidden&&act>=0){ev.preventDefault();setColl(shown[act])}
-    else if(ev.key==='Escape'&&!clist.hidden){ev.preventDefault();ev.stopPropagation();closeList()}
-  });
   var BG=['#FFC933','#FF6FB5','#3FD9A8','#6C7BFF','#FFB36B','#C58BFF','#8FE3F0','#FF8A7A'],INKC='#22103D';
   function rng(str){
     var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}
@@ -739,7 +762,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
       fl.appendChild(el('small','Floor price'));fl.appendChild(el('strong',c[1]+' SOL'));var us=el('span','≈ '+usdOf(c));us.setAttribute('data-sol',String(c[1]).replace(/,/g,''));fl.appendChild(us);
       b.appendChild(fl);b.appendChild(el('span','via '+c[3],'via'));
       b.addEventListener('click',function(){
-        setColl(c);$('lform').hidden=false;$('review').hidden=true;$('launch').showModal();
+        LP.coll=c;say(c[0]+' selected. Now name your coin.');location.hash='#/launch';
       });
       g.appendChild(b);
     });
@@ -753,6 +776,220 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
       collBox.appendChild(pr);
     }
   }
+  /* ---------- Launch page ---------- */
+  var LP={name:'',sym:'',img:'',desc:'',web:'',x:'',tg:'',coll:null,pol:'keep',step:1,max:1,show:null};
+  var POL=[['keep','Keep them in the vault','The NFTs stay in the vault. Holders can watch the stash grow.','Vault'],
+           ['burn','Burn them','Every NFT is burned. The collection’s supply shrinks for good.','Burn'],
+           ['give','Give them to holders','Each NFT goes to one holder, with odds proportional to balance. Bigger bags, better odds.','Holders']];
+  function polOf(k){return POL.filter(function(p){return p[0]===k})[0]}
+  function goodUrl(v){
+    if(!v)return true;
+    try{var u=new URL(/^https?:\/\//i.test(v)?v:'https://'+v);return /\./.test(u.hostname)}catch(e){return false}
+  }
+  function buildLaunch(s){
+    var STEPS=[['Token','Name, ticker, links'],['Collection','What it sweeps'],['NFT policy','Where NFTs go'],['Review','Confirm and launch']];
+    var root=el('div',null,'lp');s.appendChild(root);
+    var stepsEl=el('ol',null,'lsteps');stepsEl.setAttribute('aria-label','Launch steps');
+    var sbtn=STEPS.map(function(x,i){
+      var li=el('li'),b=el('button',null);b.type='button';
+      b.appendChild(el('span',('0'+(i+1)),'sn'));
+      var sl=el('span',null,'sl');sl.appendChild(el('b',x[0]));sl.appendChild(el('small',x[1]));b.appendChild(sl);
+      b.addEventListener('click',function(){if(i+1<=LP.max)go(i+1)});
+      li.appendChild(b);stepsEl.appendChild(li);return b;
+    });
+    root.appendChild(stepsEl);
+    var card=el('div',null,'lcard');root.appendChild(card);
+    var prev=el('aside',null,'lprev');prev.setAttribute('aria-label','Launch preview');root.appendChild(prev);
+    var panels=[1,2,3,4].map(function(){var p=el('div',null,'lpanel');p.hidden=true;card.appendChild(p);return p});
+    function head(p,t,d){var h=el('h3',t);h.tabIndex=-1;p.appendChild(h);p.appendChild(el('p',d,'pd'));return h}
+    function buttons(p,left,right){var r=el('div',null,'lbtns');r.appendChild(left);r.appendChild(right);p.appendChild(r)}
+    function btn(t,cls){var b=el('button',t,cls||'btn');b.type='button';return b}
+
+    /* ----- step 1: token ----- */
+    var p1=panels[0],h1=head(p1,'Token','What the coin is called and where people can find it.');
+    var info=el('p',null,'linfo');
+    info.innerHTML='Launching on <b>pump.fun</b> · 80% of creator fees go to the collection’s NFT purchase wallet, 20% to the treasury. Floorbite’s operator manages these wallets.';
+    p1.appendChild(info);
+    var two=el('div',null,'two');
+    var iName=el('input');iName.id='lp-name';iName.placeholder='Token name';iName.maxLength=32;iName.autocomplete='off';iName.setAttribute('aria-label','Token name');
+    var iSym=el('input');iSym.id='lp-sym';iSym.placeholder='Symbol';iSym.maxLength=10;iSym.autocomplete='off';iSym.setAttribute('aria-label','Symbol');iSym.style.textTransform='uppercase';
+    two.appendChild(iName);two.appendChild(iSym);p1.appendChild(two);
+    var lImg=el('label','Token image');lImg.setAttribute('for','lp-file');p1.appendChild(lImg);
+    var drop=el('div',null,'drop'),iFile=el('input');iFile.type='file';iFile.id='lp-file';iFile.accept='image/png,image/jpeg,image/webp,image/gif,image/svg+xml';
+    var dropBody=el('div');drop.appendChild(dropBody);drop.appendChild(iFile);p1.appendChild(drop);
+    function paintDrop(){
+      dropBody.textContent='';
+      if(LP.img){var th=document.createElement('img');th.className='thumb';th.alt='Token image preview';th.referrerPolicy='no-referrer';th.src=LP.img;th.addEventListener('error',function(){th.remove()});dropBody.appendChild(th)}
+      dropBody.appendChild(el('strong',LP.img?'Click or drop to replace':'Drop an image, or click to choose'));
+      dropBody.appendChild(el('small','PNG, JPG, WebP, GIF or SVG, up to 5 MB'));
+    }
+    function takeFile(file){
+      if(!file)return;
+      if(!/^image\//.test(file.type)){err1.textContent='That file isn’t an image.';return}
+      if(file.size>5*1024*1024){err1.textContent='That image is over 5 MB.';return}
+      var fr=new FileReader();fr.onload=function(){LP.img=String(fr.result);iUrl.value='';err1.textContent='';paintDrop();paint()};fr.readAsDataURL(file);
+    }
+    paintDrop();
+    iFile.addEventListener('change',function(){takeFile(iFile.files[0])});
+    ['dragenter','dragover'].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.add('over')})});
+    ['dragleave','drop'].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.remove('over')})});
+    drop.addEventListener('drop',function(e){takeFile(e.dataTransfer&&e.dataTransfer.files[0])});
+    var iUrl=el('input');iUrl.type='url';iUrl.placeholder='…or paste an image URL';iUrl.setAttribute('aria-label','Image URL');iUrl.style.marginTop='.6rem';iUrl.autocomplete='off';
+    iUrl.addEventListener('input',function(){var v=iUrl.value.trim();if(/^https?:\/\/\S+$/i.test(v)){LP.img=v}else if(!v&&LP.img&&!/^data:/.test(LP.img)){LP.img=''}paintDrop();paint()});
+    p1.appendChild(iUrl);
+    var lDesc=el('label',null);lDesc.setAttribute('for','lp-desc');lDesc.appendChild(document.createTextNode('Description'));
+    var cnt=el('span','0 / 512','cnt');lDesc.appendChild(cnt);p1.appendChild(lDesc);
+    var iDesc=el('textarea');iDesc.id='lp-desc';iDesc.maxLength=512;iDesc.placeholder='What’s the coin about?';p1.appendChild(iDesc);
+    iDesc.addEventListener('input',function(){LP.desc=iDesc.value;cnt.textContent=iDesc.value.length+' / 512'});
+    p1.appendChild(el('label','Links'));
+    var stack=el('div',null,'stack');
+    var iWeb=el('input'),iX=el('input'),iTg=el('input');
+    [[iWeb,'Website URL'],[iX,'X profile URL'],[iTg,'Telegram link']].forEach(function(x){x[0].placeholder=x[1];x[0].setAttribute('aria-label',x[1]);x[0].autocomplete='off';x[0].inputMode='url';stack.appendChild(x[0])});
+    stack.firstChild.style.marginTop='0';p1.appendChild(stack);
+    var err1=el('p',null,'lerr');err1.setAttribute('role','alert');p1.appendChild(err1);
+    var cancel=el('a','Cancel','btn ghost');cancel.href='#/';
+    var c1=btn('Continue');
+    buttons(p1,cancel,c1);
+    iName.addEventListener('input',function(){LP.name=iName.value;paint()});
+    iSym.addEventListener('input',function(){iSym.value=iSym.value.replace(/[^A-Za-z0-9]/g,'');LP.sym=iSym.value.toUpperCase();paint()});
+    iWeb.addEventListener('input',function(){LP.web=iWeb.value.trim()});iX.addEventListener('input',function(){LP.x=iX.value.trim()});iTg.addEventListener('input',function(){LP.tg=iTg.value.trim()});
+    c1.addEventListener('click',function(){
+      var bad=null,m='';
+      [iName,iSym,iWeb,iX,iTg].forEach(function(i){i.removeAttribute('aria-invalid')});
+      if(!LP.name.trim()){bad=iName;m='Give your coin a name.'}
+      else if(LP.sym.length<2){bad=iSym;m='The symbol needs 2 to 10 letters or numbers.'}
+      else if(!LP.img){bad=iUrl;m='Add a token image or paste an image URL.'}
+      else if(!goodUrl(LP.web)){bad=iWeb;m='That website link doesn’t look right.'}
+      else if(!goodUrl(LP.x)){bad=iX;m='That X link doesn’t look right.'}
+      else if(!goodUrl(LP.tg)){bad=iTg;m='That Telegram link doesn’t look right.'}
+      err1.textContent=m;
+      if(bad){bad.setAttribute('aria-invalid','true');bad.focus();return}
+      go(2);
+    });
+
+    /* ----- step 2: collection ----- */
+    var p2=panels[1],h2=head(p2,'Collection','The collection your fees will buy at the floor. Permanent.');
+    var n2=el('div',null,'lnote');n2.innerHTML='<b>This is permanent.</b> Your coin’s fees are bound to this collection’s vault, which can only buy this collection. You can’t change it after launch.';p2.appendChild(n2);
+    var ls=el('div',null,'lsearch search');
+    ls.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>';
+    ls.style.maxWidth='none';
+    var iq=el('input');iq.type='search';iq.placeholder='Search collections';iq.setAttribute('aria-label','Search collections');iq.autocomplete='off';ls.appendChild(iq);p2.appendChild(ls);
+    var grid=el('div',null,'lgrid');grid.setAttribute('role','radiogroup');grid.setAttribute('aria-label','Solana NFT collections');p2.appendChild(grid);
+    p2.appendChild(el('p','Floor prices come from OpenSea and change constantly. Dollar estimates follow the live SOL price.','hint'));
+    var back2=btn('Back','btn ghost'),c2=btn('Continue');
+    buttons(p2,back2,c2);
+    function renderGrid(){
+      var q=iq.value.trim().toLowerCase(),list=COLL.filter(function(c){return !q||c[0].toLowerCase().indexOf(q)>-1});
+      grid.textContent='';
+      if(!list.length){grid.appendChild(el('p','No collection matches “'+iq.value.trim()+'”.','lempty'));return}
+      list.forEach(function(c){
+        var o=el('button',null,'lopt');o.type='button';o.setAttribute('role','radio');o.setAttribute('aria-checked',LP.coll&&LP.coll[0]===c[0]?'true':'false');
+        var pw=el('span',null,'lpic');pw.appendChild(picEl(c,96));o.appendChild(pw);
+        var t=el('span',null,'lt');t.appendChild(el('span',c[0],'lname'));
+        var fl=el('span',null,'lfl');fl.appendChild(document.createTextNode(c[1]+' SOL · '));
+        var us=el('span','≈ '+usdOf(c));us.setAttribute('data-sol',String(c[1]).replace(/,/g,''));fl.appendChild(us);t.appendChild(fl);o.appendChild(t);
+        o.appendChild(el('span',null,'lradio'));
+        o.addEventListener('click',function(){
+          LP.coll=c;
+          grid.querySelectorAll('.lopt').forEach(function(x){x.setAttribute('aria-checked','false')});
+          o.setAttribute('aria-checked','true');c2.disabled=false;paint();
+        });
+        grid.appendChild(o);
+      });
+    }
+    iq.addEventListener('input',renderGrid);
+    back2.addEventListener('click',function(){go(1)});
+    c2.addEventListener('click',function(){if(LP.coll)go(3)});
+
+    /* ----- step 3: NFT policy ----- */
+    var p3=panels[2],h3=head(p3,'NFT policy','Where the NFTs go once your vault owns them.');
+    var pg=el('div',null,'lpols');pg.setAttribute('role','radiogroup');pg.setAttribute('aria-label','NFT policy');
+    POL.forEach(function(p){
+      var o=el('button',null,'lopt pol');o.type='button';o.setAttribute('role','radio');o.setAttribute('aria-checked',LP.pol===p[0]?'true':'false');o.setAttribute('data-pol',p[0]);
+      var t=el('span',null,'lt');t.appendChild(el('b',p[1]));t.appendChild(el('span',p[2],'d'));
+      o.appendChild(t);o.appendChild(el('span',null,'lradio'));
+      o.addEventListener('click',function(){LP.pol=p[0];pg.querySelectorAll('.lopt').forEach(function(x){x.setAttribute('aria-checked',x===o?'true':'false')});paint()});
+      pg.appendChild(o);
+    });
+    p3.appendChild(pg);
+    var n3=el('div',null,'lnote');n3.innerHTML='<b>This is permanent.</b> It’s set at launch and can’t be changed afterwards, so holders can rely on it.';p3.appendChild(n3);
+    var back3=btn('Back','btn ghost'),c3=btn('Continue');buttons(p3,back3,c3);
+    back3.addEventListener('click',function(){go(2)});c3.addEventListener('click',function(){go(4)});
+
+    /* ----- step 4: review ----- */
+    var p4=panels[3],h4=head(p4,'Review','Look it over. One transaction does everything.');
+    var rr=el('div',null,'rrows');p4.appendChild(rr);
+    var fb=el('div',null,'fbox');
+    function frow(l,v,cls){var r=el('div',null,'rrow'),a=el('span',l),b=el('b',v,cls);r.appendChild(a);r.appendChild(b);return r}
+    fb.appendChild(frow('Network and creation fees','Quoted before signing','mono'));
+    fb.appendChild(frow('Total','Quoted before signing','mono'));
+    fb.appendChild(el('small','One transaction. Estimate: your wallet shows the final amount.'));
+    p4.appendChild(fb);
+    var ul=el('ul',null,'rbul');
+    ['Pump’s fee-sharing program locks 80% to the collection wallet and 20% to the treasury.',
+     'Floorbite’s operator controls those wallets, NFT custody and the NFT policy you chose. The policy is recorded by Floorbite; it is not enforced by a custom program.',
+     'Trading is on Solana. Purchases and deliveries depend on Floorbite’s server remaining available.'].forEach(function(t){ul.appendChild(el('li',t))});
+    p4.appendChild(ul);
+    var ratio=el('p',null,'ratio');ratio.innerHTML='For every <b>1 SOL</b> of creator fees your coin earns, <b>0.80 SOL</b> goes to the vault and <b>0.20 SOL</b> to the treasury.';p4.appendChild(ratio);
+    var wbtn=el('button','Connect wallet','btn big lgo');wbtn.type='button';wbtn.setAttribute('data-wallet','');p4.appendChild(wbtn);
+    var gbtn=el('button','Launch coin','btn big lgo');gbtn.type='button';p4.appendChild(gbtn);
+    var res=el('p',null,'lres');res.hidden=true;res.setAttribute('role','status');p4.appendChild(res);
+    gbtn.addEventListener('click',function(){
+      res.hidden=false;res.textContent='Concept only: nothing was signed or sent from your wallet. Launching on Floorbite isn’t open yet.';
+    });
+    var back4=btn('Back','btn ghost');var sp=el('span');buttons(p4,back4,sp);
+    back4.addEventListener('click',function(){go(3)});
+    function paintReview(){
+      rr.textContent='';
+      var pol=polOf(LP.pol);
+      var rows=[['Name',LP.name],['Ticker',LP.sym]];
+      rows.forEach(function(x){rr.appendChild(frow(x[0],x[1]||'-'))});
+      var cr=el('div',null,'rrow');cr.appendChild(el('span','Collection'));var cb=el('b');
+      if(LP.coll){var pw=el('span',null,'lpic');pw.appendChild(picEl(LP.coll,64));cb.appendChild(pw);cb.appendChild(document.createTextNode(LP.coll[0]))}else cb.textContent='-';
+      cr.appendChild(cb);rr.appendChild(cr);
+      var pr=el('div',null,'rrow');pr.appendChild(el('span','NFT policy'));var pb=el('b');pb.appendChild(el('span',pol[1],null));pr.appendChild(pb);rr.appendChild(pr);
+      res.hidden=true;
+      wbtn.hidden=!!wallet;gbtn.hidden=!wallet;
+    }
+    onWallet=function(){if(LP.step===4){wbtn.hidden=!!wallet;gbtn.hidden=!wallet}};
+
+    /* ----- preview ----- */
+    function paint(){
+      prev.textContent='';
+      var ph=el('div',null,'ph'),av=el('span',null,'av');
+      if(LP.img){var im=document.createElement('img');im.alt='';im.referrerPolicy='no-referrer';im.src=LP.img;im.addEventListener('error',function(){im.remove();av.textContent=(LP.sym[0]||'T')});av.appendChild(im)}else av.textContent=(LP.sym[0]||'T');
+      ph.appendChild(av);var tx=el('div');tx.appendChild(el('b',LP.sym||'TICKER'));tx.appendChild(el('small',LP.name||'Unnamed coin'));ph.appendChild(tx);prev.appendChild(ph);
+      function row(l,fill){var r=el('div',null,'pr');r.appendChild(el('span',l));var b=el('b');fill(b);r.appendChild(b);prev.appendChild(r)}
+      row('Sweeps',function(b){if(LP.coll){var pw=el('span',null,'lpic');pw.appendChild(picEl(LP.coll,48));b.appendChild(pw);b.appendChild(document.createTextNode(LP.coll[0]))}else{b.textContent='not chosen';b.style.color='var(--muted)';b.style.fontWeight='400'}});
+      row('NFT policy',function(b){b.appendChild(el('span',polOf(LP.pol)[3],'badge2'))});
+      row('Supply',function(b){b.textContent='Recorded at launch'});
+      var pf=el('div',null,'pf');pf.appendChild(el('h4','Per 1 SOL of creator fees'));
+      var bar=el('div',null,'pbar');bar.appendChild(el('i'));bar.appendChild(el('i'));pf.appendChild(bar);
+      [['Collection vault','0.80 SOL'],['Floorbite treasury','0.20 SOL']].forEach(function(x){var l=el('div',null,'pl');l.appendChild(el('span',x[0]));l.appendChild(el('b',x[1]));pf.appendChild(l)});
+      pf.appendChild(el('p','Creator fees are set by pump.fun and accrue on every trade, on the curve and after graduation. Excludes network fees.','pn'));
+      prev.appendChild(pf);
+    }
+
+    /* ----- navigation ----- */
+    var heads=[h1,h2,h3,h4];
+    function go(n,quiet){
+      LP.step=n;LP.max=Math.max(LP.max,n);
+      panels.forEach(function(p,i){p.hidden=(i+1!==n)});
+      sbtn.forEach(function(b,i){
+        b.disabled=(i+1>LP.max);
+        if(i+1===n)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');
+        b.classList.toggle('done',i+1<n);
+        b.querySelector('.sn').textContent=(i+1<n)?'✓':('0'+(i+1));
+      });
+      if(n===2){renderGrid();c2.disabled=!LP.coll;var on=grid.querySelector('[aria-checked="true"]');if(on&&on.scrollIntoView)on.scrollIntoView({block:'nearest'})}
+      if(n===4)paintReview();
+      paint();
+      if(!quiet){var t=root.getBoundingClientRect().top+window.pageYOffset-16;window.scrollTo(0,Math.max(0,t));heads[n-1].focus({preventScroll:true})}
+    }
+    LP.show=function(){go(LP.step,true)};
+    onRate=null;
+    go(1,true);
+  }
   var views=$('views'),home=$('home'),nav=$('nav');
   Object.keys(PAGES).forEach(function(k){
     var d=PAGES[k],s=el('section',null,'page');s.id='v-'+k;s.hidden=true;
@@ -763,6 +1000,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     if(d.custom==='gallery'){buildGallery(s)}
     if(d.custom==='receipts'){buildReceipts(s)}
     if(d.custom==='analytics'){buildAnalytics(s)}
+    if(d.custom==='launch'){buildLaunch(s)}
     if(d.stats){var g=el('div',null,'stats');d.stats.forEach(function(x){var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));g.appendChild(c)});s.appendChild(g)}
     if(d.empty){var c=el('div',null,'card');c.appendChild(el('p',d.empty));s.appendChild(c)}
     if(d.prose){var pr=el('div',null,'prose');d.prose.forEach(function(x){pr.appendChild(el('h3',x[0]));x[1].split('\n\n').forEach(function(t){pr.appendChild(el('p',t))})});s.appendChild(pr)}
@@ -773,6 +1011,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     var k=parts[0];
     var ok=PAGES[k];
     if(k==='collections')renderCollections(parseInt(parts[1],10)||1);
+    if(k==='launch'&&LP.show)LP.show();
     home.hidden=!!ok;
     Object.keys(PAGES).forEach(function(n){$('v-'+n).hidden=(n!==k)});
     nav.querySelectorAll('a').forEach(function(a){
@@ -792,11 +1031,11 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
 
   /* ---------- Solana wallet ---------- */
   var wallet=null,provider=null;
-  var ld=$('launch'),wd=$('wallet'),form=$('lform'),rev=$('review');
+  var wd=$('wallet');
   function short(a){return a.slice(0,4)+'…'+a.slice(-4)}
   function renderWallet(){document.querySelectorAll('[data-wallet]').forEach(function(b){
     b.textContent=wallet?short(wallet)+' (disconnect)':'Connect wallet';
-  })}
+  });if(onWallet)onWallet()}
   function providers(){
     var w=window,l=[];
     if(w.phantom&&w.phantom.solana&&w.phantom.solana.isPhantom)l.push({name:'Phantom',p:w.phantom.solana});
@@ -839,21 +1078,11 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     else openWallet();
   })});
 
-  /* ---------- launch dialog ---------- */
+  /* ---------- launch buttons ---------- */
   document.querySelectorAll('[data-launch]').forEach(function(b){b.addEventListener('click',function(e){
-    e.preventDefault();form.hidden=false;rev.hidden=true;ld.showModal();
+    e.preventDefault();location.hash='#/launch';
   })});
   document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!wallet){say('Connect your wallet first.');openWallet();return}
-    var d=new FormData(form),sum=$('sum');sum.textContent='';
-    [['Coin',d.get('name')],['Ticker',String(d.get('ticker')).toUpperCase()],['Collection',d.get('collection')],['NFTs',d.get('dest')],['Fees to vault','80%'],['Wallet',wallet]].forEach(function(r){
-      sum.appendChild(el('dt',r[0]));sum.appendChild(el('dd',r[1]));
-    });
-    form.hidden=true;rev.hidden=false;
-  });
-  $('back').addEventListener('click',function(){rev.hidden=true;form.hidden=false});
 })();
 </script>
 </body>
