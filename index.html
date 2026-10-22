@@ -247,6 +247,48 @@ a.btn{text-decoration:none;display:inline-block}
 .lprev .pl+.pl::before{background:var(--chomp)}
 .lprev .pl>span{flex:1}
 .lprev .pn{font-size:.8rem;color:var(--muted);margin-top:.8rem}
+.board{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem 2rem}
+.board>*{min-width:0}
+.board .pills,.btop{flex-wrap:wrap}
+@media(min-width:60rem){.board{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:start}}
+.bh{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.bh h2{font-size:clamp(1.5rem,3vw,1.9rem)}
+.bpg{display:inline-flex;align-items:center;gap:.5rem;font:600 .9rem ui-monospace,Menlo,monospace;color:var(--muted)}
+.bpg button{all:unset;cursor:pointer;width:1.8rem;height:1.8rem;display:grid;place-items:center;border-radius:8px;font-size:1.2rem;color:var(--ink)}
+.bpg button:hover:not(:disabled){background:var(--card)}
+.bpg button:disabled{opacity:.3;cursor:default}
+.bpg button:focus-visible{outline:3px solid var(--blue)}
+.board .pills{margin-top:1.1rem}
+.btop{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1.1rem}
+.btop .pills{margin-top:0}
+.await{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.6rem}
+.await h3{font-size:1.15rem}
+.await p{color:var(--muted);font-size:.95rem;margin-top:.15rem}
+.await .btn{padding:.6rem 1.1rem}
+.ph3{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:1rem;margin-top:1.2rem}
+.slot{border:2px dashed var(--line);border-radius:20px;overflow:hidden;background:var(--card);display:flex;flex-direction:column}
+.slot .plus{height:9.5rem;display:grid;place-items:center}
+.slot .plus span{width:3rem;height:3rem;border:2px dashed var(--line);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;color:var(--blue);line-height:1}
+.slot .meta{border-top:2px dashed var(--line);padding:.9rem 1rem 1.1rem}
+.slot .meta b{display:block;font:700 .68rem ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.slot .meta i{display:block;height:.45rem;border-radius:99px;background:var(--line);margin-top:.6rem;width:86%}
+.slot .meta i+i{width:58%;margin-top:.4rem}
+.feat{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.2rem;margin-top:1.1rem;cursor:pointer}
+.feat:hover,.brow:hover{border-color:var(--blue)}
+.feat .fh{display:flex;gap:1rem;align-items:center}
+.feat .fp{width:4rem;height:4rem;border-radius:14px;overflow:hidden;flex:none}
+.feat .fp .pic,.brow .rp .pic{border-radius:0}
+.feat .fn{font:800 1.25rem/1.15 var(--head);overflow-wrap:anywhere}
+.feat .fr{font-weight:600;margin-top:1.1rem}
+.feat .fs{font-size:.88rem;color:var(--muted);margin-top:.25rem}
+.blist{margin-top:.8rem;display:grid;grid-template-columns:minmax(0,1fr);gap:.5rem}
+.brow{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:14px;padding:.6rem .8rem;cursor:pointer}
+.brow .rk{width:1rem;font:600 .85rem ui-monospace,Menlo,monospace;color:var(--muted);text-align:right;flex:none}
+.brow .rp{width:2.2rem;height:2.2rem;border-radius:8px;overflow:hidden;flex:none}
+.brow .rn{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brow .ra{font:700 .75rem ui-monospace,Menlo,monospace;color:#1B7F66;white-space:nowrap}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .brow .ra{color:var(--mint)}}
+:root[data-theme="dark"] .brow .ra{color:var(--mint)}
 #f-floor:empty{display:none}
 .phead{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem 2rem;flex-wrap:wrap}
 .hstats{display:flex;gap:1.2rem 2rem;flex-wrap:wrap}
@@ -418,18 +460,20 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
       </section>
 
       <section>
+        <h2 style="max-width:20ch;margin-bottom:1.5rem">Ready to feed a floor?</h2>
+        <button class="btn big" data-launch>Launch a coin</button>
+      </section>
+
+      <section id="board" aria-label="Top coins and collections"></section>
+
+      <section>
         <h2>Questions</h2>
         <div style="margin-top:2rem">
           <details><summary>Can the vault buy anything else?</summary><p>No. It is bound to the single collection you picked, so it has no way to spend on other tokens or send funds out.</p></details>
           <details><summary>Does this make the floor go up?</summary><p>Buying listings removes supply from the market, which can lift the floor price. It is not guaranteed, and a floor can also fall.</p></details>
           <details><summary>Can I change the collection later?</summary><p>No. The collection and the NFT destination are set when the coin is launched.</p></details>
-          <details><summary>Who can launch a coin?</summary><p>Anyone with a collection in mind. This page is a concept, so launching is not open yet.</p></details>
+          <details><summary>Who can launch a coin?</summary><p>Anyone with a collection in mind.</p></details>
         </div>
-      </section>
-
-      <section>
-        <h2 style="max-width:20ch;margin-bottom:1.5rem">Ready to feed a floor?</h2>
-        <button class="btn big" data-launch>Launch a coin</button>
       </section>
     </div>
     <div id="views"></div>
@@ -990,6 +1034,50 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     onRate=null;
     go(1,true);
   }
+  /* ---------- Home: top coins + top collections ---------- */
+  function buildBoard(box){
+    var wrap=el('div',null,'board');box.appendChild(wrap);
+    /* coins */
+    var L=el('div'),hd=el('div',null,'bh');hd.appendChild(el('h2','Top coins'));
+    var pg1=el('span',null,'bpg'),p1=el('button','‹'),n1=el('button','›');p1.disabled=n1.disabled=true;p1.setAttribute('aria-label','Previous page');n1.setAttribute('aria-label','Next page');
+    pg1.appendChild(p1);pg1.appendChild(el('span','1 / 1'));pg1.appendChild(n1);hd.appendChild(pg1);L.appendChild(hd);
+    var tb=el('div',null,'btop');tb.appendChild(pills('Sort coins',['Newest','24h volume','Market cap','Fees routed']));tb.appendChild(pills('Filter coins',['All']));L.appendChild(tb);
+    var aw=el('div',null,'await'),at=el('div');at.appendChild(el('h3','Awaiting the first launch'));at.appendChild(el('p','Your coin could be the first to start biting floors.'));aw.appendChild(at);
+    var lb=el('button','Launch a coin','btn ghost');lb.type='button';lb.setAttribute('data-launch','');aw.appendChild(lb);L.appendChild(aw);
+    var sl=el('div',null,'ph3');
+    ['Your coin here','Awaiting launch','Awaiting launch'].forEach(function(t){
+      var c=el('div',null,'slot'),pl=el('div',null,'plus');pl.appendChild(el('span','+'));c.appendChild(pl);
+      var m=el('div',null,'meta');m.appendChild(el('b',t));m.appendChild(el('i'));m.appendChild(el('i'));c.appendChild(m);sl.appendChild(c);
+    });
+    L.appendChild(sl);wrap.appendChild(L);
+    /* collections */
+    var R=el('div'),h2=el('div',null,'bh');h2.appendChild(el('h2','Top collections'));
+    var N=5,pages=Math.ceil(COLL.length/N),cur=1;
+    var pg2=el('span',null,'bpg'),p2=el('button','‹'),n2=el('button','›'),lab=el('span');
+    p2.setAttribute('aria-label','Previous collections');n2.setAttribute('aria-label','Next collections');
+    pg2.appendChild(p2);pg2.appendChild(lab);pg2.appendChild(n2);h2.appendChild(pg2);R.appendChild(h2);
+    var body=el('div');R.appendChild(body);wrap.appendChild(R);
+    function pick(c){LP.coll=c;say(c[0]+' selected. Now name your coin.');location.hash='#/launch'}
+    function draw(){
+      body.textContent='';lab.textContent=cur+' / '+pages;p2.disabled=cur===1;n2.disabled=cur===pages;
+      var items=COLL.slice((cur-1)*N,cur*N),c=items[0];
+      var ft=el('button',null,'feat');ft.type='button';
+      var fh=el('div',null,'fh'),fp=el('span',null,'fp');fp.appendChild(picEl(c,160));fh.appendChild(fp);fh.appendChild(el('span',c[0],'fn'));ft.appendChild(fh);
+      ft.appendChild(el('p','Ready for its first coin.','fr'));ft.appendChild(el('p','Launch a coin to start funding this collection’s NFTs.','fs'));
+      ft.addEventListener('click',function(){pick(c)});body.appendChild(ft);
+      var ls=el('div',null,'blist');
+      items.slice(1).forEach(function(x,i){
+        var r=el('button',null,'brow');r.type='button';r.appendChild(el('span',String((cur-1)*N+i+2),'rk'));
+        var rp=el('span',null,'rp');rp.appendChild(picEl(x,96));r.appendChild(rp);r.appendChild(el('span',x[0],'rn'));r.appendChild(el('span','Awaiting launch','ra'));
+        r.addEventListener('click',function(){pick(x)});ls.appendChild(r);
+      });
+      body.appendChild(ls);
+    }
+    p2.addEventListener('click',function(){if(cur>1){cur--;draw()}});
+    n2.addEventListener('click',function(){if(cur<pages){cur++;draw()}});
+    draw();
+  }
+  buildBoard($('board'));
   var views=$('views'),home=$('home'),nav=$('nav');
   Object.keys(PAGES).forEach(function(k){
     var d=PAGES[k],s=el('section',null,'page');s.id='v-'+k;s.hidden=true;
