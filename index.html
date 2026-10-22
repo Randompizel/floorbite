@@ -132,6 +132,79 @@ details p{color:var(--muted);margin-top:.6rem;max-width:42rem}
 .pager a[aria-disabled="true"]{opacity:.4;pointer-events:none}
 .range{margin-top:1.5rem;color:var(--muted);font-size:.95rem}
 .range b{color:var(--ink)}
+.cbox{position:relative}
+.cbox::after{content:'';position:absolute;right:1rem;top:1.2rem;border:.35rem solid transparent;border-top-color:var(--muted);pointer-events:none}
+.cbox input{padding-right:2.4rem}
+.cbox.has input{padding-left:3.5rem}
+.cthumb{position:absolute;left:.55rem;top:.45rem;width:2.2rem;height:2.2rem;display:none;border-radius:9px;overflow:hidden;z-index:1}
+.cbox.has .cthumb{display:block}
+.cthumb .pic,.cpic .pic{border-radius:0}
+.clist{position:absolute;left:0;right:0;top:calc(100% + .4rem);z-index:20;margin:0;padding:.35rem;list-style:none;background:var(--card);border:2px solid var(--ink);border-radius:16px;max-height:16rem;overflow:auto;box-shadow:0 14px 34px rgba(20,8,40,.35)}
+.copt{display:flex;align-items:center;gap:.7rem;padding:.4rem .55rem;border-radius:12px;cursor:pointer}
+.copt:hover,.copt.on{background:var(--bg)}
+.copt[aria-selected="true"]{outline:2px solid var(--chomp);outline-offset:-2px}
+.cpic{width:2.5rem;height:2.5rem;flex:none;border-radius:10px;overflow:hidden}
+.cn{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cf{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.cempty{padding:.8rem;color:var(--muted)}
+#f-floor{background:var(--bg);border-radius:12px;padding:.5rem .8rem;font-weight:600;color:var(--ink)}
+#f-floor:empty{display:none}
+.phead{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem 2rem;flex-wrap:wrap}
+.hstats{display:flex;gap:1.2rem 2rem;flex-wrap:wrap}
+.hstat small{display:block;color:var(--muted);font-size:.85rem}
+.hstat b{display:block;font:800 1.6rem/1.15 var(--head);letter-spacing:-.02em}
+.fbar{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;margin-top:2rem;padding-bottom:1.2rem;border-bottom:2px solid var(--line)}
+.fbar select{width:auto;min-width:12rem;font-weight:600;padding:.5rem .8rem}
+.pill .n{opacity:.6;margin-left:.4rem;font-size:.85em}
+.search{position:relative;max-width:28rem;margin-top:1.5rem}
+.search svg{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:1.1rem;height:1.1rem;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+.search input{padding-left:2.8rem;border-radius:999px}
+.solprice{text-align:right}
+.solprice small{display:block;color:var(--muted);font-size:.85rem}
+.solprice b{display:block;font:800 1.8rem/1.15 var(--head)}
+.rstats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:2rem;background:var(--card);border:2px solid var(--line);border-radius:20px;overflow:hidden}
+.rstats>div{padding:1.1rem 1.3rem;border-left:2px solid var(--line)}
+.rstats>div:first-child{border-left:0}
+.rstats small{display:block;color:var(--muted);font-size:.85rem}
+.rstats b{display:block;font:800 1.6rem/1.2 var(--head);letter-spacing:-.02em}
+.rstats .mint b{color:#1FA37C}
+@media(max-width:48rem){.rstats{grid-template-columns:repeat(2,1fr)}.rstats>div:nth-child(odd){border-left:0}.rstats>div:nth-child(n+3){border-top:2px solid var(--line)}}
+.rgrid{display:grid;gap:1.5rem;margin-top:1.5rem}
+@media(min-width:60rem){.rgrid{grid-template-columns:1.7fr 1fr;align-items:start}}
+.tabbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.tablist{display:inline-flex;gap:.25rem;padding:.25rem;background:var(--card);border:2px solid var(--line);border-radius:999px}
+.tablist button{font:600 .95rem var(--body);border:0;background:transparent;color:var(--muted);padding:.45rem .95rem;border-radius:999px;cursor:pointer}
+.tablist button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tabbar select{width:auto;min-width:11rem;font-weight:600;padding:.5rem .8rem}
+.rgrid .card{margin-top:1rem}
+.side .card{margin-top:0;margin-bottom:1.25rem}
+.side h3{font-size:1.15rem}
+.side .card>p{margin-top:.5rem;font-size:.95rem}
+.side .card .empty{margin-top:1.5rem;text-align:center}
+.bycol{list-style:none;margin:1rem 0 0;padding:0}
+.bycol li{display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-top:2px solid var(--line)}
+.bycol .bp{width:2.5rem;height:2.5rem;border-radius:10px;overflow:hidden;flex:none}
+.bycol .bn{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}
+.bycol small{display:block;color:var(--muted);font-weight:400;font-size:.85rem}
+.bycol .bv{text-align:right;font-weight:600;white-space:nowrap}
+.bycol .bp .pic{border-radius:0}
+.note{margin-top:1.2rem;color:var(--muted);font-size:.85rem;max-width:44rem}
+.agrid{display:grid;gap:1.5rem;margin-top:1.5rem}
+@media(min-width:60rem){.agrid{grid-template-columns:1fr 1.3fr;align-items:start}}
+.agrid .card,.achart.card{margin-top:0}
+.achart.card{margin-top:1.5rem}
+.card h3+p{margin-top:.4rem;font-size:.95rem}
+.chart{display:block;width:100%;height:auto;margin-top:1rem;color:var(--ink)}
+.hbars{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.75rem}
+.hb{display:grid;grid-template-columns:minmax(0,9rem) 1fr 4.2rem;gap:.8rem;align-items:center;font-size:.95rem}
+.hb.pic3{grid-template-columns:2.2rem minmax(0,8rem) 1fr 4.2rem}
+.hb .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb .track{height:.8rem;background:var(--bg);border-radius:999px;overflow:hidden}
+.hb .fill{display:block;height:100%;background:var(--chomp);border-radius:999px}
+.hb .vl{text-align:right;font-weight:600;white-space:nowrap}
+.hb .tp{width:2.2rem;height:2.2rem;border-radius:9px;overflow:hidden}
+.hb .tp .pic{border-radius:0}
+@media(max-width:34rem){.hb{grid-template-columns:minmax(0,6.5rem) 1fr 3.6rem}.hb.pic3{grid-template-columns:2.2rem minmax(0,5.5rem) 1fr 3.6rem}}
 .srcnote{margin-top:1.5rem;color:var(--muted);font-size:.85rem;max-width:44rem}
 .prose h3{margin-top:2rem}
 .prose p{color:var(--muted);margin-top:.5rem;max-width:42rem}
@@ -186,7 +259,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
       </div>
     </div>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#/explore">Explore</a><a href="#/collections">Collections</a><a href="#/gallery">Gallery</a><a href="#/receipts">Receipts</a><a href="#/giveaways">Giveaways</a><a href="#/analytics">Analytics</a><a href="#/docs">Docs</a>
+      <a href="#/explore">Explore</a><a href="#/collections">Collections</a><a href="#/gallery">Gallery</a><a href="#/receipts">Receipts</a><a href="#/analytics">Analytics</a><a href="#/docs">Docs</a>
     </nav>
   </header>
 
@@ -267,7 +340,7 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     <div class="fgrid">
       <div class="fbrand">
         <a class="logo" href="#/">Floorbite</a>
-        <p>Memecoin fees that buy NFT floors on Solana. Pump routes the fees; Floorbite’s operator manages funds, NFT custody, giveaways and buybacks.</p>
+        <p>Memecoin fees that buy NFT floors on Solana. Pump routes the fees; Floorbite’s operator manages funds, NFT custody and buybacks.</p>
         <p><a href="https://x.com/floorb1te" target="_blank" rel="noopener">@floorb1te</a></p>
         <p>Independent project. Not affiliated with pump.fun.</p>
       </div>
@@ -289,9 +362,14 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     <input id="f-name" name="name" required maxlength="32" placeholder="Floor Muncher">
     <label for="f-tick">Ticker</label>
     <input id="f-tick" name="ticker" required maxlength="10" pattern="[A-Za-z0-9]{2,10}" placeholder="MUNCH" style="text-transform:uppercase">
-    <label for="f-col">NFT collection</label>
-    <input id="f-col" name="collection" required maxlength="80" placeholder="Collection name or address">
-    <p class="hint">The vault can only buy this collection. It can’t be changed after launch.</p>
+    <label for="f-col">Solana NFT collection</label>
+    <div class="cbox" id="cbox">
+      <span class="cthumb" id="cthumb" aria-hidden="true"></span>
+      <input id="f-col" name="collection" required autocomplete="off" role="combobox" aria-expanded="false" aria-controls="coll-list" aria-autocomplete="list" placeholder="Search Solana collections">
+      <ul class="clist" id="coll-list" role="listbox" aria-label="Solana NFT collections" hidden></ul>
+    </div>
+    <p class="hint" id="f-floor" aria-live="polite"></p>
+    <p class="hint">Only collections listed on Floorbite can be chosen. The vault can only buy this collection, and it can’t be changed after launch.</p>
     <label for="f-dest">What happens to the NFTs</label>
     <select id="f-dest" name="dest"><option>Keep them in the vault</option><option>Burn them</option><option>Give them to holders</option></select>
     <label>Creator wallet</label>
@@ -324,18 +402,17 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
   var PAGES={
     explore:{t:'Explore',p:'Every coin launched here — the collection each one is sweeping and what its fees have bought so far.',custom:'explore'},
     collections:{t:'Collections',p:'Solana NFT collections a coin can be paired with. Pick one to start a launch.',custom:'collections'},
-    gallery:{t:'Gallery',p:'The NFTs currently held by Floorbite vaults.',empty:EMPTY},
-    receipts:{t:'Receipts',p:'A public record of every fee that arrived and every NFT the vault bought.',empty:EMPTY},
-    giveaways:{t:'Giveaways',p:'Draws where vault NFTs are handed to coin holders.',empty:EMPTY},
-    analytics:{t:'Analytics',p:'Fees collected, NFTs bought and floor movement for each coin.',stats:[['Coins launched','–'],['Fees collected','–'],['NFTs bought','–'],['NFTs burned','–']],empty:'Numbers appear here after the first launch.'},
-    docs:{t:'Docs',p:'How Floorbite is meant to work.',prose:[
-      ['How it works','A launcher picks one NFT collection and creates a coin. Creator fees from trading the coin are routed to a vault. The vault buys listings from the chosen collection, cheapest first.'],
-      ['Fee split','80% of creator fees go to the vault. The remaining 20% goes to the launcher.'],
-      ['NFT destinations','Each coin sets one destination at launch: keep the NFTs in the vault, burn them, or give them to coin holders.'],
-      ['Wallets','Floorbite works with Solana wallets such as Phantom, Solflare and Backpack. Connecting only shares your public address.'],
-      ['Status','Floorbite is a concept. Launching is not open yet, and nothing on this site moves funds.']]},
+    gallery:{t:'Gallery',p:'Each NFT that memecoin fees have bought: what it cost, which coin paid, and where it ended up.',custom:'gallery'},
+    receipts:{t:'Receipts',h:'Every sweep, receipted',p:'Each SOL a vault spent, each fee that reached one, each NFT that left one. All of it a receipt you can open.',custom:'receipts'},
+    analytics:{t:'Analytics',p:'Fees routed, NFTs bought and floor prices across Floorbite.',custom:'analytics'},
+    docs:{t:'Docs',p:'How Floorbite works, from fees to NFTs.',prose:[
+      ['How Floorbite works','Floorbite launches coins through Pump’s existing Solana programs. No custom Floorbite program deployment is needed.'],
+      ['Fees and custody','At launch, Pump’s fee-sharing program fixes 80% of creator fees to the collection wallet and 20% to the Floorbite treasury. Its sharing administrator is revoked. Floorbite’s operator controls both receiving wallets. The operator also holds purchased and donated NFTs.'],
+      ['Purchases and NFT policy','The server reads finalized trades and fee distributions, separates earned fees from unclassified deposits and tracks each coin’s spending. It buys supported verified collection NFTs through Tensor when the selected policy has enough funds. The greatest actual contribution determines the funding coin; ties use public-key byte order. The coin’s selected airdrop or burn policy is stored in Floorbite’s database and executed by the operator.'],
+      ['Floorbite queue and buybacks','Donated NFTs join a separate queue for $FLOORBITE holders, with at least three hours between round openings. Buybacks use existing Pump or PumpSwap markets, no more than once every three hours. Each purchase respects the configured SOL limit, a fresh $500 price cap and an operating reserve. Acquired $FLOORBITE is burned in a separate, recoverable transaction.'],
+      ['Availability and costs','Wallets sign coin launches and donations. The server signs custody operations. Solana, RPC access, the marketplaces and Floorbite’s server must be available to finish those operations. The operator can pause launches and new purchases. RPC history gaps pause spending until reconciled.\n\nLaunch costs are quoted by simulation before signing. Existing programs avoid deployment storage deposits, but token accounts, the lookup table, transaction fees and ongoing operations still cost SOL. Server-hosted metadata depends on the site remaining available.']]},
     trust:{t:'Trust',p:'What you would be relying on.',prose:[
-      ['The operator','Funds, NFT custody, giveaways and buybacks are managed by the Floorbite operator. Using the service means trusting the operator to follow the rules shown for each coin.'],
+      ['The operator','Funds, NFT custody and buybacks are managed by the Floorbite operator. Using the service means trusting the operator to follow the rules shown for each coin.'],
       ['Verifiability','The Receipts page is meant to list every fee and purchase, so anyone can check the transactions on Solscan.'],
       ['No promises','Nothing here promises a price, a floor level or a return. Coins and NFTs can lose all of their value.'],
       ['Independence','Floorbite is an independent project and is not affiliated with pump.fun.']]},
@@ -383,7 +460,83 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     s.appendChild(em);
   }
   var COLL=[["Frogana","0.45","$48.47","OpenSea","https://i2c.seadn.io/solana/7gDeEXoedxExnid7bfgZm6woqWRbxzjJEq7iwt4cextp/f5ce9dc482fc49b985b933ce83a0d6/42f5ce9dc482fc49b985b933ce83a0d6.png"],["Mad Lads","8.48","$918","OpenSea","https://i2c.seadn.io/collection/mad-lads/image_type_logo/b32beb975191af9b2051085bc904c4/e2b32beb975191af9b2051085bc904c4.jpeg"],["SMB Gen2","12.1","$1,312","OpenSea","https://i2c.seadn.io/admin-uploads/45442665023badef2c0fde71764025/5a45442665023badef2c0fde71764025.jpeg"],["Claynosaurz","6.91","$748","OpenSea","https://i2c.seadn.io/admin-uploads/f42590508540fe2a29cf9769636493/85f42590508540fe2a29cf9769636493.jpeg"],["sharx by sharky.fi","0.26","$28.40","OpenSea","https://i2c.seadn.io/solana/Hxwfxfo2ZWVWAe9nbJADJtLjsPhkqEnctiHckf245ym1/d390157b3069ed649e343ff67e859f/cbd390157b3069ed649e343ff67e859f.png"],["Retardio Cousins","0.53","$57.62","OpenSea","https://i2c.seadn.io/solana/4WCKvF9r8AQYwJepVsgttZJqkAeKXMb138MQHyFFFxYN/b0084a776fd88c5d1087edcc4af1ca/10b0084a776fd88c5d1087edcc4af1ca.png"],["Parcl HOA","0.17","$18.74","OpenSea","https://i2c.seadn.io/solana/ASquYQhFvmSuC3TG6Ps6DoeBCpcGL3foocrFv49dPPLs/8fae45e32574509597d53963eadce2/af8fae45e32574509597d53963eadce2.png"],["Boryoku Dragonz","1.12","$122","OpenSea","https://i2c.seadn.io/solana/CvM2hvi8pZ8ySxZSrUZj7PTRukvX1k1i398VQCZjVSyF/e07bbf2c3a3d716e01991c94d80a7e/58e07bbf2c3a3d716e01991c94d80a7e.png"],["Galactic Geckos","4.15","$450","OpenSea","https://i2c.seadn.io/solana/HVhC63czpGLeyLK6wpMkxfDjtzZtnFv5HEXAoLhs7f4T/42c4ae4cae4a483fe3d58f47d64b03/5f42c4ae4cae4a483fe3d58f47d64b03.jpeg"],["Bodoggos","0.46","$49.84","OpenSea","https://i2c.seadn.io/solana/EdTB6hL9F9cvEVMt6FF1CpWiPoKVT1kk1cM7TJJ9sgKc/68b335d4f15467396895e6933e3493/6d68b335d4f15467396895e6933e3493.png"],["Degenerate Ape Academy","1.77","$191","OpenSea","https://i2c.seadn.io/admin-uploads/1db2a7e4ddc5be6571ea3be5022825/181db2a7e4ddc5be6571ea3be5022825.jpeg"],["Collector Crypt","0.092","$9.99","OpenSea","https://i2c.seadn.io/collection/collector-crypt/image_type_logo/8a49960d6b1a662d09066e7a102d9e/6d8a49960d6b1a662d09066e7a102d9e.png"],["Jelly Rascals","0.16","$17.08","OpenSea","https://i2c.seadn.io/solana/5t2KtedJiKTLzEYMyGFhHjYxQQmLunkiEKbH9HuDN6pY/21566c7077e2071dd57fcae88ec4a0/fa21566c7077e2071dd57fcae88ec4a0.png"],["Smyths","0.66","$71.66","OpenSea","https://i2c.seadn.io/solana/2YC9TacPK11qcMvUZ8fR9P5kUZVtvksHCNqbPiaVNpa9/893a4343381eab6dc019d10dd61131/c2893a4343381eab6dc019d10dd61131.png"],["Claynosaurz: Call of Saga","5.65","$612","OpenSea","https://i2c.seadn.io/collection/claynosaurz-call-of-saga/image_type_logo/d453fba72e004295edb56aad3ef217/e9d453fba72e004295edb56aad3ef217.jpeg"],["SMB Gen3","2.44","$264","OpenSea","https://i2c.seadn.io/solana/5FvSmx7zCWhJKtYnQze6an2ft4hcZ9SST8iWP4jYrbgk/8652547ab209524ac46871accdf58c/a28652547ab209524ac46871accdf58c.png"],["GigaBuds","0.10","$11.23","OpenSea","https://i2c.seadn.io/solana/BeXbfZTW1bCZZS2rzwMVYNbqkCTZ4dsg2AaN9uMf7EQw/817553a65689b91490ed63dbd49b91/9a817553a65689b91490ed63dbd49b91.png"],["Gods","0.35","$37.41","OpenSea","https://i2c.seadn.io/solana/FdzjpZnmvXnzEJ8Wv4dxxhfDqB2AsrH6BbHZytaUrZKw/1c08b5bb7460a0f2729c2f2a0b5b7a/e21c08b5bb7460a0f2729c2f2a0b5b7a.png"],["Cets","0.42","$45.12","OpenSea","https://i2c.seadn.io/solana/6QUeAfWucuzbf1DgFdyZCrtGihdQTeDWzxvMyweGkjC1/1b04f20ea7dc60400a9eccf8b99c4a/0b1b04f20ea7dc60400a9eccf8b99c4a.png"],["1000X GEM","4.15","$450","OpenSea","https://i2c.seadn.io/solana/3cEQ9R9vVrNw3GTNcgNPdUv5gRx6HaAbQywtFJjWRSHY/d483fb41f6c71859139eb4988bf8b2/60d483fb41f6c71859139eb4988bf8b2.png"],["Critters Quest","0.84","$91.40","OpenSea","https://i2c.seadn.io/solana/7HPuZiz9oRHFiQs5zTUEbHe4xyxSE6Nzb5fjWjtb3cQo/01fddf0a034c0eb16bf838922b8736/cf01fddf0a034c0eb16bf838922b8736.png"],["Cyber Frogs","1.12","$121","OpenSea","https://i2c.seadn.io/admin-uploads/b63573e0c1c572dfd205c950ea3f39/76b63573e0c1c572dfd205c950ea3f39.png"],["Mimany","0.20","$21.41","OpenSea","https://i2c.seadn.io/solana/DGCamHUQU7Zo4n7PvcnfYLXBkSQeyGBxF4EwdkehKcx7/9e99d61844e91ffb51d49896efd53d/f59e99d61844e91ffb51d49896efd53d.jpeg"],["Phygitals","0.004","$0.46","OpenSea","https://i2c.seadn.io/collection/phygitals/image_type_logo/fcbf27846461a9dcf008cc0a6c10b0/74fcbf27846461a9dcf008cc0a6c10b0.png"],["Blinks GG","0.27","$29.60","OpenSea","https://i2c.seadn.io/solana/F6fbGJSrX54yPPrzMocng2QQ6F4rxdg13rf9wEpAurQi/82fa85d72823b7ed3e3bddf56675df/f682fa85d72823b7ed3e3bddf56675df.jpeg"],["Wassieverse","2.46","$266","OpenSea","https://i2c.seadn.io/collection/wassieverse/image_type_logo/81ff1dc3d645303098c9839858c19a/6681ff1dc3d645303098c9839858c19a.jpeg"],["MidEvil","0.35","$37.88","OpenSea","https://i2c.seadn.io/admin-uploads/c570a8b0296b7b0cc43e207ab8a39b/04c570a8b0296b7b0cc43e207ab8a39b.jpeg"],["Wolf Capital","0.081","$8.77","OpenSea","https://i2c.seadn.io/admin-uploads/a927a46305d26b572625c0ed04af53/6ba927a46305d26b572625c0ed04af53.jpeg"],["Sensei","0.50","$54.03","OpenSea","https://i2c.seadn.io/solana/9qqYPcYNwa6PaWJj1NFCdn8MCnh25xFd52iNcHECjxni/70af116c035e75f89a45f5e6331c96/e370af116c035e75f89a45f5e6331c96.gif"],["<Player2>","0.11","$11.80","OpenSea","https://i2c.seadn.io/solana/HaNGHUkAocYJy46qoR2UKieGucoDLTwuByyZBo6rbvw6/0b700709453e666cced30f1c57ded4/240b700709453e666cced30f1c57ded4.png"],["Whal3s","10.1","$1,093","OpenSea","https://i2c.seadn.io/collection/whal3s-sol/image_type_logo/bd9919c1d579bfedd7ffa4239f9452/a5bd9919c1d579bfedd7ffa4239f9452.png"],["BASC","0.20","$21.67","OpenSea","https://i2c.seadn.io/solana/8RGSgDAq1e3hrLKXczWUz1tQv95ttSLRahfY9M4PqWNi/9a445a99d5c5a56c3159b622077f29/d29a445a99d5c5a56c3159b622077f29.png"],["Pythenians","1.26","$136","OpenSea","https://i2c.seadn.io/collection/pythenians-142749237/image_type_logo/4c502f4d5b601f3374425e381c6f65/0f4c502f4d5b601f3374425e381c6f65.jpeg"],["Primates","0.45","$48.59","OpenSea","https://i2c.seadn.io/solana/7ZB45VwhinbVNw78E7vzyJxX4z8KNtCSk5xS8cy7Bc2z/94c4830ce1f284a26a9e6bcb0e34fe/b994c4830ce1f284a26a9e6bcb0e34fe.png"],["Gamba Dogs","1.80","$195","OpenSea","https://i2c.seadn.io/solana/44WywFcM8xj98PqEi7axn2CMCPd8vJD5uDmq2r7tHVv3/8582752c207110b2cdbd78470abd66/ec8582752c207110b2cdbd78470abd66.webp"],["Meerkat Millionaires CC","0.75","$81.15","OpenSea","https://i2c.seadn.io/solana/98jfTpjUr5sNNsDYo6kAnFVAFh4ATik6oxYeeoUYNF4z/ea15777b14c2352bc92af855506297/ecea15777b14c2352bc92af855506297.png"],["Bored Ape Solana Club","0.86","$92.80","OpenSea","https://i2c.seadn.io/collection/als8rxd8noywgncfzbofsgdwaocepakzt1ufx1wmwar/image_type_logo/134d63225fa2e819d2854ac3aebe73/f0134d63225fa2e819d2854ac3aebe73.png"],["Investoor","0.032","$3.47","OpenSea","https://i2c.seadn.io/solana/GKKkVcHdkwAvzZYkWGq1MMVGc6rnDC9EZhMKwWSeRvCL/928b18a57d357d22efa53334d7bda0/a1928b18a57d357d22efa53334d7bda0.jpeg"],["OTC Desks","6.62","$717","OpenSea","https://i2c.seadn.io/solana/33QG8aNtw4jGEGKuhSoD8PMeoW6PS9rZsyLP8VSxdL93/7178862d86bd21365aa5d75b3939dd/517178862d86bd21365aa5d75b3939dd.png"],["The Bullpen","0.41","$43.92","OpenSea","https://i2c.seadn.io/solana/J3jqFG6x6v67W2TfevpAbiwbNXTaPKhG4sFAwwZanuga/304fedd9d77816c05f4cf7d09340c4/3d304fedd9d77816c05f4cf7d09340c4.webp"],["Doopies","0.40","$42.81","OpenSea","https://i2c.seadn.io/solana/zYpS9gmh2uPa3LQC331SdHTwTZCukV1z4P3aRmp9c4p/fbf3ea50526f5cd3734378b02a63f9/cefbf3ea50526f5cd3734378b02a63f9.png"],["Chads","0.31","$33.42","OpenSea","https://i2c.seadn.io/solana/BD1BXqwHDkgsGKeMgUPiddEmuPSUMXJQcsnMGjoT2QQT/28fd0eef691f3165ee294924e76449/3828fd0eef691f3165ee294924e76449.jpeg"],["The Pond","14.7","$1,591","OpenSea","https://i2c.seadn.io/admin-uploads/c17201fe58db175a702cc3956029db/ecc17201fe58db175a702cc3956029db.jpeg"],["Rogues","0.17","$18.27","OpenSea","https://i2c.seadn.io/admin-uploads/8bed9534c341af44676fdeebd8a9c8/c48bed9534c341af44676fdeebd8a9c8.jpeg"],["Degenerate Drop Bears","0.71","$76.94","OpenSea","https://i2c.seadn.io/solana/5ygb6mJDzjBDBXFozeC9CYYFdpeWdUeVArVEMe2VVLxr/d1b5e41e1b7cb6825d6f0588571f44/3ad1b5e41e1b7cb6825d6f0588571f44.png"],["Doge Capital","0.22","$23.46","OpenSea","https://i2c.seadn.io/solana/HGf145QYwPuGjKw9cBeCb3t6ZYtL5FhGEzKLWWJzXAjy/767d5070f97c8505427406f1a6dd60/d6767d5070f97c8505427406f1a6dd60.png"],["Meatbags","0.27","$28.84","OpenSea","https://i2c.seadn.io/solana/3dZ9M3S7EYEBqqRmxKaRAgfnjVVzEvtnYLwaZitVdJSJ/6b031bf558b439750067cc5e088424/c16b031bf558b439750067cc5e088424.png"],["Quekz","0.31","$33.66","OpenSea","https://i2c.seadn.io/solana/31uit17rCVrqorLiRhfoAm9fSvS5S99hqLKYfBQCw8S8/787c0444b74665c6126957ad620e72/c3787c0444b74665c6126957ad620e72.png"],["Giraffe Tower","0.37","$40.24","OpenSea","https://i2c.seadn.io/solana/2YKyPrrqE6LjzbjNPBvKAFEbhKr8DbSkcPE5wN2V3vGZ/a278eff7c8ae6021c4245f493dea57/aca278eff7c8ae6021c4245f493dea57.jpeg"],["Rafflor","2.41","$261","OpenSea","https://i2c.seadn.io/solana/5qU1WWGZS2frtbQwaGPSerJG88iL2TKpj1HTnB5Ht13j/87628ebeae403d0ce77afbd423eb80/c987628ebeae403d0ce77afbd423eb80.webp"],["Critters Cult","0.57","$61.28","OpenSea","https://i2c.seadn.io/admin-uploads/035d64449561a91a4ea90fe66e5ed2/f2035d64449561a91a4ea90fe66e5ed2.jpeg"],["Collector Crypt Pack","27.5","$2,979","OpenSea","https://i2c.seadn.io/solana/oqC6DYbRBLUPMF4h63x2p9z3zS2ZFr7KQg8hXExJMR4/78fcff53d9b6e561a61841073ef91f/f178fcff53d9b6e561a61841073ef91f.gif"],["Kups","0.40","$42.81","OpenSea","https://i2c.seadn.io/solana/G1D91iJNbPWfF75QJG1ZSeE4GMSLaMgTXGiD2NS4nFkp/e7b286964440f0327c27d17a790eb7/7ae7b286964440f0327c27d17a790eb7.jpeg"],["Pumpfun Pepe","0.31","$33.24","OpenSea","https://i2c.seadn.io/solana/86ByGUqMx4cV5KhqkC6nKMHsD68YKPprrDis4XA2VuK5/62b7405bb10ac7c40b8d7d64b6538d/0962b7405bb10ac7c40b8d7d64b6538d.png"],["DUMPSTR Bags","0.11","$11.57","OpenSea","https://i2c.seadn.io/solana/4JMbGA3ttKwnczgTAiWiexT1VH6fis8Wqr3rnfmZctfA/5242d100c0ba94269cf3531b55769b/795242d100c0ba94269cf3531b55769b.png"],["Bear Drop #2: Boombox","0.19","$20.62","OpenSea","https://i2c.seadn.io/solana/EUV1Y7ASy7T2ogeXaseEM6QCG2zkWd9B8DrYpz3doX7N/6166d61a629c74b524c17a25c92305/fa6166d61a629c74b524c17a25c92305.png"],["Critters Multipliers","0.10","$11.22","OpenSea","https://i2c.seadn.io/solana/FVXxajhAxis1XnNjrXqfQdzbBTLbSUNWDwAAnKRCJaUV/cc4ae9712075f043d3975f82f706c4/b7cc4ae9712075f043d3975f82f706c4.png"],["Webkidz","0.049","$5.31","OpenSea","https://i2c.seadn.io/solana/5Kf1va6W75m5Ko9feFmxy1Gyg6THtoUvSjjhnj3ggMGU/cbcb5e49601bc44d5c04aaac91f45b/ffcbcb5e49601bc44d5c04aaac91f45b.png"],["Thugbirdz","0.98","$107","OpenSea","https://i2c.seadn.io/solana/3UhiPckhddQuWYbP7m4uMxFBJjqFhW3qGirmaSFSuegL/50bce1f9597529f4a9de993aaacee4/cf50bce1f9597529f4a9de993aaacee4.png"],["Puffsterz","1.95","$212","OpenSea","https://i2c.seadn.io/solana/BTQvSFYEfqoAQp5d79N6QADnznMzczJZJJMsYiodN2UV/06d1300c11825f7380e6d5bf93f916/e806d1300c11825f7380e6d5bf93f916.jpeg"],["Stonk Cats","0.74","$80.02","OpenSea","https://i2c.seadn.io/solana/A38RaS3Z11jcMm2YKns1rn9eQ8ZTdfxouRY445Wi3dKj/a7e7df119ab15006163115bccea51d/5ca7e7df119ab15006163115bccea51d.png"],["LP Dollz","0.53","$57.63","OpenSea","https://i2c.seadn.io/solana/CxCypN1DxZmZdQkGGNxUxwn4fiSp6NEFRsGJpX5naDBw/b0846019e100246869903433efb39f/68b0846019e100246869903433efb39f.webp"],["Bulltoshi","0.031","$3.41","OpenSea","https://i2c.seadn.io/solana/tvA2YuJbj5CgDrwiUcLptiX56oTW6xxqLwb8BLD66CM/c97dbdc72376f61eb4330d1f665d39/d6c97dbdc72376f61eb4330d1f665d39.png"],["Drifters","0.37","$39.83","OpenSea","https://i2c.seadn.io/collection/driftersexe/image_type_logo/3c89b16b6bef543dc14ae83db735cf/f63c89b16b6bef543dc14ae83db735cf.png"],["EAPES","0.63","$68.40","OpenSea","https://i2c.seadn.io/collection/eapes-sol/image_type_logo/0e4e63bb1b844233eeaacc3bed5893/050e4e63bb1b844233eeaacc3bed5893.jpeg"],["Dead y00ts","0.23","$25.17","OpenSea","https://i2c.seadn.io/collection/dead-y00ts/image_type_logo/9aa4798479309de2ffc626e3f6e7da/0c9aa4798479309de2ffc626e3f6e7da.jpeg"],["Card NFT 2","0.28","$29.97","OpenSea","https://i2c.seadn.io/collection/cardnft2/image_type_logo/1b016136ba859f7aa4c008d4fe6c3f/a21b016136ba859f7aa4c008d4fe6c3f.gif"],["PFP GEN2","0.021","$2.30","OpenSea","https://i2c.seadn.io/solana/bc7rzUsfHZ8ckK4PydRJ1DQpGtwK4oJmSSpnbvpk7XN/3ba27f5e4b689508654f8c9b41920f/ef3ba27f5e4b689508654f8c9b41920f.png"],["The Misfits Order","0.66","$71.73","OpenSea","https://i2c.seadn.io/admin-uploads/0ce43b276033e3d0f34085d0342232/030ce43b276033e3d0f34085d0342232.jpeg"],["Bohemia Art Fair","0.089","$9.66","OpenSea","https://i2c.seadn.io/solana/CtaE8mgbHWiBoHEdAaTPAN5JB1tUnDtJgXgDC9AsorBh/434657a8d292a1803f3cb56a63ad40/ce434657a8d292a1803f3cb56a63ad40.png"],["Micros","0.054","$5.88","OpenSea","https://i2c.seadn.io/solana/6eFGC8VFp1bzPio1VenXUMrz9KT5kTupEMyCPeCCoioN/d3534c5d9af3bc04ff3fad70290adb/2cd3534c5d9af3bc04ff3fad70290adb.jpeg"],["BullBears","0.089","$9.69","OpenSea","https://i2c.seadn.io/solana/4MAr3TX5nRjB4gQZqzsVJKRLkQ6NCSNy5zxkn6N6CB8H/85a6768ab2318e58ed7a9eccdf6c0c/5785a6768ab2318e58ed7a9eccdf6c0c.png"],["Syndicate Capos","0.007","$0.76","OpenSea","https://i2c.seadn.io/solana/DtpitpdF192GrZrjVc4AecjpZYwrzRhtDjne4ALRTXr1/8b1da276b169ced8685c258c94b10a/328b1da276b169ced8685c258c94b10a.webp"],["MidaDAO GEN-0","0.53","$57.13","OpenSea","https://i2c.seadn.io/solana/2WSWseQvQJqM3pNNPs835i3yvCV6CQx1AJR8qdcynGHn/ec2f636c567ada8e048c3ebd55f9f4/9bec2f636c567ada8e048c3ebd55f9f4.png"],["2026 MLB Base Series ICONs","0.005","$0.59","OpenSea","https://i2c.seadn.io/solana/9Ngnr4tJ6i61N19k1YeTEga7NfBezwsGcKXQ3KrSS2iV/678fe2c71b737dd0f984ccf9a68608/d8678fe2c71b737dd0f984ccf9a68608.jpeg"],["Liminals","0.032","$3.46","OpenSea","https://i2c.seadn.io/solana/8rz5QzYdiw1mA8xaMaKxSC3sE6eVMyzL7nAgrPDGs3RW/0946fb355148df7f73e6d4c8b6ac00/c00946fb355148df7f73e6d4c8b6ac00.png"],["Sollamas","0.078","$8.46","OpenSea","https://i2c.seadn.io/solana/5AdaGpbvRkJoYYTYsEzYPGccvfceWUoZo4njWbWDoHW3/c977071f7992a2a94376a750d8deae/bec977071f7992a2a94376a750d8deae.png"],["Grimoire","0.69","$74.61","OpenSea","https://i2c.seadn.io/solana/ALDTUAt24hDJ9tASTqhfSU2qUBjVG66CTvLrAe4bF1h7/97c6b551ca48489e7fa2f348df0ea4/7e97c6b551ca48489e7fa2f348df0ea4.gif"],["Trencher","0.37","$40.24","OpenSea","https://i2c.seadn.io/admin-uploads/029818bc67f1d65dc4b4033609f60e/c7029818bc67f1d65dc4b4033609f60e.jpeg"],["Nuddies","0.19","$20.33","OpenSea","https://i2c.seadn.io/collection/nuddies-65557242/image_type_logo/1b2c7274878aaff30ebbebec7b6b97/221b2c7274878aaff30ebbebec7b6b97.png"],["GOATS","0.10","$11.14","OpenSea","https://i2c.seadn.io/collection/goats-solana/image_type_logo/e02fa07c14dce8374d2d80dc0cc9f8/35e02fa07c14dce8374d2d80dc0cc9f8.png"],["Horses?2","0.58","$62.47","OpenSea","https://i2c.seadn.io/solana/7FF6Wqoa4onc13yM7LhFLR7DKaaBgxJqBVhxUbde382n/2aaeba64e6b84a14576fca61079049/7c2aaeba64e6b84a14576fca61079049.png"],["CATE","0.017","$1.89","OpenSea","https://i2c.seadn.io/solana/FCe9R16rFYWKHTfCq8zXSqCqW2esGq25csevDKbHxiro/9234b8eecf1eca273789eebb65ce58/329234b8eecf1eca273789eebb65ce58.jpeg"],["howdyGOD","0.023","$2.48","OpenSea","https://i2c.seadn.io/solana/ALJG8QMSUj6bQsTx529MVWmUFRUkf4ZZ9yHWGBy7yGch/191f08b38fe3c883514a9dfce899f2/1d191f08b38fe3c883514a9dfce899f2.png"],["Superman (1939-2011) #1","3.29","$357","OpenSea","https://i2c.seadn.io/solana/4GYBtxDGF4zSRAi6AAEo3fnaK3sRuNSyfLtA9di1iAJ2/0223c22c33f0495f87a20f6f5f49d2/f90223c22c33f0495f87a20f6f5f49d2.jpeg"],["The Conmen","0.032","$3.47","OpenSea","https://i2c.seadn.io/solana/Azs1Q8SJpEYfijsAFhJ9ZNYSVDTNDg2SqRFTLxRrpphk/da457bd0454113c07edc36ab4d8551/90da457bd0454113c07edc36ab4d8551.webp"],["Critters Quest Items","0.005","$0.59","OpenSea","https://i2c.seadn.io/solana/A1Xi4oALc77hYjd6AMwTWCdqoEzSPfJ5VNoNWiJ3ytw7/deff66c5bdc55b2f280834c168939a/b7deff66c5bdc55b2f280834c168939a.gif"],["The Bat Cowl Collection","1.50","$162","OpenSea","https://i2c.seadn.io/solana/8HVAjpFQoUH8tfXRBaHuo1yzPL8bSB7tq6JAD6xeVCUM/6ccbbf0ec5cfecfe9b498e96be1e54/a26ccbbf0ec5cfecfe9b498e96be1e54.jpeg"],["Welcome to @Whale 🐳","0.036","$3.85","OpenSea","https://i2c.seadn.io/solana/87B6bi8uFrcX365hU5SikUW5itGs2WsRoABWzi3VBqFw/359c0b9f370063692c83d9fbdab5fa/e5359c0b9f370063692c83d9fbdab5fa.gif"],["Batman (1940-2011) #1","0.67","$72.66","OpenSea","https://i2c.seadn.io/solana/2FsqJdMvRuyJbtQ4bzYmPqnnoQVkoMZWnYcrLgHzQWhv/be288b265765ccd2d7dc408d735c2b/c6be288b265765ccd2d7dc408d735c2b.jpeg"]];
-  var PER=30,RATE=108.3;
+  var PER=30,RATE=108.3,RATE_LIVE=false;
+  function fmtUsd(v){return v>=100?'$'+Math.round(v).toLocaleString('en-US'):'$'+v.toFixed(2)}
+  function usdOf(c){return fmtUsd(parseFloat(String(c[1]).replace(/,/g,''))*RATE)}
+  function paintRate(){
+    document.querySelectorAll('[data-sol]').forEach(function(e){e.textContent='≈ '+fmtUsd(parseFloat(e.getAttribute('data-sol'))*RATE)});
+    document.querySelectorAll('.solpx').forEach(function(e){e.textContent='$'+RATE.toFixed(2)});
+    document.querySelectorAll('.ratenote').forEach(function(e){
+      e.textContent=RATE_LIVE?'live · updated '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'estimate · live price unavailable';
+    });
+    if(sel){ffl.textContent='Floor price: '+sel[1]+' SOL (≈ '+usdOf(sel)+')'}
+  }
+  function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
+  function loadRate(){
+    getJSON('https://api.coinbase.com/v2/prices/SOL-USD/spot').then(function(j){return parseFloat(j.data.amount)})
+    .catch(function(){return getJSON('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd').then(function(j){return j.solana.usd})})
+    .then(function(v){if(v>0&&isFinite(v)){RATE=v;RATE_LIVE=true;paintRate()}})
+    .catch(function(){paintRate()});
+  }
+  setTimeout(function(){loadRate();setInterval(loadRate,60000)},0);
+  var fcol=$('f-col'),cbox=$('cbox'),clist=$('coll-list'),cth=$('cthumb'),ffl=$('f-floor');
+  var sel=null,act=-1,shown=[];
+  function picEl(c,w){
+    var pic=el('span',null,'pic');
+    var im=document.createElement('img');im.alt='';im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';
+    var t=0;
+    im.addEventListener('error',function(){t++;if(t===1){im.src=c[4]}else{pic.textContent='';pic.innerHTML=art(c[0])}});
+    im.src=c[4]+'?w='+w+'&auto=format';
+    pic.appendChild(im);return pic;
+  }
+  function applySel(c){
+    sel=c;fcol.setCustomValidity('');
+    cth.textContent='';cth.appendChild(picEl(c,96));cbox.classList.add('has');
+    ffl.textContent='Floor price: '+c[1]+' SOL (≈ '+usdOf(c)+')';
+  }
+  function clearSel(){sel=null;cth.textContent='';cbox.classList.remove('has');ffl.textContent=''}
+  function setColl(c){applySel(c);fcol.value=c[0];closeList()}
+  function closeList(){clist.hidden=true;fcol.setAttribute('aria-expanded','false');fcol.removeAttribute('aria-activedescendant');act=-1}
+  function renderList(q){
+    q=(q||'').trim().toLowerCase();
+    shown=COLL.filter(function(c){return !q||c[0].toLowerCase().indexOf(q)>-1});
+    clist.textContent='';act=-1;
+    if(!shown.length){var e=el('li','No matching collection','cempty');e.setAttribute('role','presentation');clist.appendChild(e);return}
+    shown.forEach(function(c,i){
+      var li=el('li',null,'copt');li.id='copt-'+i;li.setAttribute('role','option');
+      li.setAttribute('aria-selected',sel&&sel[0]===c[0]?'true':'false');
+      var pw=el('span',null,'cpic');pw.appendChild(picEl(c,96));li.appendChild(pw);
+      li.appendChild(el('span',c[0],'cn'));li.appendChild(el('span',c[1]+' SOL','cf'));
+      li.addEventListener('mousedown',function(ev){ev.preventDefault();setColl(c)});
+      clist.appendChild(li);
+    });
+  }
+  function openList(){
+    renderList(sel&&fcol.value===sel[0]?'':fcol.value);
+    clist.hidden=false;fcol.setAttribute('aria-expanded','true');
+  }
+  function mark(i){
+    var items=clist.querySelectorAll('.copt');if(!items.length)return;
+    act=(i+items.length)%items.length;
+    items.forEach(function(x,k){x.classList.toggle('on',k===act)});
+    fcol.setAttribute('aria-activedescendant',items[act].id);
+    items[act].scrollIntoView({block:'nearest'});
+  }
+  fcol.addEventListener('focus',openList);
+  fcol.addEventListener('click',function(){if(clist.hidden)openList()});
+  fcol.addEventListener('blur',closeList);
+  fcol.addEventListener('input',function(){
+    var v=fcol.value.trim().toLowerCase();
+    var c=COLL.filter(function(x){return x[0].toLowerCase()===v})[0];
+    if(c){applySel(c)}else{clearSel();fcol.setCustomValidity(fcol.value?'Pick a collection from the list.':'')}
+    renderList(fcol.value);clist.hidden=false;fcol.setAttribute('aria-expanded','true');
+  });
+  fcol.addEventListener('keydown',function(ev){
+    if(ev.key==='ArrowDown'){ev.preventDefault();if(clist.hidden)openList();mark(act+1)}
+    else if(ev.key==='ArrowUp'){ev.preventDefault();if(clist.hidden)openList();mark(act<0?-1:act-1)}
+    else if(ev.key==='Enter'&&!clist.hidden&&act>=0){ev.preventDefault();setColl(shown[act])}
+    else if(ev.key==='Escape'&&!clist.hidden){ev.preventDefault();ev.stopPropagation();closeList()}
+  });
   var BG=['#FFC933','#FF6FB5','#3FD9A8','#6C7BFF','#FFB36B','#C58BFF','#8FE3F0','#FF8A7A'],INKC='#22103D';
   function rng(str){
     var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}
@@ -419,59 +572,200 @@ dl.sum dd{margin:0;font-weight:600;word-break:break-all}
     if(r()>.5){o+='<circle cx="'+(b.x+b.w*.12)+'" cy="'+(ey+11)+'" r="4.5" fill="#FF6FB5" opacity=".7"/><circle cx="'+(b.x+b.w*.88)+'" cy="'+(ey+11)+'" r="4.5" fill="#FF6FB5" opacity=".7"/>'}
     return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">'+o+'</svg>';
   }
-  var collBox=null;
-  function buildCollections(s){collBox=el('div');s.appendChild(collBox)}
+  /* ---------- helpers for pages ---------- */
+  function numSol(c){return parseFloat(String(c[1]).replace(/,/g,''))}
+  function fmtS(v){return v>=10?v.toFixed(1):v>=0.1?v.toFixed(2):v.toFixed(3)}
+  function pillsC(label,items){
+    var g=el('div',null,'pills');g.setAttribute('role','group');g.setAttribute('aria-label',label);
+    items.forEach(function(it,i){
+      var b=el('button',it[0],'pill');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');
+      if(it[1]!=null)b.appendChild(el('span',String(it[1]),'n'));
+      b.addEventListener('click',function(){
+        g.querySelectorAll('.pill').forEach(function(x){x.setAttribute('aria-pressed','false')});
+        b.setAttribute('aria-pressed','true');
+      });
+      g.appendChild(b);
+    });
+    return g;
+  }
+  function collSelect(label){
+    var sl=el('select');sl.setAttribute('aria-label',label);
+    sl.appendChild(el('option','All collections'));
+    COLL.forEach(function(c){sl.appendChild(el('option',c[0]))});
+    return sl;
+  }
+
+  /* ---------- Gallery ---------- */
+  function buildGallery(s){
+    var hd=s.querySelector('.phead'),hs=el('div',null,'hstats');
+    [['NFTs bought','0'],['Spent','0.00 SOL'],['In vaults','0'],['Collections',String(COLL.length)]].forEach(function(x){
+      var d=el('div',null,'hstat');d.appendChild(el('small',x[0]));d.appendChild(el('b',x[1]));hs.appendChild(d);
+    });
+    hd.appendChild(hs);
+    var fb=el('div',null,'fbar');
+    fb.appendChild(collSelect('Filter by collection'));
+    fb.appendChild(pills('Sort NFTs',['Newest','Oldest','Most expensive','Cheapest']));
+    fb.appendChild(pillsC('Filter by status',[['All',null],['In the vault',0],['Burned',0]]));
+    s.appendChild(fb);
+    var c=el('div',null,'card');
+    c.appendChild(el('p','No NFTs yet. Each one a vault buys shows up here with what it cost and where it went.'));
+    s.appendChild(c);
+  }
+
+  /* ---------- Receipts ---------- */
+  function buildReceipts(s){
+    var hd=s.querySelector('.phead'),sp=el('div',null,'solprice');
+    sp.appendChild(el('small','SOL price'));sp.appendChild(el('b','$'+RATE.toFixed(2),'solpx'));sp.appendChild(el('small',RATE_LIVE?'live':'estimate','ratenote'));
+    hd.appendChild(sp);
+    var st=el('div',null,'rstats');
+    [['NFTs bought','0',''],['SOL spent','0.00 SOL',''],['Fees routed to vaults','0.00 SOL','mint'],['NFTs delivered','0','']].forEach(function(x){
+      var d=el('div',null,x[2]);d.appendChild(el('small',x[0]));d.appendChild(el('b',x[1]));st.appendChild(d);
+    });
+    s.appendChild(st);
+    var grid=el('div',null,'rgrid'),main=el('div'),side=el('aside',null,'side');
+    var tb=el('div',null,'tabbar'),tl=el('div',null,'tablist');tl.setAttribute('role','tablist');
+    var panel=el('div',null,'card');var msg=el('p');panel.appendChild(msg);
+    var TXT={Sweeps:'No sweeps yet. Each NFT a vault buys shows up here with its price and transaction.',
+             'Fee routing':'No fee routing yet. Each fee a coin sends to its vault shows up here with its transaction.'};
+    var tabs=[];
+    ['Sweeps','Fee routing'].forEach(function(n,i){
+      var b=el('button',n);b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===0?'true':'false');
+      b.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');msg.textContent=TXT[n]});
+      tabs.push(b);tl.appendChild(b);
+    });
+    msg.textContent=TXT.Sweeps;
+    tb.appendChild(tl);tb.appendChild(collSelect('Filter by collection'));
+    main.appendChild(tb);main.appendChild(panel);
+    main.appendChild(el('p','Receipts are indexed from finalized transactions. Token ids link to Tensor; signatures link to Solscan.','note'));
+    var c1=el('div',null,'card');c1.appendChild(el('h3','Saving for the next floor'));
+    c1.appendChild(el('p','Fees already sitting in each vault, measured against what one NFT costs today. A vault can only spend this on its own collection.'));
+    c1.appendChild(el('p','No vault is saving yet. Fees show up here as soon as a coin routes them to its vault.','empty'));
+    side.appendChild(c1);
+    var c2=el('div',null,'card');c2.appendChild(el('h3','By collection'));
+    var ul=el('ul',null,'bycol');
+    COLL.slice(0,8).forEach(function(c){
+      var li=el('li'),bp=el('span',null,'bp');bp.appendChild(picEl(c,96));li.appendChild(bp);
+      var bn=el('span',null,'bn');bn.appendChild(document.createTextNode(c[0]));bn.appendChild(el('small','0 coins'));li.appendChild(bn);
+      var bv=el('span',null,'bv');bv.appendChild(document.createTextNode('0.00 SOL'));bv.appendChild(el('small','0 swept · 0 delivered'));li.appendChild(bv);
+      ul.appendChild(li);
+    });
+    c2.appendChild(ul);
+    var more=el('a','View all collections');more.href='#/collections';more.style.cssText='display:inline-block;margin-top:.8rem;font-weight:600';
+    c2.appendChild(more);side.appendChild(c2);
+    grid.appendChild(main);grid.appendChild(side);s.appendChild(grid);
+  }
+
+  /* ---------- Analytics ---------- */
+  function buildAnalytics(s){
+    var hd=s.querySelector('.phead');
+    hd.appendChild(pills('Time range',['24h','7d','30d','All time']));
+    var fl=COLL.map(numSol).sort(function(a,b){return a-b}),n=fl.length;
+    var med=n%2?fl[(n-1)/2]:(fl[n/2-1]+fl[n/2])/2;
+    var st=el('div',null,'stats');
+    [['Coins launched','0'],['Fees routed (SOL)','0.00'],['NFTs bought','0'],['Collections tracked',String(n)],['Median floor (SOL)',fmtS(med)]].forEach(function(x){
+      var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));st.appendChild(c);
+    });
+    s.appendChild(st);
+
+    var ch=el('div',null,'card achart');
+    ch.appendChild(el('h3','Fees routed over time'));
+    ch.appendChild(el('p','The line starts moving when coins begin routing fees to their vaults.'));
+    var wrap=el('div');
+    wrap.innerHTML='<svg class="chart" viewBox="0 0 640 190" role="img" aria-label="Chart with no data yet: no fees have been routed"><g stroke="currentColor" opacity=".14" stroke-dasharray="4 6"><line x1="44" y1="20" x2="630" y2="20"/><line x1="44" y1="62" x2="630" y2="62"/><line x1="44" y1="104" x2="630" y2="104"/></g><line x1="44" y1="146" x2="630" y2="146" stroke="#FFC933" stroke-width="5" stroke-linecap="round"/><g fill="currentColor" opacity=".6" font-size="13" font-family="inherit"><text x="0" y="150">0</text><text x="0" y="108">1</text><text x="0" y="66">2</text><text x="0" y="24">3</text></g></svg>';
+    ch.appendChild(wrap);s.appendChild(ch);
+
+    var grid=el('div',null,'agrid');
+    var c1=el('div',null,'card');c1.appendChild(el('h3','Collections by floor price'));
+    c1.appendChild(el('p','How many tracked collections sit in each price range.'));
+    var B=[['Under 0.1 SOL',0,0.1],['0.1 to 1 SOL',0.1,1],['1 to 5 SOL',1,5],['5 to 20 SOL',5,20],['20 SOL and up',20,1e9]];
+    var counts=B.map(function(b){return fl.filter(function(v){return v>=b[1]&&v<b[2]}).length});
+    var mx=Math.max.apply(null,counts),ul=el('ul',null,'hbars');
+    B.forEach(function(b,i){
+      var li=el('li',null,'hb');li.appendChild(el('span',b[0],'nm'));
+      var tr=el('span',null,'track'),fi=el('span',null,'fill');fi.style.width=(counts[i]/mx*100)+'%';tr.appendChild(fi);li.appendChild(tr);
+      li.appendChild(el('span',String(counts[i]),'vl'));ul.appendChild(li);
+    });
+    c1.appendChild(ul);grid.appendChild(c1);
+
+    var c2=el('div',null,'card');c2.appendChild(el('h3','Highest floors'));
+    c2.appendChild(el('p','The ten tracked collections with the highest floor price.'));
+    var top=COLL.slice().sort(function(a,b){return numSol(b)-numSol(a)}).slice(0,10),tm=numSol(top[0]),ul2=el('ul',null,'hbars');
+    top.forEach(function(c){
+      var li=el('li',null,'hb pic3'),tp=el('span',null,'tp');tp.appendChild(picEl(c,96));li.appendChild(tp);
+      li.appendChild(el('span',c[0],'nm'));
+      var tr=el('span',null,'track'),fi=el('span',null,'fill');fi.style.width=(numSol(c)/tm*100)+'%';tr.appendChild(fi);li.appendChild(tr);
+      li.appendChild(el('span',c[1]+' SOL','vl'));ul2.appendChild(li);
+    });
+    c2.appendChild(ul2);grid.appendChild(c2);
+    s.appendChild(grid);
+  }
+
+  /* ---------- Collections with search ---------- */
+  var collBox=null,collQ='';
+  function buildCollections(s){
+    var sr=el('div',null,'search');
+    sr.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>';
+    var inp=el('input');inp.type='search';inp.id='coll-search';inp.placeholder='Search collections';inp.autocomplete='off';inp.setAttribute('aria-label','Search collections');
+    inp.addEventListener('input',function(){
+      collQ=inp.value.trim().toLowerCase();
+      if(location.hash!=='#/collections/1'){try{history.replaceState(null,'','#/collections/1')}catch(e){}}
+      renderCollections(1);
+    });
+    sr.appendChild(inp);s.appendChild(sr);
+    collBox=el('div');s.appendChild(collBox);
+  }
   function renderCollections(pg){
-    var pages=Math.ceil(COLL.length/PER);
+    var list=collQ?COLL.filter(function(c){return c[0].toLowerCase().indexOf(collQ)>-1}):COLL;
+    var pages=Math.max(1,Math.ceil(list.length/PER));
     pg=Math.min(Math.max(pg||1,1),pages);
     collBox.textContent='';
     var from=(pg-1)*PER;
     var rg=el('p',null,'range');
-    rg.appendChild(el('b','Showing '+(from+1)+'–'+Math.min(from+PER,COLL.length)));
-    rg.appendChild(document.createTextNode(' of '+COLL.length+' collections'));
-    rg.appendChild(document.createTextNode(' '));
-    rg.appendChild(el('span','More added daily','more'));
+    if(!list.length){
+      rg.appendChild(el('b','No collections match “'+$('coll-search').value.trim()+'”'));
+    }else{
+      rg.appendChild(el('b','Showing '+(from+1)+'–'+Math.min(from+PER,list.length)));
+      rg.appendChild(document.createTextNode(' of '+list.length+' collection'+(list.length===1?'':'s')+(collQ?' matching “'+$('coll-search').value.trim()+'”':'')));
+      if(!collQ){rg.appendChild(document.createTextNode(' '));rg.appendChild(el('span','More added daily','more'))}
+    }
     collBox.appendChild(rg);
     var g=el('div',null,'cg');
-    COLL.slice(from,from+PER).forEach(function(c){
+    list.slice(from,from+PER).forEach(function(c){
       var b=el('button',null,'coll');b.type='button';
       b.setAttribute('aria-label',c[0]+', floor price '+c[1]+' SOL. Start a launch with this collection.');
-      var pic=el('span',null,'pic');
-      var im=document.createElement('img');im.alt='';im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';
-      var tries=0;
-      im.addEventListener('error',function(){
-        tries++;
-        if(tries===1){im.src=c[4]}
-        else{pic.textContent='';pic.innerHTML=art(c[0])}
-      });
-      im.src=c[4]+'?w=400&auto=format';
-      pic.appendChild(im);b.appendChild(pic);
+      b.appendChild(picEl(c,400));
       b.appendChild(el('span',c[0],'cname'));
       var fl=el('span',null,'floor');
-      fl.appendChild(el('small','Floor price'));fl.appendChild(el('strong',c[1]+' SOL'));fl.appendChild(el('span','≈ '+c[2]));
+      fl.appendChild(el('small','Floor price'));fl.appendChild(el('strong',c[1]+' SOL'));var us=el('span','≈ '+usdOf(c));us.setAttribute('data-sol',String(c[1]).replace(/,/g,''));fl.appendChild(us);
       b.appendChild(fl);b.appendChild(el('span','via '+c[3],'via'));
       b.addEventListener('click',function(){
-        $('f-col').value=c[0];$('lform').hidden=false;$('review').hidden=true;$('launch').showModal();
+        setColl(c);$('lform').hidden=false;$('review').hidden=true;$('launch').showModal();
       });
       g.appendChild(b);
     });
     collBox.appendChild(g);
-    var pr=el('nav',null,'pager');pr.setAttribute('aria-label','Collections pages');
-    var mk=function(t,p,cur,dis){var a=el('a',t);a.href='#/collections/'+p;if(cur)a.setAttribute('aria-current','page');if(dis)a.setAttribute('aria-disabled','true');pr.appendChild(a)};
-    mk('← Previous',pg-1,false,pg===1);
-    for(var i=1;i<=pages;i++)mk(String(i),i,i===pg,false);
-    mk('Next →',pg+1,false,pg===pages);
-    collBox.appendChild(pr);
+    if(pages>1){
+      var pr=el('nav',null,'pager');pr.setAttribute('aria-label','Collections pages');
+      var mk=function(t,p,cur,dis){var a=el('a',t);a.href='#/collections/'+p;if(cur)a.setAttribute('aria-current','page');if(dis)a.setAttribute('aria-disabled','true');pr.appendChild(a)};
+      mk('← Previous',pg-1,false,pg===1);
+      for(var i=1;i<=pages;i++)mk(String(i),i,i===pg,false);
+      mk('Next →',pg+1,false,pg===pages);
+      collBox.appendChild(pr);
+    }
   }
   var views=$('views'),home=$('home'),nav=$('nav');
   Object.keys(PAGES).forEach(function(k){
     var d=PAGES[k],s=el('section',null,'page');s.id='v-'+k;s.hidden=true;
-    var h=el('h2',d.t);h.tabIndex=-1;s.appendChild(h);s.appendChild(el('p',d.p,'intro'));
+    var h=el('h2',d.h||d.t);h.tabIndex=-1;
+    var hd=el('div',null,'phead'),hl=el('div');hl.appendChild(h);hl.appendChild(el('p',d.p,'intro'));hd.appendChild(hl);s.appendChild(hd);
     if(d.custom==='explore'){buildExplore(s)}
     if(d.custom==='collections'){buildCollections(s)}
+    if(d.custom==='gallery'){buildGallery(s)}
+    if(d.custom==='receipts'){buildReceipts(s)}
+    if(d.custom==='analytics'){buildAnalytics(s)}
     if(d.stats){var g=el('div',null,'stats');d.stats.forEach(function(x){var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));g.appendChild(c)});s.appendChild(g)}
     if(d.empty){var c=el('div',null,'card');c.appendChild(el('p',d.empty));s.appendChild(c)}
-    if(d.prose){var pr=el('div',null,'prose');d.prose.forEach(function(x){pr.appendChild(el('h3',x[0]));pr.appendChild(el('p',x[1]))});s.appendChild(pr)}
+    if(d.prose){var pr=el('div',null,'prose');d.prose.forEach(function(x){pr.appendChild(el('h3',x[0]));x[1].split('\n\n').forEach(function(t){pr.appendChild(el('p',t))})});s.appendChild(pr)}
     views.appendChild(s);
   });
   function route(){
